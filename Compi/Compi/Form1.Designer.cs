@@ -56,32 +56,30 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.guardar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.console = new System.Windows.Forms.TabPage();
-            this.Lexico = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.semantico = new System.Windows.Forms.TabPage();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.columnas = new System.Windows.Forms.Label();
+            this.filas = new System.Windows.Forms.Label();
             this.column = new System.Windows.Forms.Label();
             this.row = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.TextPanel = new System.Windows.Forms.Panel();
-            this.filas = new System.Windows.Forms.Label();
-            this.columnas = new System.Windows.Forms.Label();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.tabControl4 = new System.Windows.Forms.TabControl();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabControl4.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -321,144 +319,6 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "Compile ";
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.console);
-            this.tabControl1.Controls.Add(this.Lexico);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.semantico);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabControl1.Location = new System.Drawing.Point(0, 299);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(448, 203);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // console
-            // 
-            this.console.BackColor = System.Drawing.Color.Black;
-            this.console.Location = new System.Drawing.Point(4, 22);
-            this.console.Name = "console";
-            this.console.Padding = new System.Windows.Forms.Padding(3);
-            this.console.Size = new System.Drawing.Size(440, 177);
-            this.console.TabIndex = 0;
-            this.console.Text = "Console";
-            // 
-            // Lexico
-            // 
-            this.Lexico.BackColor = System.Drawing.Color.Silver;
-            this.Lexico.Location = new System.Drawing.Point(4, 22);
-            this.Lexico.Name = "Lexico";
-            this.Lexico.Padding = new System.Windows.Forms.Padding(3);
-            this.Lexico.Size = new System.Drawing.Size(440, 177);
-            this.Lexico.TabIndex = 1;
-            this.Lexico.Text = "Error Lexico";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.Silver;
-            this.tabPage3.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(440, 177);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Error Sintactico";
-            // 
-            // semantico
-            // 
-            this.semantico.BackColor = System.Drawing.Color.Silver;
-            this.semantico.Location = new System.Drawing.Point(4, 22);
-            this.semantico.Name = "semantico";
-            this.semantico.Padding = new System.Windows.Forms.Padding(3);
-            this.semantico.Size = new System.Drawing.Size(440, 177);
-            this.semantico.TabIndex = 3;
-            this.semantico.Text = "Error Semantico";
-            this.semantico.Click += new System.EventHandler(this.semantico_Click);
-            // 
-            // tabControl2
-            // 
-            this.tabControl2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.tabControl2.Controls.Add(this.tabPage1);
-            this.tabControl2.Controls.Add(this.tabPage2);
-            this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Controls.Add(this.tabPage5);
-            this.tabControl2.Controls.Add(this.tabPage6);
-            this.tabControl2.Location = new System.Drawing.Point(3, 12);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(441, 281);
-            this.tabControl2.TabIndex = 2;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.Silver;
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(433, 255);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Lexico";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.Silver;
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(433, 255);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Sintactico";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.BackColor = System.Drawing.Color.Silver;
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(433, 255);
-            this.tabPage4.TabIndex = 2;
-            this.tabPage4.Text = "Semantico";
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.BackColor = System.Drawing.Color.Silver;
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(433, 255);
-            this.tabPage5.TabIndex = 3;
-            this.tabPage5.Text = "Hash Table";
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.BackColor = System.Drawing.Color.Silver;
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(433, 255);
-            this.tabPage6.TabIndex = 4;
-            this.tabPage6.Text = "Codigo Intermedio";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel1.Controls.Add(this.splitter1);
-            this.panel1.Controls.Add(this.tabControl1);
-            this.panel1.Controls.Add(this.tabControl2);
-            this.panel1.Location = new System.Drawing.Point(545, 45);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(448, 502);
-            this.panel1.TabIndex = 3;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 299);
-            this.splitter1.TabIndex = 3;
-            this.splitter1.TabStop = false;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -466,11 +326,28 @@
             this.panel2.Controls.Add(this.filas);
             this.panel2.Controls.Add(this.column);
             this.panel2.Controls.Add(this.row);
-            this.panel2.Location = new System.Drawing.Point(0, 553);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 547);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(993, 34);
             this.panel2.TabIndex = 4;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // columnas
+            // 
+            this.columnas.AutoSize = true;
+            this.columnas.Location = new System.Drawing.Point(128, 6);
+            this.columnas.Name = "columnas";
+            this.columnas.Size = new System.Drawing.Size(0, 13);
+            this.columnas.TabIndex = 3;
+            // 
+            // filas
+            // 
+            this.filas.AutoSize = true;
+            this.filas.Location = new System.Drawing.Point(33, 6);
+            this.filas.Name = "filas";
+            this.filas.Size = new System.Drawing.Size(0, 13);
+            this.filas.TabIndex = 2;
             // 
             // column
             // 
@@ -498,40 +375,153 @@
             // 
             // TextPanel
             // 
+            this.TextPanel.AutoScroll = true;
+            this.TextPanel.AutoSize = true;
             this.TextPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TextPanel.Location = new System.Drawing.Point(0, 57);
+            this.TextPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TextPanel.Location = new System.Drawing.Point(3, 49);
             this.TextPanel.Name = "TextPanel";
-            this.TextPanel.Size = new System.Drawing.Size(539, 490);
+            this.TextPanel.Size = new System.Drawing.Size(655, 498);
             this.TextPanel.TabIndex = 5;
             // 
-            // filas
+            // tabControl3
             // 
-            this.filas.AutoSize = true;
-            this.filas.Location = new System.Drawing.Point(33, 6);
-            this.filas.Name = "filas";
-            this.filas.Size = new System.Drawing.Size(0, 13);
-            this.filas.TabIndex = 2;
+            this.tabControl3.Controls.Add(this.tabPage7);
+            this.tabControl3.Controls.Add(this.tabPage8);
+            this.tabControl3.Controls.Add(this.tabPage9);
+            this.tabControl3.Controls.Add(this.tabPage10);
+            this.tabControl3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tabControl3.Location = new System.Drawing.Point(658, 49);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(335, 498);
+            this.tabControl3.TabIndex = 6;
             // 
-            // columnas
+            // tabPage7
             // 
-            this.columnas.AutoSize = true;
-            this.columnas.Location = new System.Drawing.Point(128, 6);
-            this.columnas.Name = "columnas";
-            this.columnas.Size = new System.Drawing.Size(0, 13);
-            this.columnas.TabIndex = 3;
+            this.tabPage7.BackColor = System.Drawing.Color.Black;
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(327, 472);
+            this.tabPage7.TabIndex = 0;
+            this.tabPage7.Text = "Console";
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(192, 74);
+            this.tabPage8.TabIndex = 1;
+            this.tabPage8.Text = "Error Lexico";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(192, 74);
+            this.tabPage9.TabIndex = 2;
+            this.tabPage9.Text = "Error Sintactico";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(327, 472);
+            this.tabPage10.TabIndex = 3;
+            this.tabPage10.Text = "Error Semantico";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // tabControl4
+            // 
+            this.tabControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl4.Controls.Add(this.tabPage11);
+            this.tabControl4.Controls.Add(this.tabPage12);
+            this.tabControl4.Controls.Add(this.tabPage13);
+            this.tabControl4.Controls.Add(this.tabPage14);
+            this.tabControl4.Controls.Add(this.tabPage15);
+            this.tabControl4.Location = new System.Drawing.Point(662, 284);
+            this.tabControl4.Name = "tabControl4";
+            this.tabControl4.SelectedIndex = 0;
+            this.tabControl4.Size = new System.Drawing.Size(331, 263);
+            this.tabControl4.TabIndex = 7;
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(214, 85);
+            this.tabPage11.TabIndex = 0;
+            this.tabPage11.Text = "Lexico";
+            this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // tabPage12
+            // 
+            this.tabPage12.Location = new System.Drawing.Point(4, 22);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage12.Size = new System.Drawing.Size(214, 85);
+            this.tabPage12.TabIndex = 1;
+            this.tabPage12.Text = "Sintactico";
+            this.tabPage12.UseVisualStyleBackColor = true;
+            // 
+            // tabPage13
+            // 
+            this.tabPage13.Location = new System.Drawing.Point(4, 22);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage13.Size = new System.Drawing.Size(214, 85);
+            this.tabPage13.TabIndex = 2;
+            this.tabPage13.Text = "Semantico";
+            this.tabPage13.UseVisualStyleBackColor = true;
+            // 
+            // tabPage14
+            // 
+            this.tabPage14.Location = new System.Drawing.Point(4, 22);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage14.Size = new System.Drawing.Size(214, 85);
+            this.tabPage14.TabIndex = 3;
+            this.tabPage14.Text = "Hash Table";
+            this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // tabPage15
+            // 
+            this.tabPage15.Location = new System.Drawing.Point(4, 22);
+            this.tabPage15.Name = "tabPage15";
+            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage15.Size = new System.Drawing.Size(323, 237);
+            this.tabPage15.TabIndex = 4;
+            this.tabPage15.Text = "Codigo Intermedio";
+            this.tabPage15.UseVisualStyleBackColor = true;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(0, 49);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 498);
+            this.splitter1.TabIndex = 8;
+            this.splitter1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(993, 581);
             this.Controls.Add(this.TextPanel);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.splitter1);
+            this.Controls.Add(this.tabControl4);
+            this.Controls.Add(this.tabControl3);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Monkey IDE";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -540,11 +530,10 @@
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tabControl3.ResumeLayout(false);
+            this.tabControl4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -579,19 +568,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage console;
-        private System.Windows.Forms.TabPage Lexico;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage semantico;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label column;
         private System.Windows.Forms.Label row;
@@ -599,6 +575,18 @@
         private System.Windows.Forms.Panel TextPanel;
         private System.Windows.Forms.Label columnas;
         private System.Windows.Forms.Label filas;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.TabControl tabControl4;
+        private System.Windows.Forms.TabPage tabPage11;
+        private System.Windows.Forms.TabPage tabPage12;
+        private System.Windows.Forms.TabPage tabPage13;
+        private System.Windows.Forms.TabPage tabPage14;
+        private System.Windows.Forms.TabPage tabPage15;
+        private System.Windows.Forms.Splitter splitter1;
     }
 }
 

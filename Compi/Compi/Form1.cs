@@ -18,8 +18,8 @@ namespace Compi
         private bool guardPrimeraVez;
         private String FileName;
         private ThreadStart delegado;
-
         private Thread hilo;
+        private String filepath = "";
         public Form1()
         {
             InitializeComponent();
@@ -82,10 +82,11 @@ namespace Compi
             {
                 writer.Write(TextArea.Text);
             }
+            guardPrimeraVez = true;
         }
         private void abrirArchivo()
         {
-            guardPrimeraVez = false;
+            guardPrimeraVez = true;
             Stream stream = null;
             String FILTRO = "Archivos Mi Compilador |*.mcp";
             String TITULO = "Selecciona un Archivo .mcp";
@@ -148,7 +149,7 @@ namespace Compi
                 FileName = guardar.FileName;
                 File.WriteAllText(guardar.FileName, TextArea.Text); //aqui poner el text area
             }
-            this.Text += "   "+FileName;
+            this.Text = "Monkey IDE   "+FileName;
             guardPrimeraVez = true;
         }
 
@@ -176,7 +177,7 @@ namespace Compi
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
 
-
+            
             DialogResult res= MessageBox.Show("Desea guardar los cambios", "Important Question", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
@@ -210,14 +211,14 @@ namespace Compi
 
         private void nuevoArchivo()
         {
+           
             if (TextArea.Text != "")
             {
 
-                DialogResult res = MessageBox.Show("Desea crear otro archivo sin guar" +
-                                                   "dar el que esta abierto?", "Important Question",
-                    MessageBoxButtons.YesNo);
+                DialogResult res = MessageBox.Show("Desea guardar los cambios? ","Important Question",MessageBoxButtons.YesNo);
                 if (res == DialogResult.Yes)
                 {
+                    eleccionGuardar();
                     TextArea.Text = "";
                     guardPrimeraVez = false;
                 }
@@ -254,7 +255,7 @@ namespace Compi
                         var co = TextArea.GetColumn(cu);
 
                         filas.Text = " " + (f + 1);
-                        columnas.Text = " " + co;
+                        columnas.Text = " " + (co + 1 );
 
                     });
                 }
