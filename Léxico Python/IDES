@@ -1,0 +1,18 @@
+def prueba (parametro):
+    tamanio = len(parametro)
+    x = 0
+    listIden = []
+    while(x < tamanio):
+        if(x < tamanio and parametro[x].isalpha()):
+            letra = parametro[x]
+            x+=1
+            while(x < tamanio and parametro[x].isalnum()):
+                letra += parametro[x]
+                x+=1
+            listIden.append(letra)
+        else:
+            x+=1
+
+    print "Identificadores:",listIden
+
+prueba("una ++ 34rd por favor u83e7 ints %$3 *+- --- aer klwejwie %4 ush /&% t5")
