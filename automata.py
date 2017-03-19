@@ -1,13 +1,41 @@
-especiales=["{", "}","(",")",";",":","&"]
+especiales=["{", "}","(",")",";",":","&",","]
 operadores=["*","%"]
 ignorar=["\n","\t"," "]
-def iden_lex(linea):
-    Token={
-        "tipo":"",
-        "lexema":""
+ncol=0
+nfil=0
+max=0
+linea_actual=""
+Token_externo = {
+    "tipo": "",
+    "lexema": ""
+}
+
+def get_character(linea):
+    global ncol
+    global nfil
+    global max
+    global linea_actual
+    if (ncol==0 or ncol==max):
+        linea_actual=linea.readline()
+        if linea_actual != "":
+            ncol=0
+            nfil+=1
+            max=len(linea_actual)
+        else:
+            return "EOF"
+
+    c=linea_actual[ncol]
+    ncol+=1
+    return c
+
+def iden_lex(linea,x):
+    Token = {
+        "tipo": "",
+        "lexema": ""
     }
+    c=get_character(linea)
     estado = "START"
-    x=0
+    #x=0
     TAM=len(linea)
     while(estado!="END" and x<TAM):
         if estado == "START":
@@ -52,10 +80,11 @@ def iden_lex(linea):
                 Token["lexema"] += linea[x]
                 x += 1
 
-            #elif linea[x]==ignorar[0] or linea[x]==ignorar[1] or linea[x]==ignorar[2]:
-             #   guardar=False"""
+            elif ignorar.__contains__(linea[x]):
+               x+=1
             else:
                 estado = "END"
+                Token["lexema"] += linea[x]
                 if especiales.__contains__(linea[x]):
                     Token["tipo"]="SIMBOLO"
                 elif operadores.__contains__(linea[x]):
@@ -70,8 +99,8 @@ def iden_lex(linea):
                 Token["lexema"] += linea[x]
                 x+=1
             else:
-                x-=1
-                estado=="END"
+                #x-=1
+                estado="END"
         elif estado == "SLASH":
             if linea[x]=="/":
                 x+=1
@@ -115,21 +144,21 @@ def iden_lex(linea):
                 estado = "END"
                 x -= 1
         elif estado=="ENTERO":
-            while(linea[x].isdigit()):
+            while(x<TAM and linea[x].isdigit() ):
                 Token["lexema"] += linea[x]
                 x+=1
-            if linea[x]==".":
+            if x<TAM and linea[x]==".":
                 Token["lexema"] += linea[x]
                 x+=1
                 if x<TAM and linea[x].isdigit():
                     Token["lexema"] += linea[x]
                     x+=1
-                    while linea[x].isdigit():
+                    while x<TAM and linea[x].isdigit():
                         Token["lexema"] += linea[x]
                         x+=1
                     estado="END"
                     Token["tipo"] = "REAL"
-                    x-=1
+                    #x-=1
                 else:
                     estado="END"
                     Token["tipo"] = "ERROR"
@@ -137,7 +166,7 @@ def iden_lex(linea):
             else:
                 estado="END"
                 Token["tipo"] = "ENTERO"
-                x-=1
+                #x-=1
 
 
 
@@ -183,9 +212,18 @@ def iden_lex(linea):
                 x -= 1
 
     print Token
+    return (x)
 
+archivo = open("texto", "r")
+x=0
+MAX=len("int vector, su&mas, res@tas,suma1,suma2,25ert;")
+#while x<MAX:
+ #   x=iden_lex("int vector, su&mas, res@tas,suma1,suma2,25ert;",x)
 
-iden_lex(".365&3")
+var=get_character(archivo)
+while(var!="EOF"):
+    print var
+    var = get_character(archivo)
 
 
 
