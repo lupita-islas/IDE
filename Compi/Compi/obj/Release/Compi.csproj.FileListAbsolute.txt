@@ -1,0 +1,11 @@
+C:\Users\SARALU\Documents\GitHub\IDE\Compi\Compi\bin\Release\Compi.exe.config
+C:\Users\SARALU\Documents\GitHub\IDE\Compi\Compi\bin\Release\Compi.exe
+C:\Users\SARALU\Documents\GitHub\IDE\Compi\Compi\bin\Release\Compi.pdb
+C:\Users\SARALU\Documents\GitHub\IDE\Compi\Compi\bin\Release\ScintillaNET.dll
+C:\Users\SARALU\Documents\GitHub\IDE\Compi\Compi\bin\Release\ScintillaNET.xml
+C:\Users\SARALU\Documents\GitHub\IDE\Compi\Compi\obj\Release\Compi.csprojResolveAssemblyReference.cache
+C:\Users\SARALU\Documents\GitHub\IDE\Compi\Compi\obj\Release\Compi.Form1.resources
+C:\Users\SARALU\Documents\GitHub\IDE\Compi\Compi\obj\Release\Compi.Properties.Resources.resources
+C:\Users\SARALU\Documents\GitHub\IDE\Compi\Compi\obj\Release\Compi.csproj.GenerateResource.Cache
+C:\Users\SARALU\Documents\GitHub\IDE\Compi\Compi\obj\Release\Compi.exe
+C:\Users\SARALU\Documents\GitHub\IDE\Compi\Compi\obj\Release\Compi.pdb

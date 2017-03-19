@@ -44,13 +44,27 @@ namespace Compi
             TextArea.WrapMode = WrapMode.Word;
             InitNumberMargin();
 
+            TextArea.StyleResetDefault();
+            TextArea.Styles[Style.Default].Font = "Consolas";
+            TextArea.Styles[Style.Default].Size = 15;
+            TextArea.StyleClearAll();
+
+            TextArea.Styles[Style.Cpp.Identifier].ForeColor = Color.Pink;
+            TextArea.Styles[Style.Cpp.Number].ForeColor = Color.Red;
+            TextArea.Styles[Style.Cpp.Word].ForeColor = Color.Navy;
+            TextArea.Styles[Style.Cpp.CommentLine].ForeColor =Color.Gray;
+            TextArea.Styles[Style.Cpp.Comment].ForeColor = Color.ForestGreen;
+            TextArea.Lexer = Lexer.Cpp;
+            TextArea.SetKeywords(0, "main if then else end do while repeat until cin cout real int boolean");
+
+
             delegado = new ThreadStart(FilasYColumnas);
 
             hilo = new Thread(delegado);
 
             hilo.Start();
 
-            //FilasYColumnas();
+            
         }
 
         private void InitNumberMargin()
@@ -270,6 +284,18 @@ namespace Compi
 
 
 
+        }
+        private void construir()
+        {
+            string comando= "python";
+
+            System.Diagnostics.ProcessStartInfo consola = new System.Diagnostics.ProcessStartInfo("cmd", "/c" + comando);
+             
+        }
+           
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            construir();
         }
     }
 }
