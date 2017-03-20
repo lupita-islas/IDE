@@ -1,6 +1,7 @@
 especiales=["{", "}","(",")",";",":","&",","]
 operadores=["*","%"]
-ignorar=["\n","\t"," "]
+reservadas=["main","if","then","else","end","do","while","repeat","until","cin","cout","real","int", "boolean"]
+ignorar=['\n','\t'," "]
 ncol=0
 nfil=0
 max=0
@@ -9,12 +10,10 @@ Token_externo = {
     "tipo": "",
     "lexema": ""
 }
+estado="START"
 
 def get_character(linea):
-    global ncol
-    global nfil
-    global max
-    global linea_actual
+    global ncol, nfil, estado, linea_actual, max
     if (ncol==0 or ncol==max):
         linea_actual=linea.readline()
         if linea_actual != "":
@@ -22,208 +21,214 @@ def get_character(linea):
             nfil+=1
             max=len(linea_actual)
         else:
+            estado="END"
             return "EOF"
 
     c=linea_actual[ncol]
     ncol+=1
     return c
 
-def iden_lex(linea,x):
+def iden_lex(linea):
+    global ncol, estado
     Token = {
         "tipo": "",
         "lexema": ""
     }
     c=get_character(linea)
     estado = "START"
-    #x=0
-    TAM=len(linea)
-    while(estado!="END" and x<TAM):
+    while(estado!="END"):
         if estado == "START":
-            if linea[x].isalpha():
+            if c=="EOF":
+                estado="END"
+                Token["tipo"]="EOF"
+            elif c.isalpha():
                 estado="IDEN"
-                Token["lexema"]+=linea[x]
-                x+=1
-            elif linea[x]=="/":
+                Token["lexema"]+=c
+                c=get_character(linea)
+            elif c=="/":
                 estado="SLASH"
-                Token["lexema"] += linea[x]
-                x += 1
-            elif linea[x]=="+":
+                Token["lexema"] += c
+                c=get_character(linea)
+            elif c=="+":
                 estado="ADD"
-                Token["lexema"] += linea[x]
-                x += 1
-            elif linea[x]=="-":
+                Token["lexema"] += c
+                c=get_character(linea)
+            elif c=="-":
                 estado="MINUS"
-                Token["lexema"] += linea[x]
-                x += 1
-            elif linea[x]=="=":
+                Token["lexema"] += c
+                c=get_character(linea)
+            elif c=="=":
                 estado="EQ"
-                Token["lexema"] += linea[x]
-                x += 1
-            elif linea[x]=="<":
+                Token["lexema"] += c
+                c=get_character(linea)
+            elif c=="<":
                 estado="LT"
-                Token["lexema"] += linea[x]
-                x += 1
-            elif linea[x]==">":
+                Token["lexema"] += c
+                c=get_character(linea)
+            elif c==">":
                 estado="HT"
-                Token["lexema"] += linea[x]
-                x += 1
-            elif linea[x]==":":
+                Token["lexema"] += c
+                c=get_character(linea)
+            elif c==":":
                 estado="ASSIGN"
-                Token["lexema"] += linea[x]
-                x += 1
-            elif linea[x]=="!":
+                Token["lexema"] += c
+                c=get_character(linea)
+            elif c=="!":
                 estado="NEQ"
-                Token["lexema"] += linea[x]
-                x += 1
-            elif linea[x].isdigit():
+                Token["lexema"] += c
+                c=get_character(linea)
+            elif c.isdigit():
                 estado="ENTERO"
-                Token["lexema"] += linea[x]
-                x += 1
-
-            elif ignorar.__contains__(linea[x]):
-               x+=1
+                Token["lexema"] += c
+                c=get_character(linea)
+            elif ignorar.__contains__(c):
+               c=get_character(linea)
             else:
                 estado = "END"
-                Token["lexema"] += linea[x]
-                if especiales.__contains__(linea[x]):
+                Token["lexema"] += c
+                if especiales.__contains__(c):
                     Token["tipo"]="SIMBOLO"
-                elif operadores.__contains__(linea[x]):
+                elif operadores.__contains__(c):
                     Token["tipo"]="OPERADOR"
                 else:
                     Token["tipo"] = "ERROR"
-                x += 1
 
         elif estado=="IDEN":
             Token["tipo"] = "IDENTIFICADOR"
-            if (linea[x].isalpha() or linea[x].isdigit() or linea[x]=="_"):
-                Token["lexema"] += linea[x]
-                x+=1
+            if (c.isalpha() or c.isdigit() or c=="_"):
+                Token["lexema"] += c
+                c=get_character(linea)
             else:
-                #x-=1
+                ncol -=1
                 estado="END"
         elif estado == "SLASH":
-            if linea[x]=="/":
-                x+=1
-                while linea[x]!="\n":
-                    x+=1
-            elif linea[x]=="*":
-                x += 1
+            if c=="/":
+                Token["lexema"] =""
+                c=get_character(linea)
+                while c!='\n':
+                    c=get_character(linea)
+                estado="START"
+            elif c=="*":
+                Token["lexema"] = ""
+                c=get_character(linea)
                 hecho=False
                 while hecho==False:
-                    while (linea[x]!="*"):
-                        x+=1
-                    while (linea[x]=="*"):
-                        x+=1
-                    if(linea[x]=="/"):
+                    while (c!="*"):
+                        c=get_character(linea)
+                    while (c=="*"):
+                        c=get_character(linea)
+                    if(c=="/"):
                         hecho=True
+                        c = get_character(linea)
+                estado="START"
             else:
                 Token["tipo"]="OPERADOR"
                 estado="END"
+                ncol-=1
         elif estado == "ADD":
-            if(linea[x]=="+"):
+            if(c=="+"):
                 Token["tipo"]="OPERADOR"
-                Token["lexema"]+=linea[x]
+                Token["lexema"]+=c
                 estado="END"
-                x+=1
-            elif linea[x].isnumeric():
+                #c=get_character(linea)
+            elif c.isdigit():
                 estado="ENTERO"
-                x+=1
+                Token["lexema"] += c
+                c=get_character(linea)
             else:
-                estado="END"
-                x-=1
-        elif estado == "MINUS":
-            if (linea[x] == "-"):
                 Token["tipo"] = "OPERADOR"
-                Token["lexema"] += linea[x]
+                estado="END"
+                ncol -=1
+        elif estado == "MINUS":
+            if (c == "-"):
+                Token["tipo"] = "OPERADOR"
+                Token["lexema"] += c
                 estado = "END"
-                x += 1
-            elif linea[x].isdigit():
+            elif c.isdigit():
                 estado = "ENTERO"
-                x += 1
+                Token["lexema"] += c
+                c=get_character(linea)
             else:
                 estado = "END"
-                x -= 1
+                Token["tipo"] = "OPERADOR"
+                ncol -=1
         elif estado=="ENTERO":
-            while(x<TAM and linea[x].isdigit() ):
-                Token["lexema"] += linea[x]
-                x+=1
-            if x<TAM and linea[x]==".":
-                Token["lexema"] += linea[x]
-                x+=1
-                if x<TAM and linea[x].isdigit():
-                    Token["lexema"] += linea[x]
-                    x+=1
-                    while x<TAM and linea[x].isdigit():
-                        Token["lexema"] += linea[x]
-                        x+=1
+            while(c.isdigit() ):
+                Token["lexema"] += c
+                c=get_character(linea)
+            if c==".":
+                Token["lexema"] += c
+                c=get_character(linea)
+                if c.isdigit():
+                    Token["lexema"] += c
+                    c=get_character(linea)
+                    while c.isdigit():
+                        Token["lexema"] += c
+                        c=get_character(linea)
                     estado="END"
                     Token["tipo"] = "REAL"
-                    #x-=1
+                    ncol -=1
                 else:
                     estado="END"
                     Token["tipo"] = "ERROR"
-                    x+=1
+                    c=get_character(linea)
             else:
                 estado="END"
                 Token["tipo"] = "ENTERO"
-                #x-=1
-
-
+                ncol -=1
 
         elif estado=="EQ":
-            if linea[x]=="=":
-                Token["tipo"] = "OPERADOR"
-                Token["lexema"] += linea[x]
+            Token["tipo"] = "OPERADOR"
+            if c=="=":
+                Token["lexema"] += c
                 estado = "END"
             else:
                 estado = "END"
-                x -= 1
+                ncol -=1
         elif estado=="LT":
-            if linea[x]=="=":
-                Token["tipo"] = "OPERADOR"
-                Token["lexema"] += linea[x]
+            Token["tipo"] = "OPERADOR"
+            if c=="=":
+                Token["lexema"] += c
                 estado = "END"
             else:
                 estado = "END"
-                x -= 1
+                ncol -=1
         elif estado=="HT":
-            if linea[x]=="=":
-                Token["tipo"] = "OPERADOR"
-                Token["lexema"] += linea[x]
+            Token["tipo"] = "OPERADOR"
+            if c=="=":
+                Token["lexema"] += c
                 estado = "END"
             else:
                 estado = "END"
-                x -= 1
+                ncol -=1
         elif estado=="ASSIGN":
-            if linea[x]=="=":
+            if c=="=":
                 Token["tipo"] = "OPERADOR"
-                Token["lexema"] += linea[x]
+                Token["lexema"] += c
                 estado = "END"
             else:
                 estado = "END"
-                x -= 1
+                ncol -=1
         elif estado=="NEQ":
-            if linea[x]=="=":
+            if c=="=":
                 Token["tipo"] = "OPERADOR"
-                Token["lexema"] += linea[x]
+                Token["lexema"] += c
                 estado = "END"
             else:
                 estado = "END"
-                x -= 1
+                ncol -=1
 
-    print Token
-    return (x)
+    if reservadas.__contains__(Token["lexema"]):
+        Token["tipo"]="RESERVADAS"
+    return (Token)
 
 archivo = open("texto", "r")
-x=0
-MAX=len("int vector, su&mas, res@tas,suma1,suma2,25ert;")
-#while x<MAX:
- #   x=iden_lex("int vector, su&mas, res@tas,suma1,suma2,25ert;",x)
-
-var=get_character(archivo)
-while(var!="EOF"):
-    print var
-    var = get_character(archivo)
-
-
-
+Token_externo=iden_lex(archivo)
+while(Token_externo["tipo"]!="EOF"):
+    print Token_externo
+    if Token_externo["tipo"]=="ERROR":
+        MANDAMOS AL ARCHIVO DE ERROR
+    else:
+        MANDAMOS AL ARCHIVO LEXEMAS
+    Token_externo = iden_lex(archivo)
+archivo.close()
