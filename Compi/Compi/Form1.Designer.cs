@@ -75,11 +75,15 @@
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.lexicoText = new System.Windows.Forms.TextBox();
+            this.lexicErr = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl3.SuspendLayout();
+            this.tabPage8.SuspendLayout();
             this.tabControl4.SuspendLayout();
+            this.tabPage11.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -410,6 +414,7 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.lexicErr);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
@@ -454,6 +459,7 @@
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.lexicoText);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
@@ -510,6 +516,28 @@
             this.splitter1.TabIndex = 8;
             this.splitter1.TabStop = false;
             // 
+            // lexicoText
+            // 
+            this.lexicoText.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lexicoText.Enabled = false;
+            this.lexicoText.Location = new System.Drawing.Point(0, 0);
+            this.lexicoText.Multiline = true;
+            this.lexicoText.Name = "lexicoText";
+            this.lexicoText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.lexicoText.Size = new System.Drawing.Size(320, 234);
+            this.lexicoText.TabIndex = 0;
+            // 
+            // lexicErr
+            // 
+            this.lexicErr.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lexicErr.Enabled = false;
+            this.lexicErr.Location = new System.Drawing.Point(0, 0);
+            this.lexicErr.Multiline = true;
+            this.lexicErr.Name = "lexicErr";
+            this.lexicErr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.lexicErr.Size = new System.Drawing.Size(324, 216);
+            this.lexicErr.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -534,7 +562,11 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tabControl3.ResumeLayout(false);
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
             this.tabControl4.ResumeLayout(false);
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage11.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -588,6 +620,8 @@
         private System.Windows.Forms.TabPage tabPage14;
         private System.Windows.Forms.TabPage tabPage15;
         private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.TextBox lexicoText;
+        private System.Windows.Forms.TextBox lexicErr;
     }
 }
 

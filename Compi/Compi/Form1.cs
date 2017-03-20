@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms.VisualStyles;
+using System.Diagnostics;
 
 namespace Compi
 {
@@ -48,8 +49,8 @@ namespace Compi
             TextArea.Styles[Style.Default].Font = "Consolas";
             TextArea.Styles[Style.Default].Size = 15;
             TextArea.StyleClearAll();
-
-            TextArea.Styles[Style.Cpp.Identifier].ForeColor = Color.Pink;
+            
+            TextArea.Styles[Style.Cpp.Identifier].ForeColor = Color.DeepPink;
             TextArea.Styles[Style.Cpp.Number].ForeColor = Color.Red;
             TextArea.Styles[Style.Cpp.Word].ForeColor = Color.Navy;
             TextArea.Styles[Style.Cpp.CommentLine].ForeColor =Color.Gray;
@@ -287,10 +288,30 @@ namespace Compi
         }
         private void construir()
         {
-            string comando= "python";
+            eleccionGuardar();
 
-            System.Diagnostics.ProcessStartInfo consola = new System.Diagnostics.ProcessStartInfo("cmd", "/c" + comando);
-             
+            string comando = "/C python -V";
+            comando = "echo('Hola')";
+            Process cmd = new Process();
+            cmd.StartInfo.FileName = "cmd.exe";
+            cmd.StartInfo.RedirectStandardInput = true;
+            cmd.StartInfo.RedirectStandardOutput = true;
+            cmd.StartInfo.CreateNoWindow = true;
+            cmd.StartInfo.UseShellExecute = false;
+            cmd.Start();
+
+            cmd.StandardInput.WriteLine(comando);
+            cmd.StandardInput.Flush();
+            cmd.StandardInput.Close();
+            cmd.WaitForExit();
+
+            // lexicoText.Text = cmd.StandardOutput.ReadToEnd();
+            //lexicErr.Text = FileName;
+            string error, final;
+            error = FileName.Replace("mcp", "err");
+            final = FileName.Replace("mcp", "fin");
+            lexicoText.Text = final;
+            lexicErr.Text = error;
         }
            
         private void toolStripButton1_Click(object sender, EventArgs e)
