@@ -18,8 +18,8 @@ namespace Compi
         private const int FORE_COLOR = 0xB7B7B7;
         private bool guardPrimeraVez;
         private String FileName;
-        private ThreadStart delegado;
-        private Thread hilo;
+        private ThreadStart delegado,del;
+        private Thread hilo,hilo2;
         private String filepath = "";
         public Form1()
         {
@@ -289,9 +289,12 @@ namespace Compi
         private void construir()
         {
             eleccionGuardar();
-
-            string comando = "/C python -V";
-            comando = "echo('Hola')";
+            string comando = "python  automata.py " + FileName;
+            string error, final;
+            error = FileName.Replace("mcp", "err");
+            final = FileName.Replace("mcp", "fin");
+          
+           // comando = "echo('Hola')";
             Process cmd = new Process();
             cmd.StartInfo.FileName = "cmd.exe";
             cmd.StartInfo.RedirectStandardInput = true;
@@ -305,18 +308,29 @@ namespace Compi
             cmd.StandardInput.Close();
             cmd.WaitForExit();
 
-            // lexicoText.Text = cmd.StandardOutput.ReadToEnd();
+            //lexicoText.Text = cmd.StandardOutput.ReadToEnd();
             //lexicErr.Text = FileName;
-            string error, final;
-            error = FileName.Replace("mcp", "err");
-            final = FileName.Replace("mcp", "fin");
-            lexicoText.Text = final;
-            lexicErr.Text = error;
+
+            // lexicoText.Text = final;
+            this.Invoke((MethodInvoker)delegate
+            {
+               // lexicErr.Text = System.IO.File.ReadAllText(error);
+            lexicoText.Text = System.IO.File.ReadAllText(final);
+            });
+            this.Invoke((MethodInvoker)delegate
+            {
+                 lexicErr.Text = System.IO.File.ReadAllText(error);
+               // lexicoText.Text = System.IO.File.ReadAllText(final);
+            });
+
         }
-           
+
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            construir();
+            //construir();
+                construir();
+
+           
         }
     }
 }
