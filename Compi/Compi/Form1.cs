@@ -303,24 +303,42 @@ namespace Compi
         }
         private void construir()
         {
-           
+
             string comando = "python  automata.py " + FileName;
             string error, final;
             string[] error1, final1;
             error = FileName.Replace("mcp", "err");
             final = FileName.Replace("mcp", "fin");
-            
+
             // comando = "echo('Hola')";
-           
-                Process cmd = new Process();
+
+            //   Process cmd = new Process();
+            ProcessStartInfo cmd = new ProcessStartInfo();
+
+            //  cmd.StartInfo.FileName = "cmd.exe";
+            cmd.FileName = @"C:\Python27\pythonw.exe";
+            cmd.Arguments = " automata.py " + FileName;
+            Process proc = new Process();
+            proc.StartInfo=cmd;
+            proc.Start();
+            proc.WaitForExit(); 
             
-          //  cmd.StartInfo.FileName = "cmd.exe";
-          cmd.StartInfo.FileName= @"C:\Python27\pythonw.exe automata.py " + FileName;
+
+
+
+
+
+
+
+
+
+
+
            // cmd.StartInfo.RedirectStandardInput = true;
            // cmd.StartInfo.RedirectStandardOutput = true;
             //cmd.StartInfo.CreateNoWindow = true;
-            cmd.StartInfo.UseShellExecute = false;
-            cmd.Start();
+            //cmd.StartInfo.UseShellExecute = false;
+            //cmd.Start();
 
 
           //  cmd.StandardInput.WriteLine(comando);
@@ -369,28 +387,46 @@ namespace Compi
         }
         void worker_RunWorkerCompleted(object s, RunWorkerCompletedEventArgs e)
         {
-            toolStripButton1.Enabled = true;
-        }
-        void worker_ProgressChanged(object s, ProgressChangedEventArgs e)
-        {
             string error, final;
 
             error = FileName.Replace("mcp", "err");
             final = FileName.Replace("mcp", "fin");
-            System.IO.StreamReader err = new System.IO.StreamReader(error);
-            System.IO.StreamReader fin = new System.IO.StreamReader(final);
+            // System.IO.StreamReader err = new System.IO.StreamReader(error);
+            //System.IO.StreamReader fin = new System.IO.StreamReader(final);
 
-            string linea1, linea2;
+            //string linea1, linea2;
 
-            while ((linea1 = err.ReadLine()) != null)
-            {
-                lexicErr.AppendText(linea1);
-            }
+            //while ((linea1 = err.ReadLine()) != null)
+            //{
+            //  lexicErr.AppendText(linea1);
+            //}
 
-            while ((linea2 = fin.ReadLine()) != null)
-            {
-                lexicoText.AppendText(linea2);
-            }
+            //while ((linea2 = fin.ReadLine()) != null)
+            //{
+            //  lexicoText.AppendText(linea2);
+            //}
+
+
+            //this.Invoke((MethodInvoker)delegate
+            //{
+                try
+                {
+                    lexicErr.Text = System.IO.File.ReadAllText(error);
+                }catch(Exception ex)
+                {
+                    //Console.Write(e.ToString);
+                }
+
+           // });
+           // this.Invoke((MethodInvoker)delegate
+            //{
+                lexicoText.Text = System.IO.File.ReadAllText(final);
+            //});
+            toolStripButton1.Enabled = true;
+        }
+        void worker_ProgressChanged(object s, ProgressChangedEventArgs e)
+        {
+            
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

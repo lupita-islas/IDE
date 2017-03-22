@@ -180,12 +180,13 @@ def iden_lex(linea):
                 ncol -=1
 
         elif estado=="EQ":
-            Token["tipo"] = "OPERADOR"
             if c=="=":
                 Token["lexema"] += c
+                Token["tipo"] = "OPERADOR"
                 estado = "END"
             else:
                 estado = "END"
+                Token["tipo"] = "ERROR"
                 ncol -=1
         elif estado=="LT":
             Token["tipo"] = "OPERADOR"
