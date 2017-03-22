@@ -66,6 +66,7 @@
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.lexicErr = new System.Windows.Forms.TextBox();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabControl4 = new System.Windows.Forms.TabControl();
@@ -76,7 +77,6 @@
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.lexicoText = new System.Windows.Forms.TextBox();
-            this.lexicErr = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -423,6 +423,17 @@
             this.tabPage8.Text = "Error Lexico";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
+            // lexicErr
+            // 
+            this.lexicErr.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lexicErr.Enabled = false;
+            this.lexicErr.Location = new System.Drawing.Point(0, 0);
+            this.lexicErr.Multiline = true;
+            this.lexicErr.Name = "lexicErr";
+            this.lexicErr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.lexicErr.Size = new System.Drawing.Size(324, 216);
+            this.lexicErr.TabIndex = 0;
+            // 
             // tabPage9
             // 
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
@@ -519,24 +530,12 @@
             // lexicoText
             // 
             this.lexicoText.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lexicoText.Enabled = false;
             this.lexicoText.Location = new System.Drawing.Point(0, 0);
             this.lexicoText.Multiline = true;
             this.lexicoText.Name = "lexicoText";
             this.lexicoText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.lexicoText.Size = new System.Drawing.Size(320, 234);
             this.lexicoText.TabIndex = 0;
-            // 
-            // lexicErr
-            // 
-            this.lexicErr.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lexicErr.Enabled = false;
-            this.lexicErr.Location = new System.Drawing.Point(0, 0);
-            this.lexicErr.Multiline = true;
-            this.lexicErr.Name = "lexicErr";
-            this.lexicErr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.lexicErr.Size = new System.Drawing.Size(324, 216);
-            this.lexicErr.TabIndex = 0;
             // 
             // Form1
             // 
@@ -620,8 +619,8 @@
         private System.Windows.Forms.TabPage tabPage14;
         private System.Windows.Forms.TabPage tabPage15;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.TextBox lexicoText;
         private System.Windows.Forms.TextBox lexicErr;
+        private System.Windows.Forms.TextBox lexicoText;
     }
 }
 

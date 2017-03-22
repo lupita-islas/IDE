@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms.VisualStyles;
 using System.Diagnostics;
+using System.ComponentModel;
 
 namespace Compi
 {
@@ -18,13 +19,27 @@ namespace Compi
         private const int FORE_COLOR = 0xB7B7B7;
         private bool guardPrimeraVez;
         private String FileName;
-        private ThreadStart delegado,del;
-        private Thread hilo,hilo2;
+        private ThreadStart delegado, del;
+        private Thread hilo, hilo2;
         private String filepath = "";
+        private BackgroundWorker worker;
+        private const string PYTHON = @"C:\Python27\pythonw.exe";
         public Form1()
         {
             InitializeComponent();
+            worker = new BackgroundWorker();
+            worker.WorkerReportsProgress = true;
+            worker.WorkerSupportsCancellation = true;
+
+            worker.DoWork += new DoWorkEventHandler(worker_DoWork);
+            worker.ProgressChanged += new ProgressChangedEventHandler(worker_ProgressChanged);
+            worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(worker_RunWorkerCompleted);
+
+
+
         }
+        
+        
 
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -288,47 +303,102 @@ namespace Compi
         }
         private void construir()
         {
-            eleccionGuardar();
+           
             string comando = "python  automata.py " + FileName;
             string error, final;
+            string[] error1, final1;
             error = FileName.Replace("mcp", "err");
             final = FileName.Replace("mcp", "fin");
-          
-           // comando = "echo('Hola')";
-            Process cmd = new Process();
-            cmd.StartInfo.FileName = "cmd.exe";
-            cmd.StartInfo.RedirectStandardInput = true;
-            cmd.StartInfo.RedirectStandardOutput = true;
-            cmd.StartInfo.CreateNoWindow = true;
+            
+            // comando = "echo('Hola')";
+           
+                Process cmd = new Process();
+            
+          //  cmd.StartInfo.FileName = "cmd.exe";
+          cmd.StartInfo.FileName= @"C:\Python27\pythonw.exe automata.py " + FileName;
+           // cmd.StartInfo.RedirectStandardInput = true;
+           // cmd.StartInfo.RedirectStandardOutput = true;
+            //cmd.StartInfo.CreateNoWindow = true;
             cmd.StartInfo.UseShellExecute = false;
             cmd.Start();
 
-            cmd.StandardInput.WriteLine(comando);
-            cmd.StandardInput.Flush();
-            cmd.StandardInput.Close();
-            cmd.WaitForExit();
 
+          //  cmd.StandardInput.WriteLine(comando);
+           // cmd.StandardInput.Flush();
+           // cmd.StandardInput.Close();
+           // cmd.WaitForExit();
+            
             //lexicoText.Text = cmd.StandardOutput.ReadToEnd();
             //lexicErr.Text = FileName;
 
             // lexicoText.Text = final;
-            this.Invoke((MethodInvoker)delegate
-            {
-               // lexicErr.Text = System.IO.File.ReadAllText(error);
-            lexicoText.Text = System.IO.File.ReadAllText(final);
-            });
-            this.Invoke((MethodInvoker)delegate
-            {
-                 lexicErr.Text = System.IO.File.ReadAllText(error);
-               // lexicoText.Text = System.IO.File.ReadAllText(final);
-            });
 
+            //error1= System.IO.File.ReadAllLines(error); 
+            //final1 = System.IO.File.ReadAllLines(final);
+           /* System.IO.StreamReader err = new System.IO.StreamReader(error);
+            System.IO.StreamReader fin = new System.IO.StreamReader(final);
+
+            string linea1, linea2;
+
+            while ((linea1 = err.ReadLine()) != null)
+           {
+             lexicErr.AppendText(linea1);
+            }
+
+            while ((linea2 = fin.ReadLine()) != null)
+            {
+                lexicoText.AppendText(linea2);
+            }*/
+            /*this.Invoke((MethodInvoker)delegate
+            {
+                // lexicErr.Text = System.IO.File.ReadAllText(error);
+                for(int i=0; i<final1.Length;i++)
+                lexicoText.Text += final1[i];
+            });
+            this.Invoke((MethodInvoker)delegate
+            {
+                for (int i = 0; i < final1.Length; i++)
+                    lexicErr.Text = error1[i];
+                // lexicoText.Text = System.IO.File.ReadAllText(final);
+            });*/
+
+        }
+        void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            construir();
+        }
+        void worker_RunWorkerCompleted(object s, RunWorkerCompletedEventArgs e)
+        {
+            toolStripButton1.Enabled = true;
+        }
+        void worker_ProgressChanged(object s, ProgressChangedEventArgs e)
+        {
+            string error, final;
+
+            error = FileName.Replace("mcp", "err");
+            final = FileName.Replace("mcp", "fin");
+            System.IO.StreamReader err = new System.IO.StreamReader(error);
+            System.IO.StreamReader fin = new System.IO.StreamReader(final);
+
+            string linea1, linea2;
+
+            while ((linea1 = err.ReadLine()) != null)
+            {
+                lexicErr.AppendText(linea1);
+            }
+
+            while ((linea2 = fin.ReadLine()) != null)
+            {
+                lexicoText.AppendText(linea2);
+            }
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             //construir();
-                construir();
+            eleccionGuardar();
+            worker.RunWorkerAsync();
+            toolStripButton1.Enabled = false;
 
            
         }
