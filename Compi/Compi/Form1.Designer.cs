@@ -71,12 +71,12 @@
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.lexicoText = new System.Windows.Forms.TextBox();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.lexicoText = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -230,21 +230,22 @@
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // buildToolStripMenuItem
             // 
             this.buildToolStripMenuItem.Image = global::Compi.Properties.Resources.compi;
             this.buildToolStripMenuItem.Name = "buildToolStripMenuItem";
-            this.buildToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.buildToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.buildToolStripMenuItem.Text = "Build";
+            this.buildToolStripMenuItem.Click += new System.EventHandler(this.buildToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -479,6 +480,16 @@
             this.tabPage11.Text = "Lexico";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
+            // lexicoText
+            // 
+            this.lexicoText.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lexicoText.Location = new System.Drawing.Point(0, 0);
+            this.lexicoText.Multiline = true;
+            this.lexicoText.Name = "lexicoText";
+            this.lexicoText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.lexicoText.Size = new System.Drawing.Size(320, 234);
+            this.lexicoText.TabIndex = 0;
+            // 
             // tabPage12
             // 
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
@@ -526,16 +537,6 @@
             this.splitter1.Size = new System.Drawing.Size(3, 498);
             this.splitter1.TabIndex = 8;
             this.splitter1.TabStop = false;
-            // 
-            // lexicoText
-            // 
-            this.lexicoText.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lexicoText.Location = new System.Drawing.Point(0, 0);
-            this.lexicoText.Multiline = true;
-            this.lexicoText.Name = "lexicoText";
-            this.lexicoText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.lexicoText.Size = new System.Drawing.Size(320, 234);
-            this.lexicoText.TabIndex = 0;
             // 
             // Form1
             // 

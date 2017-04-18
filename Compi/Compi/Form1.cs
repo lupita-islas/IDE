@@ -307,9 +307,14 @@ namespace Compi
             string comando = "python  automata.py " + FileName;
             string error, final;
             string[] error1, final1;
-            error = FileName.Replace("mcp", "err");
-            final = FileName.Replace("mcp", "fin");
+            try
+            {
+                error = FileName.Replace("mcp", "err");
+                final = FileName.Replace("mcp", "fin");
+            }catch(Exception e)
+            {
 
+            }
             // comando = "echo('Hola')";
 
             //   Process cmd = new Process();
@@ -423,7 +428,15 @@ namespace Compi
                 lexicoText.Text = System.IO.File.ReadAllText(final);
             //});
             toolStripButton1.Enabled = true;
+            buildToolStripMenuItem.Enabled = true;
+
         }
+
+        private void buildToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lexico();
+        }
+
         void worker_ProgressChanged(object s, ProgressChangedEventArgs e)
         {
             
@@ -431,12 +444,23 @@ namespace Compi
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            //construir();
-            eleccionGuardar();
-            worker.RunWorkerAsync();
-            toolStripButton1.Enabled = false;
-
+            lexico();
            
+        }
+        private void lexico()
+        {
+            if (TextArea.Text == "" || TextArea.Text == null  )
+            {
+                MessageBox.Show("No se puede aplicar el Script Lexico si no hay datos ", "WARNING", MessageBoxButtons.OK);
+            }
+            else
+            {
+                //construir();
+                eleccionGuardar();
+                worker.RunWorkerAsync();
+                toolStripButton1.Enabled = false;
+                buildToolStripMenuItem.Enabled = false;
+            }
         }
     }
 }

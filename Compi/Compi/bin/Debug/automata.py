@@ -1,12 +1,13 @@
 import os
 import sys
-especiales=["{", "}","(",")",";",":","&",","]
+especiales=["{", "}","(",")",";",":",","]
 operadores=["*","%"]
 reservadas=["main","if","then","else","end","do","while","repeat","until","cin","cout","real","int", "boolean"]
 ignorar=['\n','\t'," ",'\xef','\xbb','\xbf']
 ncol=0
 nfil=0
 max=0
+max_viejo=0
 linea_actual=""
 Token_externo = {
     "tipo": "",
@@ -15,16 +16,32 @@ Token_externo = {
 estado="START"
 
 def get_character(linea):
-    global ncol, nfil, estado, linea_actual, max
+    global ncol, nfil, estado, linea_actual, max, max_viejo
     if (ncol==0 or ncol==max):
         linea_actual=linea.readline()
         if linea_actual != "":
             ncol=0
             nfil+=1
+            max_viejo=max
             max=len(linea_actual)
         else:
             estado="END"
             return "EOF"
+
+    c=linea_actual[ncol]
+    ncol+=1
+    return c
+
+def unget_character(linea):
+    global ncol, nfil, estado, linea_actual, max, max_viejo
+    if (ncol==0):
+        ncol=max_viejo
+        nfil-=1
+        return max_viejo
+    else:
+        regresar=ncol - 1
+        ncol-=1
+        return regresar
 
     c=linea_actual[ncol]
     ncol+=1
@@ -101,7 +118,7 @@ def iden_lex(linea):
                 Token["lexema"] += c
                 c=get_character(linea)
             else:
-                ncol -=1
+                unget_character(linea)
                 estado="END"
         elif estado == "SLASH":
             if c=="/":
@@ -126,7 +143,7 @@ def iden_lex(linea):
             else:
                 Token["tipo"]="OPERADOR"
                 estado="END"
-                ncol-=1
+                unget_character(linea)
         elif estado == "ADD":
             if(c=="+"):
                 Token["tipo"]="OPERADOR"
@@ -140,7 +157,7 @@ def iden_lex(linea):
             else:
                 Token["tipo"] = "OPERADOR"
                 estado="END"
-                ncol -=1
+                unget_character(linea)
         elif estado == "MINUS":
             if (c == "-"):
                 Token["tipo"] = "OPERADOR"
@@ -153,11 +170,12 @@ def iden_lex(linea):
             else:
                 estado = "END"
                 Token["tipo"] = "OPERADOR"
-                ncol -=1
+                unget_character(linea)
         elif estado=="ENTERO":
             while(c.isdigit() ):
                 Token["lexema"] += c
                 c=get_character(linea)
+                
             if c==".":
                 Token["lexema"] += c
                 c=get_character(linea)
@@ -169,15 +187,16 @@ def iden_lex(linea):
                         c=get_character(linea)
                     estado="END"
                     Token["tipo"] = "REAL"
-                    ncol -=1
+                    unget_character(linea)
                 else:
                     estado="END"
                     Token["tipo"] = "ERROR"
-                    c=get_character(linea)
+                    unget_character(linea)
+                    #c=get_character(linea)
             else:
                 estado="END"
                 Token["tipo"] = "ENTERO"
-                ncol -=1
+                unget_character(linea)
 
         elif estado=="EQ":
             if c=="=":
@@ -187,7 +206,7 @@ def iden_lex(linea):
             else:
                 estado = "END"
                 Token["tipo"] = "ERROR"
-                ncol -=1
+                unget_character(linea)
         elif estado=="LT":
             Token["tipo"] = "OPERADOR"
             if c=="=":
@@ -195,7 +214,7 @@ def iden_lex(linea):
                 estado = "END"
             else:
                 estado = "END"
-                ncol -=1
+                unget_character(linea)
         elif estado=="HT":
             Token["tipo"] = "OPERADOR"
             if c=="=":
@@ -203,7 +222,7 @@ def iden_lex(linea):
                 estado = "END"
             else:
                 estado = "END"
-                ncol -=1
+                unget_character(linea)
         elif estado=="ASSIGN":
             if c=="=":
                 Token["tipo"] = "OPERADOR"
@@ -211,7 +230,7 @@ def iden_lex(linea):
                 estado = "END"
             else:
                 estado = "END"
-                ncol -=1
+                unget_character(linea)
         elif estado=="NEQ":
             if c=="=":
                 Token["tipo"] = "OPERADOR"
@@ -219,7 +238,7 @@ def iden_lex(linea):
                 estado = "END"
             else:
                 estado = "END"
-                ncol -=1
+                unget_character(linea)
 
     if reservadas.__contains__(Token["lexema"]):
         Token["tipo"]="RESERVADAS"
