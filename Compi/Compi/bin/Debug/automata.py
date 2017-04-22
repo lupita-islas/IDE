@@ -124,7 +124,7 @@ def iden_lex(linea):
             if c=="/":
                 Token["lexema"] =""
                 c=get_character(linea)
-                while c!='\n' or c!="EOF":
+                while (c!='\n' and c!="EOF"):
                     c=get_character(linea)
                 estado = "START"
                 if c=="EOF":
@@ -135,8 +135,8 @@ def iden_lex(linea):
                 Token["lexema"] = ""
                 c=get_character(linea)
                 hecho=False
-                while hecho==False or c!="EOF":
-                    while (c!="*" or c!="EOF"):
+                while hecho==False and c!="EOF":
+                    while (c!="*" and c!="EOF"):
                         c=get_character(linea)
                     while (c=="*"):
                         c=get_character(linea)
@@ -251,11 +251,11 @@ def iden_lex(linea):
         Token["tipo"]="RESERVADAS"
     return (Token)
 
-#archivo = open("texto", "r")
+archivo = open("falla.mcp", "r")
 
 
 
-archivo= open(sys.argv[1],"r")
+#archivo= open(sys.argv[1],"r")
 
 
 error =archivo.name.replace("mcp","err")
