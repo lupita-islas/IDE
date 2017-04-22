@@ -124,7 +124,7 @@ def iden_lex(linea):
             if c=="/":
                 Token["lexema"] =""
                 c=get_character(linea)
-                while c!='\n':
+                while c!='\n' or c!="EOF":
                     c=get_character(linea)
                 estado="START"
             elif c=="*":
@@ -136,7 +136,7 @@ def iden_lex(linea):
                         c=get_character(linea)
                     while (c=="*"):
                         c=get_character(linea)
-                    if(c=="/"):
+                    if(c=="/" or c=="EOF"):
                         hecho=True
                         c = get_character(linea)
                 estado="START"
