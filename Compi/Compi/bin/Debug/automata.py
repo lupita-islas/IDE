@@ -237,6 +237,7 @@ def iden_lex(linea):
                 estado = "END"
             else:
                 estado = "END"
+                Token["tipo"] = "ERROR"
                 unget_character(linea)
         elif estado=="NEQ":
             if c=="=":
