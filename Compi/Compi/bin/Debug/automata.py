@@ -126,20 +126,27 @@ def iden_lex(linea):
                 c=get_character(linea)
                 while c!='\n' or c!="EOF":
                     c=get_character(linea)
-                estado="START"
+                estado = "START"
+                if c=="EOF":
+                    estado = "END"
+                    Token["tipo"] = "EOF"
+
             elif c=="*":
                 Token["lexema"] = ""
                 c=get_character(linea)
                 hecho=False
-                while hecho==False:
-                    while (c!="*"):
+                while hecho==False or c!="EOF":
+                    while (c!="*" or c!="EOF"):
                         c=get_character(linea)
                     while (c=="*"):
                         c=get_character(linea)
-                    if(c=="/" or c=="EOF"):
+                    if(c=="/"):
                         hecho=True
                         c = get_character(linea)
                 estado="START"
+                if (c == "EOF"):
+                    estado = "END"
+                    Token["tipo"] = "EOF"
             else:
                 Token["tipo"]="OPERADOR"
                 estado="END"
@@ -250,7 +257,7 @@ def iden_lex(linea):
 
 archivo= open(sys.argv[1],"r")
 
-Token_externo=iden_lex(archivo)
+
 error =archivo.name.replace("mcp","err")
 if os.path.exists(error):
     os.remove(error)
@@ -264,6 +271,7 @@ if os.path.exists(final):
 else:
     final = open(final, "w+")
 
+Token_externo=iden_lex(archivo)
 while(Token_externo["tipo"]!="EOF"):
     print Token_externo
     if Token_externo["tipo"]=="ERROR":
