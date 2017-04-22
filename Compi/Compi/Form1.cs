@@ -23,7 +23,7 @@ namespace Compi
         private Thread hilo, hilo2;
         private String filepath = "";
         private BackgroundWorker worker;
-        private const string PYTHON = @"C:\Python27\pythonw.exe";
+        private const string PYTHON = @"C:\Python27\python.exe";
         public Form1()
         {
             InitializeComponent();
@@ -88,7 +88,7 @@ namespace Compi
             TextArea.Styles[Style.LineNumber].BackColor = IntToColor(BACK_COLOR);
             TextArea.Styles[Style.LineNumber].ForeColor = IntToColor(FORE_COLOR);
             var nums = TextArea.Margins[NUMBER_MARGIN];
-            nums.Width = 30;
+            nums.Width = 60;
             nums.Type = MarginType.Number;
             nums.Mask = 0;
         }
@@ -311,7 +311,7 @@ namespace Compi
             {
                 error = FileName.Replace("mcp", "err");
                 final = FileName.Replace("mcp", "fin");
-            }catch(Exception e)
+            } catch (Exception e)
             {
 
             }
@@ -321,25 +321,20 @@ namespace Compi
             ProcessStartInfo cmd = new ProcessStartInfo();
 
             //  cmd.StartInfo.FileName = "cmd.exe";
-            cmd.FileName = @"C:\Python27\pythonw.exe";
+            cmd.FileName = @"C:\Python27\python.exe";
             cmd.Arguments = " automata.py " + FileName;
+            cmd.RedirectStandardOutput = true;
+            cmd.UseShellExecute = false;
+            cmd.CreateNoWindow = true;
             Process proc = new Process();
-            proc.StartInfo=cmd;
+            proc.StartInfo = cmd;
             proc.Start();
-            proc.WaitForExit(); 
-            
+            var ou = proc.StandardOutput.ReadToEnd();
+            proc.WaitForExit();
 
-
-
-
-
-
-
-
-
-
-
-           // cmd.StartInfo.RedirectStandardInput = true;
+            Console.WriteLine(ou);
+            Console.ReadLine(); 
+            // cmd.StartInfo.RedirectStandardInput = true;
            // cmd.StartInfo.RedirectStandardOutput = true;
             //cmd.StartInfo.CreateNoWindow = true;
             //cmd.StartInfo.UseShellExecute = false;
@@ -440,6 +435,11 @@ namespace Compi
         void worker_ProgressChanged(object s, ProgressChangedEventArgs e)
         {
             
+        }
+
+        private void TextPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

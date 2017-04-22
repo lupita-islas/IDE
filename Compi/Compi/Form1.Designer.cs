@@ -230,20 +230,20 @@
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // buildToolStripMenuItem
             // 
             this.buildToolStripMenuItem.Image = global::Compi.Properties.Resources.compi;
             this.buildToolStripMenuItem.Name = "buildToolStripMenuItem";
-            this.buildToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.buildToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.buildToolStripMenuItem.Text = "Build";
             this.buildToolStripMenuItem.Click += new System.EventHandler(this.buildToolStripMenuItem_Click);
             // 
@@ -427,10 +427,10 @@
             // lexicErr
             // 
             this.lexicErr.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lexicErr.Enabled = false;
             this.lexicErr.Location = new System.Drawing.Point(0, 0);
             this.lexicErr.Multiline = true;
             this.lexicErr.Name = "lexicErr";
+            this.lexicErr.ReadOnly = true;
             this.lexicErr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.lexicErr.Size = new System.Drawing.Size(324, 216);
             this.lexicErr.TabIndex = 0;
@@ -486,6 +486,7 @@
             this.lexicoText.Location = new System.Drawing.Point(0, 0);
             this.lexicoText.Multiline = true;
             this.lexicoText.Name = "lexicoText";
+            this.lexicoText.ReadOnly = true;
             this.lexicoText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.lexicoText.Size = new System.Drawing.Size(320, 234);
             this.lexicoText.TabIndex = 0;
