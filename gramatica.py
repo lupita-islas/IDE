@@ -1,13 +1,19 @@
 nombre=""
 archivo=open(nombre,'r')
 global lineas
+global lineas[0]
 
-def leer():
-    linea=archivo.readline()
-    lineas=linea.split(" ")
-    return lineas
+def leer(token):
+    if(lineas[0] == token ):
+        linea=archivo.readline()
+        lineas=linea.split(" ")
+        #lineas[0]=linea[0]
+        #return lineas #lineas con 0=token 1=lexema
+    else:
+        error()
 
-def principalMain():
+def principalMain(): #checar
+    leer ("main")
     listaDeclaracion()
     listaSentencias()
 
@@ -18,8 +24,9 @@ def listaDeclaracion():
 
 def declaracion():
     tipo()
+    listaVariables()
 
-def tipo():
+def tipo(): #checar
     if(leer().__contains__("int") or leer().__contains__("float") or leer().__contains__("boolean")):
         #aqui hacer algo XD
         listaVariables()
@@ -34,43 +41,57 @@ def listaSentencias():
 
 def sentencia():
 
-    if(leer().__contains__("seleccion")):
+    if(lineas[0]=="if"):
         seleccionIF()
-    if(leer().__contains__("iteracion")):#while
+    if(lineas[0]=="while"):#while
         iteracionWhile()
-    elif(leer().__contains__("repeticion")): #for
+    elif(lineas[0]=="do"): #for
         repeticionDoUntil()
-    elif(leer().__contains__("sent-cin")): #CIN
+    elif(lineas[0]=="cin"): #CIN
         sentCin()
-    elif(leer().__contains__("sent-out")):
+    elif(lineas[0]=="cout"):
         sentCout()
-    else:
+    elif (lineas[1] == "IDENTIFICADOR"):#identificador CHECAR
+        sentCout()
+    else: #bloque
         bloque()
 
 def seleccionIF():
-    expresion()
-    if(leer().__contains__("then")):
-            bloque()
-   #Aqui poner la condicion de paro
-    if(leer().__contains__("else")):
-            bloque()
+    leer("if")
+    leer ("(")
+    #nodo padre
+    expresion() #nodo hijo primero
+    leer(")")
+    bloque() #hijo dos
+    if(lineas[0]=="else"):
+            leer("else")
+            bloque() #nodo hijo tres
 
 def iteracionWhile():
-    expresion()
-    bloque()
+    leer("while") #nodo padre
+    leer("(")
+    expresion() #nodo hijo 1
+    leer(")")
+    bloque() #nodo hijo 2
 
 def repeticionDoUntil():
-    bloque()
-    if(leer().__contains__("until")):
-        expresion()
-    else:
-        print ("error")
+    leer("do") #nodo padre
+    bloque() #nodo hijo 1
+    leer("until")
+    leer ("(")
+    expresion() #nodo hijo 2
+    leer(")")
+    leer(";")
 
-def sentCin():
-    identificador()
+def sentCin(): #es solo el nodo padre
+    leer("cin") #nodo padre
+    identificador() #lo que lee es su atributo o nombre
+    leer(";")
 
 def sentCout():
-   expresion()
+    leer("cout") #nodo padre
+    expresion() #nodo hijo
+    leer(";")
 
 def bloque():
     #while(True): #Cambiar condicion de paro
@@ -85,9 +106,7 @@ def asignacion():
 
 def expresion():
     expresionSimple()
-    if(leer().__contains__("<=") or leer().__contains__("<") or
-     leer().__contains__(">") or leer().__contains__(">=") or
-    leer().__contains__("=") or leer().__contains__("!=")):
+    if(lineas[0]=="<=" or lineas[0]=="<" or lineas[0]==">" or lineas[0]==">=" or lineas[0] =="=" or lineas[0]=="!="):
         expresionSimple()
 
 def expresionSimple():
