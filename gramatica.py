@@ -1,8 +1,11 @@
+from anytree import Node,RenderTree
 nombre=""
 archivo=open(nombre,'r')
 global lineas
-global lineas[0]
-
+lineas = [0]
+#global lineas[0]
+global nodos
+nodos = [0]
 def leer(token):
     if(lineas[0] == token ):
         linea=archivo.readline()
@@ -18,9 +21,10 @@ def principalMain(): #checar
     listaSentencias()
 
 def listaDeclaracion():
-
+     nodos.insert(Node("Declaracion"))
+     Node("Padre")
     #while var==0: #Mientras la declaracion sea vacia
-        declaracion()
+     declaracion()
 
 def declaracion():
     tipo()
