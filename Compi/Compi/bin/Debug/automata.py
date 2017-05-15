@@ -237,7 +237,6 @@ def iden_lex(linea):
                 estado = "END"
             else:
                 estado = "END"
-                Token["tipo"] = "ERROR"
                 unget_character(linea)
         elif estado=="NEQ":
             if c=="=":
@@ -252,14 +251,22 @@ def iden_lex(linea):
         Token["tipo"]="RESERVADAS"
     return (Token)
 
-archivo = open("falla.mcp", "r")
+#archivo = open("falla.mcp", "r")
 
 
 
-#archivo= open(sys.argv[1],"r")
+archivo= open(sys.argv[1],"r")
 
 
 error =archivo.name.replace("mcp","err")
+volcado=archivo.name.replace("mcp","vol")
+
+if os.path.exists(volcado):
+    os.remove(volcado)
+    archivoVolc = open(volcado,"w+")
+else:
+    archivoVolc = open(volcado, "w+")
+
 if os.path.exists(error):
     os.remove(error)
     archivoErr = open(error,"w+")
@@ -275,6 +282,32 @@ else:
 Token_externo=iden_lex(archivo)
 while(Token_externo["tipo"]!="EOF"):
     print Token_externo
+    
+   
+    if Token_externo["tipo"]=="OPERADOR" and Token_externo["lexema"]=="++":
+        archivoVolc.write("+")
+        archivoVolc.write("\t")
+        archivoVolc.write("OPERADOR")
+        archivoVolc.write("\n")
+        archivoVolc.write("1")
+        archivoVolc.write("\t")
+        archivoVolc.write("ENTERO")
+        archivoVolc.write("\n")
+    elif Token_externo["tipo"]=="OPERADOR" and Token_externo["lexema"]=="--":
+        archivoVolc.write("+")
+        archivoVolc.write("\t")
+        archivoVolc.write("OPERADOR")
+        archivoVolc.write("\n")
+        archivoVolc.write("1")
+        archivoVolc.write("\t")
+        archivoVolc.write("ENTERO")
+        archivoVolc.write("\n")
+    else:
+        archivoVolc.write(Token_externo["lexema"])
+        archivoVolc.write("\t")
+        archivoVolc.write(Token_externo["tipo"])
+        archivoVolc.write("\n")
+        
     if Token_externo["tipo"]=="ERROR":
         
         archivoErr.write(Token_externo["lexema"])
@@ -284,6 +317,8 @@ while(Token_externo["tipo"]!="EOF"):
         archivoErr.write(" Columna:%d" % ncol)
         archivoErr.write("\n")
 
+        
+
     elif Token_externo["tipo"]!="":
          final.write(Token_externo["lexema"])
          final.write("\t")
@@ -291,5 +326,6 @@ while(Token_externo["tipo"]!="EOF"):
        
          final.write("\n")
 
+    
     Token_externo = iden_lex(archivo)
 archivo.close()
