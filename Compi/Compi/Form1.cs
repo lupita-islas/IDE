@@ -442,6 +442,11 @@ namespace Compi
 
         }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("IDE Hecho por: \n Ruth Guadalupe Islas Ortega \n César Omar Rodríguez Huerta \n Todos Los Derechos Reservados 2017\n UAA","INFO",MessageBoxButtons.OK);
+        }
+
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             lexico();

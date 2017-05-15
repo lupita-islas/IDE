@@ -1,8 +1,10 @@
+from anytree import Node,RenderTree
 nombre=""
 archivo=open(nombre,'r')
 token=""
 ERROR="False"
 global lineas
+<<<<<<< HEAD
 global token
 global ERROR
 
@@ -91,6 +93,18 @@ def comparar(token_esperado):
     global token
     if (token==token_esperado):
         token=leer()
+=======
+lineas = [0]
+#global lineas[0]
+global nodos
+nodos = [0]
+def leer(token):
+    if(lineas[0] == token ):
+        linea=archivo.readline()
+        lineas=linea.split(" ")
+        #lineas[0]=linea[0]
+        #return lineas #lineas con 0=token 1=lexema
+>>>>>>> origin/master
     else:
         error()
 
@@ -102,6 +116,7 @@ def leer():
      else:
          return lineas[1] #lineas con 0=token 1=lexema
 
+<<<<<<< HEAD
 def principalMain(): #checar
     global token
     token=leer();
@@ -117,6 +132,95 @@ def listaDeclaracion(synchset):
     verificar(P_LISTA_DECLARACION,synchset)
     if not token in synchset:
         while(token in P_LISTA_DECLARACION):
+=======
+def listaDeclaracion():
+     nodos.insert(Node("Declaracion"))
+     Node("Padre")
+    #while var==0: #Mientras la declaracion sea vacia
+     declaracion()
+
+def declaracion():
+    tipo()
+    listaVariables()
+
+def tipo(): #checar
+    if(leer().__contains__("int") or leer().__contains__("float") or leer().__contains__("boolean")):
+        #aqui hacer algo XD
+        listaVariables()
+
+
+def listaVariables():
+    while(leer().__contains__("IDENTIFICADOR")): #Ver condicion de paro
+        identificador()
+
+def listaSentencias():
+    sentencia()
+
+def sentencia():
+
+    if(lineas[0]=="if"):
+        seleccionIF()
+    if(lineas[0]=="while"):#while
+        iteracionWhile()
+    elif(lineas[0]=="do"): #for
+        repeticionDoUntil()
+    elif(lineas[0]=="cin"): #CIN
+        sentCin()
+    elif(lineas[0]=="cout"):
+        sentCout()
+    elif (lineas[1] == "IDENTIFICADOR"):#identificador CHECAR
+        sentCout()
+    else: #bloque
+        bloque()
+
+def seleccionIF():
+    leer("if")
+    leer ("(")
+    #nodo padre
+    expresion() #nodo hijo primero
+    leer(")")
+    bloque() #hijo dos
+    if(lineas[0]=="else"):
+            leer("else")
+            bloque() #nodo hijo tres
+
+def iteracionWhile():
+    leer("while") #nodo padre
+    leer("(")
+    expresion() #nodo hijo 1
+    leer(")")
+    bloque() #nodo hijo 2
+
+def repeticionDoUntil():
+    leer("do") #nodo padre
+    bloque() #nodo hijo 1
+    leer("until")
+    leer ("(")
+    expresion() #nodo hijo 2
+    leer(")")
+    leer(";")
+
+def sentCin(): #es solo el nodo padre
+    leer("cin") #nodo padre
+    identificador() #lo que lee es su atributo o nombre
+    leer(";")
+
+def sentCout():
+    leer("cout") #nodo padre
+    expresion() #nodo hijo
+    leer(";")
+
+def bloque():
+    #while(True): #Cambiar condicion de paro
+    listaSentencias()
+
+def asignacion():
+    if(leer().__contains__("IDENTIFICADOR")):
+        if(leer().__contains__(":=")):
+            expresion()
+        else:
+            print("Error") ##Aqui ver los errores
+>>>>>>> origin/master
 
             declaracion(S_DECLARACION)
             comparar(";")
