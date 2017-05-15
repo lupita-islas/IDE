@@ -112,6 +112,7 @@ def principalMain(): #checar
     comparar("}")
 
 def listaDeclaracion(synchset):
+    global token
     #while var==0: #Mientras la declaracion sea vacia
     verificar(P_LISTA_DECLARACION,synchset)
     if not token in synchset:
@@ -122,6 +123,7 @@ def listaDeclaracion(synchset):
             verificar(synchset,P_LISTA_DECLARACION)
 
 def declaracion(synchset):
+    global token
     verificar(P_DECLARACION,synchset)
     if not token in synchset:
         tipo(S_TIPO)
@@ -129,6 +131,7 @@ def declaracion(synchset):
         verificar(synchset,P_DECLARACION)
 
 def tipo(synchset): #checar
+    global token
     verificar(P_TIPO,synchset)
     if not token in synchset:
         if token=="int":
@@ -141,6 +144,7 @@ def tipo(synchset): #checar
 
 
 def listaVariables(synchset):
+    global token
     verificar(P_LSTA_VAR,synchset)
     if not token in synchset:
         while(token in P_LSTA_VAR):
@@ -153,6 +157,7 @@ def listaVariables(synchset):
 
 
 def listaSentencias(synchset):
+    global token
     verificar(P_LSTA_SENT,synchset)
     if not token in synchset:
         while(token in P_LSTA_SENT):
@@ -160,6 +165,7 @@ def listaSentencias(synchset):
         verificar(synchset,P_LSTA_SENT)
 
 def sentencia(synchset):
+    global token
     verificar(P_SENT,synchset)
     if not token in synchset:
         if(token=="if"):
@@ -195,6 +201,7 @@ def seleccionIF(synchset):
         verificar(synchset,P_SEL)
 
 def iteracionWhile(synchset):
+    global token
     verificar(P_ITERACION,synchset)
     if not token in synchset:
         comparar("while") #nodo padre
@@ -205,6 +212,7 @@ def iteracionWhile(synchset):
         verificar(synchset,P_ITERACION)
 
 def repeticion(synchset):
+    global token
     verificar(P_REPET,synchset)
     if not token in synchset:
         comparar("repeat") #nodo padre
@@ -217,6 +225,7 @@ def repeticion(synchset):
         verificar(synchset,P_REPET)
 
 def sentCin(synchset): #es solo el nodo padre
+    global token
     verificar(P_SENT_CIN,synchset)
     if not token in synchset:
         comparar("cin") #nodo padre
@@ -225,6 +234,7 @@ def sentCin(synchset): #es solo el nodo padre
         verificar(synchset,P_SENT_CIN)
 
 def sentCout(synchset):
+    global token
     verificar(P_SENT_COUT,synchset)
     if not token in synchset:
         comparar("cout") #nodo padre
@@ -232,6 +242,7 @@ def sentCout(synchset):
         comparar(";")
 
 def bloque(synchset):
+    global token
     verificar(P_BLOQUE, synchset)
     if not token in synchset:
         comparar("{")
