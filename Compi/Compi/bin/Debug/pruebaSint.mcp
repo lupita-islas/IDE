@@ -1,0 +1,7 @@
+﻿main{
+int a,b,c;
+if(a>=b) then 
+    c=4;
+    
+    
+}
