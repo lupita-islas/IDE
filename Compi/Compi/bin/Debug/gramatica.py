@@ -106,89 +106,98 @@ def leer():
         return lineas[0]  # lineas con 0=token 1=lexema
 
 
-def principalMain():  # checar
+def principalMain(synchset):  # checar
     global token
-    token = leer();
-    comparar("main")
-    comparar("{")
-    listaDeclaracion(S_LIST_DEC)
-    listaSentencias(S_LISTA_SENTENCIAS)
-    comparar("}")
+    verificar (P_PROGRAMA, synchset)
+    if token in P_PROGRAMA:
+        token = leer();
+        comparar("main")
+        comparar("{")
+        listaDeclaracion(S_LIST_DEC)
+        listaSentencias(S_LISTA_SENTENCIAS)
+        comparar("}")
+    verificar(synchset,P_PROGRAMA)
 
 
 def listaDeclaracion(synchset):
     global token
     # while var==0: #Mientras la declaracion sea vacia
     verificar(P_LISTA_DECLARACION, synchset)
-    if not token in synchset:
+    #if not token in synchset:
+    if token in P_LISTA_DECLARACION:
         while (token in P_LISTA_DECLARACION):
             declaracion(S_DECLARACION)
             comparar(";")
-            verificar(synchset, P_LISTA_DECLARACION)
+    verificar(synchset, P_LISTA_DECLARACION)
 
 
 def declaracion(synchset):
     global token
     verificar(P_DECLARACION, synchset)
-    if not token in synchset:
+    #if not token in synchset:
+    if token in P_DECLARACION:
         tipo(S_TIPO)
         listaVariables(S_LISTA_VARIABLES)
-        verificar(synchset, P_DECLARACION)
+    verificar(synchset, P_DECLARACION)
 
 
 def tipo(synchset):  # checar
     global token
     verificar(P_TIPO, synchset)
-    if not token in synchset:
+    #if not token in synchset:
+    if token in P_TIPO:
         if token == "int":
             comparar("int")
         elif token == "real":
             comparar("real")
         elif token == "boolean":
             comparar("boolean")
-        verificar(synchset, P_TIPO)
+    verificar(synchset, P_TIPO)
 
 
 def listaVariables(synchset):
     global token
     verificar(P_LSTA_VAR, synchset)
-    if not token in synchset:
+    #if not token in synchset:
+    if token in P_LSTA_VAR:
         while (token in P_LSTA_VAR):
             comparar("IDENTIFICADOR")
             if (token != ","):
                 break
             else:
                 comparar(",")
-        verificar(synchset, P_LSTA_VAR)
+    verificar(synchset, P_LSTA_VAR)
 
 
 def listaSentencias(synchset):
     global token
     verificar(P_LSTA_SENT, synchset)
-    if not token in synchset:
+    #if not token in synchset:
+    if token in P_LSTA_SENT:
         while (token in P_LSTA_SENT):
             sentencia(S_SENTENCIA)
-        verificar(synchset, P_LSTA_SENT)
+    verificar(synchset, P_LSTA_SENT)
 
 
 def sentencia(synchset):
     global token
     verificar(P_SENT, synchset)
     # if not token in synchset:
-    if (token == "if"):
-        seleccionIF(S_SELECCION)
-    if (token == "while"):  # while
-        iteracionWhile(S_ITERACION)
-    elif (token == "repeat"):  # for
-        repeticion(S_REPETICION)
-    elif (token == "cin"):  # CIN
-        sentCin(S_CIN)
-    elif (token == "cout"):
-        sentCout(S_COUT)
-    elif (token == "IDENTIFICADOR"):  # identificador CHECAR
-        sentCout(S_IDENTIFICADOR)
-    else:  # bloque
-        bloque(S_BLOQUE)
+    if token in P_SENT:
+        if (token == "if"):
+            seleccionIF(S_SELECCION)
+        if (token == "while"):  # while
+            iteracionWhile(S_ITERACION)
+        elif (token == "repeat"):  # for
+            repeticion(S_REPETICION)
+        elif (token == "cin"):  # CIN
+            sentCin(S_CIN)
+        elif (token == "cout"):
+            sentCout(S_COUT)
+        elif (token == "IDENTIFICADOR"):  # identificador CHECAR
+            sentCout(S_IDENTIFICADOR)
+        else:  # bloque
+            bloque(S_BLOQUE)
     verificar(synchset, P_SENT)
 
 
@@ -196,16 +205,17 @@ def seleccionIF(synchset):
     global token
     verificar(P_SEL, synchset)
     # if not token in synchset:
-    comparar("if")
-    comparar("(")
-    # nodo padre
-    expresion(S_EXPRESION)  # nodo hijo primero
-    comparar(")")
-    comparar("then")
-    bloque(S_BLOQUE)  # hijo dos
-    if (token == "else"):
-        comparar("else")
-        bloque(S_BLOQUE)  # nodo hijo tres
+    if token in P_SEL:
+        comparar("if")
+        comparar("(")
+        # nodo padre
+        expresion(S_EXPRESION)  # nodo hijo primero
+        comparar(")")
+        comparar("then")
+        bloque(S_BLOQUE)  # hijo dos
+        if (token == "else"):
+            comparar("else")
+            bloque(S_BLOQUE)  # nodo hijo tres
     verificar(synchset, P_SEL)
 
 
@@ -213,11 +223,12 @@ def iteracionWhile(synchset):
     global token
     verificar(P_ITERACION, synchset)
     # if not token in synchset:
-    comparar("while")  # nodo padre
-    comparar("(")
-    expresion(S_EXPRESION)  # nodo hijo 1
-    comparar(")")
-    bloque(S_BLOQUE)  # nodo hijo 2
+    if token in P_ITERACION:
+        comparar("while")  # nodo padre
+        comparar("(")
+        expresion(S_EXPRESION)  # nodo hijo 1
+        comparar(")")
+        bloque(S_BLOQUE)  # nodo hijo 2
     verificar(synchset, P_ITERACION)
 
 
@@ -225,13 +236,14 @@ def repeticion(synchset):
     global token
     verificar(P_REPET, synchset)
     # if not token in synchset:
-    comparar("repeat")  # nodo padre
-    bloque(S_BLOQUE)  # nodo hijo 1
-    comparar("until")
-    comparar("(")
-    expresion(S_EXPRESION)  # nodo hijo 2
-    comparar(")")
-    comparar(";")
+    if token in P_REPET:
+        comparar("repeat")  # nodo padre
+        bloque(S_BLOQUE)  # nodo hijo 1
+        comparar("until")
+        comparar("(")
+        expresion(S_EXPRESION)  # nodo hijo 2
+        comparar(")")
+        comparar(";")
     verificar(synchset, P_REPET)
 
 
@@ -239,9 +251,10 @@ def sentCin(synchset):  # es solo el nodo padre
     global token
     verificar(P_SENT_CIN, synchset)
     # if not token in synchset:
-    comparar("cin")  # nodo padre
-    comparar("IDENTIFICADOR")  # lo que lee es su atributo o nombre
-    comparar(";")
+    if token in P_SENT_CIN:
+        comparar("cin")  # nodo padre
+        comparar("IDENTIFICADOR")  # lo que lee es su atributo o nombre
+        comparar(";")
     verificar(synchset, P_SENT_CIN)
 
 
@@ -249,18 +262,20 @@ def sentCout(synchset):
     global token
     verificar(P_SENT_COUT, synchset)
     # if not token in synchset:
-    comparar("cout")  # nodo padre
-    expresion(S_EXPRESION)  # nodo hijo
-    comparar(";")
-
+    if token in P_SENT_COUT:
+        comparar("cout")  # nodo padre
+        expresion(S_EXPRESION)  # nodo hijo
+        comparar(";")
+    verificar(synchset,P_SENT_COUT)
 
 def bloque(synchset):
     global token
     verificar(P_BLOQUE, synchset)
     # if not token in synchset:
-    comparar("{")
-    listaSentencias(S_LISTA_SENTENCIAS)
-    comparar("}")
+    if token in P_BLOQUE:
+        comparar("{")
+        listaSentencias(S_LISTA_SENTENCIAS)
+        comparar("}")
     verificar(synchset, P_BLOQUE)
 
 
@@ -268,28 +283,31 @@ def asignacion(synchset):
     global token
     verificar(P_ASIGN, synchset)
     # if not token in synchset:
-    comparar("IDENTIFICADOR")
-    comparar(":=")
-    expresion(S_EXPRESION)
-    comparar(";")
+    if token in P_ASIGN:
+        comparar("IDENTIFICADOR")
+        comparar(":=")
+        expresion(S_EXPRESION)
+        comparar(";")
     verificar(synchset, P_ASIGN)
 
 
 def expresion(synchset):
     global token
     verificar(P_EXP, synchset)
-    if not token in synchset:
+    #if not token in synchset:
+    if token in P_EXP:
         expresionSimple(S_EXPRESION_SIMPLE)
         if (token in P_REL):
             comparar(token)
             expresionSimple(S_EXPRESION_SIMPLE)
-        verificar(synchset, P_EXP)
+    verificar(synchset, P_EXP)
 
 
 def expresionSimple(synchset):
     global token
     verificar(P_EXP_SIM, synchset)
-    if not token in synchset:
+    if token in P_EXP_SIM:
+    #if not token in synchset:
         termino(S_TERMINO)
         while (token == "+" or token == "-"):
             if token == "+":
@@ -297,13 +315,14 @@ def expresionSimple(synchset):
             elif token == "-":
                 comparar("-")
             termino(S_TERMINO)
-        verificar(synchset, P_EXP_SIM)
+    verificar(synchset, P_EXP_SIM)
 
 
 def termino(synchset):
     global token
     verificar(P_TERM, synchset)
-    if not token in synchset:
+    #if not token in synchset:
+    if token in P_TERM:
         factor(S_FACTOR)
         while (token == "/" or token == "*"):
             if token == "/":
@@ -311,13 +330,14 @@ def termino(synchset):
             elif token == "*":
                 comparar("*")
             factor(S_FACTOR)
-        verificar(synchset, P_TERM)
+    verificar(synchset, P_TERM)
 
 
 def factor(synchset):
     global token
     verificar(P_FACT, synchset)
-    if not token in synchset:
+    if token in P_FACT:
+    #if not token in synchset:
         if (token == "("):
             comparar("(")
             expresion(S_EXPRESION)
@@ -328,7 +348,7 @@ def factor(synchset):
             comparar("ENTERO")
         else:
             comparar("IDENTIFICADOR")
-        verificar(synchset, P_FACT)
+    verificar(synchset, P_FACT)
 
 
-principalMain()
+principalMain(S_PROGRAMA)
