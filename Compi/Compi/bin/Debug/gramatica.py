@@ -1,11 +1,17 @@
 import sys
-
+import os
 # nombre=sys.argv[1]
 nombre = "pruebaSint.vol"
 archivo = open(nombre, 'r')
-
+nombreError=nombre.replace("vol","errS")
+if os.path.exists(nombreError):
+    os.remove(nombreError)
+    archivoError = open(nombreError, "w+")
+else:
+    archivoError= open(nombreError,"w+")
 token = ""
 ERROR = "False"
+
 # global lineas
 # global token
 # global ERROR
@@ -77,9 +83,14 @@ def scanto(synchset):
 
 
 def error():
-    global ERROR
-    print ("Error")
+    global ERROR,lineas, fila_anterior, col_anterior
 
+    if(lineas[2]!=fila_anterior and lineas[3]!=col_anterior):
+        print ("Error")
+        archivoError.write("Error en linea ->")
+        archivoError.write(lineas[2]+","+lineas[3])
+        fila_anterior=lineas[2]
+        col_anterior=lineas[3]
     # error en linea->lineas[2] y columna-> lineas[3]
     # error=lineas[0]
     # ERROR="True"
@@ -95,22 +106,24 @@ def comparar(token_esperado):
 
 
 def leer():
-    global archivo
+    global archivo,lineas
     linea = archivo.readline()
     if(linea!= ""):
         lineas = linea.split("\t")
 
         #if ((lineas[1] == 'IDENTIFICADOR\n') or (lineas[1] == 'REAL\n') or (lineas[1] == 'ENTERO\n') or (lineas[1] == 'OPERADOR\n')):
-        if ((lineas[1] == 'IDENTIFICADOR\n') or (lineas[1] == 'REAL\n') or (lineas[1] == 'ENTERO\n')):
-            line = lineas[1].split("\n")
-            return line[0]
+        if ((lineas[1] == 'IDENTIFICADOR') or (lineas[1] == 'REAL') or (lineas[1] == 'ENTERO')):
+            #line = lineas[1].split("\t")
+            return lineas[1]
         else:
             return lineas[0]  # lineas con 0=token 1=lexema
     else:
         return "$"
 
 def principalMain(synchset):  # checar
-    global token
+    global token, fila_anterior, col_anterior
+    fila_anterior= -1
+    col_anterior=-1
     token = leer();
     verificar (P_PROGRAMA, synchset)
     if token in P_PROGRAMA:
@@ -358,3 +371,4 @@ def factor(synchset):
 
 principalMain(S_PROGRAMA)
 archivo.close()
+archivoError.close()

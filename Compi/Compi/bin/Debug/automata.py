@@ -302,11 +302,11 @@ while(Token_externo["tipo"]!="EOF"):
         archivoVolc.write("\t")
         archivoVolc.write("ENTERO")
         archivoVolc.write("\n")
-    else:
-        archivoVolc.write(Token_externo["lexema"])
-        archivoVolc.write("\t")
-        archivoVolc.write(Token_externo["tipo"])
-        archivoVolc.write("\n")
+    ##else:
+       ## archivoVolc.write(Token_externo["lexema"])
+        ##archivoVolc.write("\t")
+       ## archivoVolc.write(Token_externo["tipo"])
+       ## archivoVolc.write("\n")
         
     if Token_externo["tipo"]=="ERROR":
         
@@ -323,8 +323,15 @@ while(Token_externo["tipo"]!="EOF"):
          final.write(Token_externo["lexema"])
          final.write("\t")
          final.write(Token_externo["tipo"])
-       
+        
          final.write("\n")
+         archivoVolc.write(Token_externo["lexema"])
+         archivoVolc.write("\t")
+         archivoVolc.write(Token_externo["tipo"])
+         archivoVolc.write("\t%d" % nfil)
+         archivoVolc.write("\t%d" % ncol)
+         archivoVolc.write("\n")
+        
 
     
     Token_externo = iden_lex(archivo)
