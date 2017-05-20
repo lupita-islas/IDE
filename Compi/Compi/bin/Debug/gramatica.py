@@ -79,6 +79,7 @@ def scanto(synchset):
 def error():
     global ERROR
     print ("Error")
+
     # error en linea->lineas[2] y columna-> lineas[3]
     # error=lineas[0]
     # ERROR="True"
@@ -96,21 +97,24 @@ def comparar(token_esperado):
 def leer():
     global archivo
     linea = archivo.readline()
-    lineas = linea.split("\t")
+    if(linea!= ""):
+        lineas = linea.split("\t")
 
-    #if ((lineas[1] == 'IDENTIFICADOR\n') or (lineas[1] == 'REAL\n') or (lineas[1] == 'ENTERO\n') or (lineas[1] == 'OPERADOR\n')):
-    if ((lineas[1] == 'IDENTIFICADOR\n') or (lineas[1] == 'REAL\n') or (lineas[1] == 'ENTERO\n')):
-        line = lineas[1].split("\n")
-        return line[0]
+        #if ((lineas[1] == 'IDENTIFICADOR\n') or (lineas[1] == 'REAL\n') or (lineas[1] == 'ENTERO\n') or (lineas[1] == 'OPERADOR\n')):
+        if ((lineas[1] == 'IDENTIFICADOR\n') or (lineas[1] == 'REAL\n') or (lineas[1] == 'ENTERO\n')):
+            line = lineas[1].split("\n")
+            return line[0]
+        else:
+            return lineas[0]  # lineas con 0=token 1=lexema
     else:
-        return lineas[0]  # lineas con 0=token 1=lexema
-
+        return "$"
 
 def principalMain(synchset):  # checar
     global token
+    token = leer();
     verificar (P_PROGRAMA, synchset)
     if token in P_PROGRAMA:
-        token = leer();
+
         comparar("main")
         comparar("{")
         listaDeclaracion(S_LIST_DEC)
@@ -186,7 +190,8 @@ def sentencia(synchset):
     if token in P_SENT:
         if (token == "if"):
             seleccionIF(S_SELECCION)
-        if (token == "while"):  # while
+
+        elif (token == "while"):  # while
             iteracionWhile(S_ITERACION)
         elif (token == "repeat"):  # for
             repeticion(S_REPETICION)
@@ -195,7 +200,7 @@ def sentencia(synchset):
         elif (token == "cout"):
             sentCout(S_COUT)
         elif (token == "IDENTIFICADOR"):  # identificador CHECAR
-            sentCout(S_IDENTIFICADOR)
+            asignacion(S_ASIGNACION)
         else:  # bloque
             bloque(S_BLOQUE)
     verificar(synchset, P_SENT)
@@ -352,3 +357,4 @@ def factor(synchset):
 
 
 principalMain(S_PROGRAMA)
+archivo.close()
