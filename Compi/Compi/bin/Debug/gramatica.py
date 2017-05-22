@@ -1,7 +1,8 @@
 import sys
 import os
-# nombre=sys.argv[1]
-nombre = "pruebaSint.vol"
+from anytree  import Node, RenderTree
+#nombre=sys.argv[1]
+nombre = "C:/Users/SARALU/Documents/GitHub/IDE/Compi/Compi/bin/Debug/pruebasSeparadas/repeat.vol"
 archivo = open(nombre, 'r')
 nombreError=nombre.replace("vol","errS")
 if os.path.exists(nombreError):
@@ -100,7 +101,7 @@ def error():
 def comparar(token_esperado):
     global token
     if (token == token_esperado):
-        token = leer()
+         token = leer()
     else:
         error()
 
@@ -126,12 +127,16 @@ def principalMain(synchset):  # checar
     col_anterior=-1
     token = leer();
     verificar (P_PROGRAMA, synchset)
-    if token in P_PROGRAMA:
 
+    if token in P_PROGRAMA:
+        mainNode=Node("Main")
         comparar("main")
         comparar("{")
-        listaDeclaracion(S_LIST_DEC)
-        listaSentencias(S_LISTA_SENTENCIAS)
+        if (token in P_LISTA_DECLARACION):
+            listaDeclaracion(S_LIST_DEC)
+            listDecNod =   Node("ListaDeclaracion",parent=mainNode)
+        if (token in P_LSTA_SENT):
+            listaSentencias(S_LISTA_SENTENCIAS)
         comparar("}")
     verificar(synchset,P_PROGRAMA)
 
@@ -149,10 +154,11 @@ def listaDeclaracion(synchset):
 
 
 def declaracion(synchset):
-    global token
+    global token, listDecNod
     verificar(P_DECLARACION, synchset)
     #if not token in synchset:
     if token in P_DECLARACION:
+        Node(token,parent=listDecNod)
         tipo(S_TIPO)
         listaVariables(S_LISTA_VARIABLES)
     verificar(synchset, P_DECLARACION)
@@ -172,7 +178,7 @@ def tipo(synchset):  # checar
     verificar(synchset, P_TIPO)
 
 
-def listaVariables(synchset):
+def listaVariables(synchset,padre):
     global token
     verificar(P_LSTA_VAR, synchset)
     #if not token in synchset:

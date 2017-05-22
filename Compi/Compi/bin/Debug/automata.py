@@ -157,10 +157,10 @@ def iden_lex(linea):
                 Token["lexema"]+=c
                 estado="END"
                 #c=get_character(linea)
-            elif c.isdigit():
-                estado="ENTERO"
-                Token["lexema"] += c
-                c=get_character(linea)
+            #elif c.isdigit():
+             #   estado="ENTERO"
+              #  Token["lexema"] += c
+               # c=get_character(linea)
             else:
                 Token["tipo"] = "OPERADOR"
                 estado="END"
@@ -170,10 +170,10 @@ def iden_lex(linea):
                 Token["tipo"] = "OPERADOR"
                 Token["lexema"] += c
                 estado = "END"
-            elif c.isdigit():
-                estado = "ENTERO"
-                Token["lexema"] += c
-                c=get_character(linea)
+            #elif c.isdigit():
+              #  estado = "ENTERO"
+             #   Token["lexema"] += c
+               # c=get_character(linea)
             else:
                 estado = "END"
                 Token["tipo"] = "OPERADOR"
@@ -285,22 +285,55 @@ while(Token_externo["tipo"]!="EOF"):
     
    
     if Token_externo["tipo"]=="OPERADOR" and Token_externo["lexema"]=="++":
+        
+        archivoVolc.write(":=")
+        archivoVolc.write("\t")
+        archivoVolc.write("OPERADOR")
+        archivoVolc.write("\t%d" % nfil)
+        archivoVolc.write("\t%d" % ncol)
+        archivoVolc.write("\n")
+        archivoVolc.write(lexemaAnterior)
+        archivoVolc.write("\t")
+        archivoVolc.write(tipoAnterior)
+        archivoVolc.write("\t%d" % nfil)
+        archivoVolc.write("\t%d" % ncol)
+        archivoVolc.write("\n")
         archivoVolc.write("+")
         archivoVolc.write("\t")
         archivoVolc.write("OPERADOR")
+        archivoVolc.write("\t%d" % nfil)
+        archivoVolc.write("\t%d" % ncol) 
         archivoVolc.write("\n")
         archivoVolc.write("1")
         archivoVolc.write("\t")
         archivoVolc.write("ENTERO")
+        archivoVolc.write("\t%d" % nfil)
+        archivoVolc.write("\t%d" % ncol)
         archivoVolc.write("\n")
     elif Token_externo["tipo"]=="OPERADOR" and Token_externo["lexema"]=="--":
-        archivoVolc.write("+")
+        archivoVolc.write(":=")
         archivoVolc.write("\t")
         archivoVolc.write("OPERADOR")
+        archivoVolc.write("\t%d" % nfil)
+        archivoVolc.write("\t%d" % ncol)
+        archivoVolc.write("\n")
+        archivoVolc.write(lexemaAnterior)
+        archivoVolc.write("\t")
+        archivoVolc.write(tipoAnterior)
+        archivoVolc.write("\t%d" % nfil)
+        archivoVolc.write("\t%d" % ncol)
+        archivoVolc.write("\n")
+        archivoVolc.write("-")
+        archivoVolc.write("\t")
+        archivoVolc.write("OPERADOR")
+        archivoVolc.write("\t%d" % nfil)
+        archivoVolc.write("\t%d" % ncol)
         archivoVolc.write("\n")
         archivoVolc.write("1")
         archivoVolc.write("\t")
         archivoVolc.write("ENTERO")
+        archivoVolc.write("\t%d" % nfil)
+        archivoVolc.write("\t%d" % ncol)
         archivoVolc.write("\n")
     ##else:
        ## archivoVolc.write(Token_externo["lexema"])
@@ -319,7 +352,7 @@ while(Token_externo["tipo"]!="EOF"):
 
         
 
-    elif Token_externo["tipo"]!="":
+    elif Token_externo["tipo"]!="" and Token_externo["lexema"]!="--" and Token_externo["lexema"]!="++" :
          final.write(Token_externo["lexema"])
          final.write("\t")
          final.write(Token_externo["tipo"])
@@ -333,6 +366,8 @@ while(Token_externo["tipo"]!="EOF"):
          archivoVolc.write("\n")
         
 
+    tipoAnterior = Token_externo["tipo"]
+    lexemaAnterior = Token_externo["lexema"]
     
     Token_externo = iden_lex(archivo)
 archivo.close()
