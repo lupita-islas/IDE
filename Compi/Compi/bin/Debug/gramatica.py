@@ -2,7 +2,8 @@ import sys
 import os
 from anytree  import Node, RenderTree
 #nombre=sys.argv[1]
-nombre = "C:/Users/SARALU/Documents/GitHub/IDE/Compi/Compi/bin/Debug/pruebasSeparadas/repeat.vol"
+nombre = "C:/Users/SARALU/Documents/GitHub/IDE/Compi/Compi/bin/Debug/pruebasSeparadas/prueba1.vol"
+#nombre="prueba1.vol"
 archivo = open(nombre, 'r')
 nombreError=nombre.replace("vol","errS")
 if os.path.exists(nombreError):
@@ -13,6 +14,9 @@ else:
 token = ""
 ERROR = "False"
 
+#NODOS
+#mainNode=Node("Main",parent=None)
+#
 # global lineas
 # global token
 # global ERROR
@@ -122,51 +126,60 @@ def leer():
         return "$"
 
 def principalMain(synchset):  # checar
-    global token, fila_anterior, col_anterior
+    global token, fila_anterior, col_anterior,ls
     fila_anterior= -1
     col_anterior=-1
     token = leer();
     verificar (P_PROGRAMA, synchset)
 
     if token in P_PROGRAMA:
-        mainNode=Node("Main")
+
+        nodo=Node(token)
         comparar("main")
+
         comparar("{")
-        if (token in P_LISTA_DECLARACION):
-            listaDeclaracion(S_LIST_DEC)
-            listDecNod =   Node("ListaDeclaracion",parent=mainNode)
+        while(token in P_LISTA_DECLARACION):
+            listaDeclaracion(S_LIST_DEC).parent=nodo
+
         if (token in P_LSTA_SENT):
-            listaSentencias(S_LISTA_SENTENCIAS)
+            #ls=Node("ls",parent=nodo)
+            listaSentencias(S_LISTA_SENTENCIAS).parent=nodo
         comparar("}")
     verificar(synchset,P_PROGRAMA)
+    return nodo
 
 
 def listaDeclaracion(synchset):
-    global token
+    global token,lista,nodoLista
     # while var==0: #Mientras la declaracion sea vacia
     verificar(P_LISTA_DECLARACION, synchset)
     #if not token in synchset:
     if token in P_LISTA_DECLARACION:
-        while (token in P_LISTA_DECLARACION):
-            declaracion(S_DECLARACION)
-            comparar(";")
+        #while (token in P_LISTA_DECLARACION):
+        nodo=  declaracion(S_DECLARACION)
+        comparar(";")
     verificar(synchset, P_LISTA_DECLARACION)
+    return nodo
 
 
 def declaracion(synchset):
-    global token, listDecNod
+    global token, listDecNod,nodoLista
     verificar(P_DECLARACION, synchset)
     #if not token in synchset:
     if token in P_DECLARACION:
-        Node(token,parent=listDecNod)
-        tipo(S_TIPO)
-        listaVariables(S_LISTA_VARIABLES)
+
+       # Node(token,parent=listDecNod)
+        nodo= tipo(S_TIPO)
+        listaVariables(S_LISTA_VARIABLES).parent=nodo
     verificar(synchset, P_DECLARACION)
+    return nodo
 
 
 def tipo(synchset):  # checar
-    global token
+    global token,NodoAux
+
     verificar(P_TIPO, synchset)
+    nodo=Node(token)
     #if not token in synchset:
     if token in P_TIPO:
         if token == "int":
@@ -176,121 +189,135 @@ def tipo(synchset):  # checar
         elif token == "boolean":
             comparar("boolean")
     verificar(synchset, P_TIPO)
+    return nodo
 
 
-def listaVariables(synchset,padre):
-    global token
+def listaVariables(synchset):
+    global token,lineas
+
     verificar(P_LSTA_VAR, synchset)
     #if not token in synchset:
     if token in P_LSTA_VAR:
         while (token in P_LSTA_VAR):
+            nodo=Node(lineas[0])
             comparar("IDENTIFICADOR")
             if (token != ","):
                 break
             else:
                 comparar(",")
     verificar(synchset, P_LSTA_VAR)
-
+    return nodo
 
 def listaSentencias(synchset):
-    global token
+    global token,ls
     verificar(P_LSTA_SENT, synchset)
-    #if not token in synchset:
     if token in P_LSTA_SENT:
         while (token in P_LSTA_SENT):
-            sentencia(S_SENTENCIA)
+            nodo = sentencia(S_SENTENCIA)
+            #nodo.parent=ls
+
     verificar(synchset, P_LSTA_SENT)
+    return nodo
 
 
 def sentencia(synchset):
     global token
+    #nodo = Node(token)
     verificar(P_SENT, synchset)
     # if not token in synchset:
     if token in P_SENT:
         if (token == "if"):
-            seleccionIF(S_SELECCION)
+           nodo=seleccionIF(S_SELECCION)
 
         elif (token == "while"):  # while
-            iteracionWhile(S_ITERACION)
+            nodo=iteracionWhile(S_ITERACION)
         elif (token == "repeat"):  # for
-            repeticion(S_REPETICION)
+            nodo = repeticion(S_REPETICION)
         elif (token == "cin"):  # CIN
-            sentCin(S_CIN)
+            nodo=sentCin(S_CIN)
         elif (token == "cout"):
-            sentCout(S_COUT)
+            nodo=sentCout(S_COUT)
         elif (token == "IDENTIFICADOR"):  # identificador CHECAR
-            asignacion(S_ASIGNACION)
+            nodo = asignacion(S_ASIGNACION)
         else:  # bloque
-            bloque(S_BLOQUE)
+            nodo = bloque(S_BLOQUE)
     verificar(synchset, P_SENT)
-
+    return nodo
 
 def seleccionIF(synchset):
     global token
     verificar(P_SEL, synchset)
     # if not token in synchset:
     if token in P_SEL:
+        nodo = Node(token)
         comparar("if")
+
         comparar("(")
         # nodo padre
-        expresion(S_EXPRESION)  # nodo hijo primero
+        expresion(S_EXPRESION).parent=nodo  # nodo hijo primero
         comparar(")")
         comparar("then")
-        bloque(S_BLOQUE)  # hijo dos
+        bloque(S_BLOQUE).parent=nodo  # hijo dos
         if (token == "else"):
             comparar("else")
-            bloque(S_BLOQUE)  # nodo hijo tres
+            bloque(S_BLOQUE).parent=nodo  # nodo hijo tres
     verificar(synchset, P_SEL)
-
+    return nodo
 
 def iteracionWhile(synchset):
     global token
     verificar(P_ITERACION, synchset)
     # if not token in synchset:
     if token in P_ITERACION:
+        nodo = Node(token)
         comparar("while")  # nodo padre
         comparar("(")
-        expresion(S_EXPRESION)  # nodo hijo 1
+        expresion(S_EXPRESION).parent=nodo  # nodo hijo 1
         comparar(")")
-        bloque(S_BLOQUE)  # nodo hijo 2
+        bloque(S_BLOQUE).parent=nodo  # nodo hijo 2
     verificar(synchset, P_ITERACION)
-
+    return nodo
 
 def repeticion(synchset):
     global token
     verificar(P_REPET, synchset)
     # if not token in synchset:
     if token in P_REPET:
+        nodo = Node(token)
         comparar("repeat")  # nodo padre
-        bloque(S_BLOQUE)  # nodo hijo 1
+        bloque(S_BLOQUE).parent = nodo  # nodo hijo 1
         comparar("until")
         comparar("(")
-        expresion(S_EXPRESION)  # nodo hijo 2
+        expresion(S_EXPRESION).parent=nodo  # nodo hijo 2
         comparar(")")
         comparar(";")
     verificar(synchset, P_REPET)
-
+    return nodo
 
 def sentCin(synchset):  # es solo el nodo padre
-    global token
+    global token,lineas
     verificar(P_SENT_CIN, synchset)
     # if not token in synchset:
     if token in P_SENT_CIN:
+
         comparar("cin")  # nodo padre
+        nodo = Node("cin: "+lineas[0])
         comparar("IDENTIFICADOR")  # lo que lee es su atributo o nombre
         comparar(";")
     verificar(synchset, P_SENT_CIN)
-
+    return nodo
 
 def sentCout(synchset):
     global token
     verificar(P_SENT_COUT, synchset)
     # if not token in synchset:
     if token in P_SENT_COUT:
+        nodo= Node(token)
         comparar("cout")  # nodo padre
-        expresion(S_EXPRESION)  # nodo hijo
+        expresion(S_EXPRESION).parent=nodo  # nodo hijo
         comparar(";")
     verificar(synchset,P_SENT_COUT)
+    return nodo
 
 def bloque(synchset):
     global token
@@ -298,83 +325,105 @@ def bloque(synchset):
     # if not token in synchset:
     if token in P_BLOQUE:
         comparar("{")
-        listaSentencias(S_LISTA_SENTENCIAS)
+        nodo = listaSentencias(S_LISTA_SENTENCIAS)
         comparar("}")
     verificar(synchset, P_BLOQUE)
-
+    return nodo
 
 def asignacion(synchset):
-    global token
+    global token, lineas
     verificar(P_ASIGN, synchset)
     # if not token in synchset:
     if token in P_ASIGN:
+        nodo = Node("Assign "+lineas[0])
         comparar("IDENTIFICADOR")
         comparar(":=")
-        expresion(S_EXPRESION)
+        expresion(S_EXPRESION).parent=nodo
         comparar(";")
     verificar(synchset, P_ASIGN)
+    return nodo
 
 
 def expresion(synchset):
     global token
     verificar(P_EXP, synchset)
+
     #if not token in synchset:
     if token in P_EXP:
-        expresionSimple(S_EXPRESION_SIMPLE)
+        nodo=expresionSimple(S_EXPRESION_SIMPLE)
         if (token in P_REL):
+            nodoPadre=Node(token)
+            nodo.parent=nodoPadre
             comparar(token)
-            expresionSimple(S_EXPRESION_SIMPLE)
+            nodo=nodoPadre
+            hijo=expresionSimple(S_EXPRESION_SIMPLE)
+            hijo.parent=nodo
     verificar(synchset, P_EXP)
-
+    return nodo
 
 def expresionSimple(synchset):
     global token
     verificar(P_EXP_SIM, synchset)
     if token in P_EXP_SIM:
     #if not token in synchset:
-        termino(S_TERMINO)
+        nodo= termino(S_TERMINO)
         while (token == "+" or token == "-"):
+            nodoPadre=Node(token)
+            nodo.parent=nodoPadre
             if token == "+":
                 comparar("+")
             elif token == "-":
                 comparar("-")
-            termino(S_TERMINO)
-    verificar(synchset, P_EXP_SIM)
+            nodo=nodoPadre
+            hijo=termino(S_TERMINO)
+            hijo.parent=nodo
 
+    verificar(synchset, P_EXP_SIM)
+    return nodo
 
 def termino(synchset):
     global token
     verificar(P_TERM, synchset)
     #if not token in synchset:
     if token in P_TERM:
-        factor(S_FACTOR)
+        nodo = factor(S_FACTOR)
         while (token == "/" or token == "*"):
+            nodoPadre= Node(token)
+            nodo.parent=nodoPadre
             if token == "/":
                 comparar("/")
             elif token == "*":
                 comparar("*")
-            factor(S_FACTOR)
+            nodo=nodoPadre
+            hijo=factor(S_FACTOR)
+            hijo.parent=nodo
     verificar(synchset, P_TERM)
-
+    return nodo
 
 def factor(synchset):
-    global token
+    global token,lineas
     verificar(P_FACT, synchset)
     if token in P_FACT:
     #if not token in synchset:
+
         if (token == "("):
+
             comparar("(")
-            expresion(S_EXPRESION)
+            nodo=expresion(S_EXPRESION)
             comparar(")")
         elif (token == "REAL"):
+            nodo = Node(lineas[0])
             comparar("REAL")
         elif (token == "ENTERO"):
+            nodo = Node(lineas[0])
             comparar("ENTERO")
         else:
+            nodo = Node(lineas[0])
             comparar("IDENTIFICADOR")
     verificar(synchset, P_FACT)
+    return nodo
 
-
-principalMain(S_PROGRAMA)
+nodo=principalMain(S_PROGRAMA)
+print(RenderTree(nodo).by_attr())
 archivo.close()
 archivoError.close()
