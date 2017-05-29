@@ -305,10 +305,12 @@ namespace Compi
         {
 
             string comando = "python  automata.py " + FileName;
-            string error, final;
+            string error, final,errorSintac,volcado="";
             string[] error1, final1;
             try
             {
+                volcado = FileName.Replace("mcp", "vol");
+                errorSintac = FileName.Replace("mcp", "errS");
                 error = FileName.Replace("mcp", "err");
                 final = FileName.Replace("mcp", "fin");
             } catch (Exception e)
@@ -319,21 +321,34 @@ namespace Compi
 
             //   Process cmd = new Process();
             ProcessStartInfo cmd = new ProcessStartInfo();
-
+            ProcessStartInfo cmd2 = new ProcessStartInfo();
             //  cmd.StartInfo.FileName = "cmd.exe";
             cmd.FileName = @"C:\Python27\python.exe";
+            cmd2.FileName= @"C:\Python27\python.exe";
             cmd.Arguments = " automata.py " + FileName;
+            cmd2.Arguments = " gramatica.py " + volcado;
             cmd.RedirectStandardOutput = true;
+            cmd2.RedirectStandardOutput = true;
             cmd.UseShellExecute = false;
+            cmd2.UseShellExecute = false;
             cmd.CreateNoWindow = true;
+            cmd2.CreateNoWindow = true;
             Process proc = new Process();
+            Process proc2 = new Process();
             proc.StartInfo = cmd;
+            proc2.StartInfo = cmd2;
             proc.Start();
             var ou = proc.StandardOutput.ReadToEnd();
             proc.WaitForExit();
+            proc2.Start();
+// arbol.Text = proc2.StandardOutput.ReadToEnd();
+ //var tree = proc2.StandardOutput.ReadToEnd();
 
+            proc2.WaitForExit();
+
+            
             Console.WriteLine(ou);
-            Console.ReadLine(); 
+            Console.ReadLine();
             // cmd.StartInfo.RedirectStandardInput = true;
            // cmd.StartInfo.RedirectStandardOutput = true;
             //cmd.StartInfo.CreateNoWindow = true;
@@ -387,10 +402,12 @@ namespace Compi
         }
         void worker_RunWorkerCompleted(object s, RunWorkerCompletedEventArgs e)
         {
-            string error, final;
+            string error, final,errorSintac,arbolText;
 
             error = FileName.Replace("mcp", "err");
             final = FileName.Replace("mcp", "fin");
+            errorSintac = FileName.Replace("mcp", "errS");
+            arbolText = FileName.Replace("mcp", "tree");
             // System.IO.StreamReader err = new System.IO.StreamReader(error);
             //System.IO.StreamReader fin = new System.IO.StreamReader(final);
 
@@ -409,10 +426,15 @@ namespace Compi
 
             //this.Invoke((MethodInvoker)delegate
             //{
-                try
+            try
                 {
-                    lexicErr.Text = System.IO.File.ReadAllText(error);
-                }catch(Exception ex)
+
+                lexicErr.Text = System.IO.File.ReadAllText(error);
+                errSint.Text = System.IO.File.ReadAllText(errorSintac);
+                lexicoText.Text = System.IO.File.ReadAllText(final);
+                arbol.Text = System.IO.File.ReadAllText(arbolText);
+                }
+            catch(Exception ex)
                 {
                     //Console.Write(e.ToString);
                 }
@@ -421,6 +443,7 @@ namespace Compi
            // this.Invoke((MethodInvoker)delegate
             //{
                 lexicoText.Text = System.IO.File.ReadAllText(final);
+               
             //});
             toolStripButton1.Enabled = true;
             buildToolStripMenuItem.Enabled = true;

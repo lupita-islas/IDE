@@ -68,6 +68,7 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.lexicErr = new System.Windows.Forms.TextBox();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.errSint = new System.Windows.Forms.TextBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage11 = new System.Windows.Forms.TabPage();
@@ -77,13 +78,16 @@
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.arbol = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.tabPage8.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             this.tabControl4.SuspendLayout();
             this.tabPage11.SuspendLayout();
+            this.tabPage12.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -258,7 +262,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -438,6 +442,7 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.errSint);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
@@ -445,6 +450,15 @@
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Error Sintactico";
             this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // errSint
+            // 
+            this.errSint.Location = new System.Drawing.Point(2, 3);
+            this.errSint.Multiline = true;
+            this.errSint.Name = "errSint";
+            this.errSint.ReadOnly = true;
+            this.errSint.Size = new System.Drawing.Size(325, 204);
+            this.errSint.TabIndex = 0;
             // 
             // tabPage10
             // 
@@ -461,9 +475,9 @@
             this.tabControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl4.Controls.Add(this.tabPage11);
             this.tabControl4.Controls.Add(this.tabPage12);
-            this.tabControl4.Controls.Add(this.tabPage13);
             this.tabControl4.Controls.Add(this.tabPage14);
             this.tabControl4.Controls.Add(this.tabPage15);
+            this.tabControl4.Controls.Add(this.tabPage13);
             this.tabControl4.Location = new System.Drawing.Point(662, 284);
             this.tabControl4.Name = "tabControl4";
             this.tabControl4.SelectedIndex = 0;
@@ -488,12 +502,13 @@
             this.lexicoText.Multiline = true;
             this.lexicoText.Name = "lexicoText";
             this.lexicoText.ReadOnly = true;
-            this.lexicoText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.lexicoText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.lexicoText.Size = new System.Drawing.Size(320, 234);
             this.lexicoText.TabIndex = 0;
             // 
             // tabPage12
             // 
+            this.tabPage12.Controls.Add(this.arbol);
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
@@ -540,6 +555,15 @@
             this.splitter1.TabIndex = 8;
             this.splitter1.TabStop = false;
             // 
+            // arbol
+            // 
+            this.arbol.Location = new System.Drawing.Point(4, 0);
+            this.arbol.Multiline = true;
+            this.arbol.Name = "arbol";
+            this.arbol.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.arbol.Size = new System.Drawing.Size(319, 234);
+            this.arbol.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -566,9 +590,13 @@
             this.tabControl3.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
             this.tabControl4.ResumeLayout(false);
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
+            this.tabPage12.ResumeLayout(false);
+            this.tabPage12.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -624,6 +652,8 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TextBox lexicErr;
         private System.Windows.Forms.TextBox lexicoText;
+        private System.Windows.Forms.TextBox errSint;
+        private System.Windows.Forms.TextBox arbol;
     }
 }
 

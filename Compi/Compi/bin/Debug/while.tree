@@ -1,0 +1,10 @@
+main
+|__ ListSent
+    |__ while
+        |-- ==
+        |   |-- y
+        |   |__ 0
+        |__ ListSent
+            |-- cin: a
+            |__ cout
+                |__ b
