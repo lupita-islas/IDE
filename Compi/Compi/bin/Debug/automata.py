@@ -281,7 +281,7 @@ else:
 
 Token_externo=iden_lex(archivo)
 while(Token_externo["tipo"]!="EOF"):
-    print Token_externo
+    #print Token_externo
     
    
     if Token_externo["tipo"]=="OPERADOR" and Token_externo["lexema"]=="++":
@@ -371,3 +371,6 @@ while(Token_externo["tipo"]!="EOF"):
     
     Token_externo = iden_lex(archivo)
 archivo.close()
+archivoVolc.close()
+final.close()
+archivoErr.close()

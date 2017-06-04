@@ -74,11 +74,11 @@
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.lexicoText = new System.Windows.Forms.TextBox();
             this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.treeView = new System.Windows.Forms.TreeView();
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.arbol = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -437,7 +437,7 @@
             this.lexicErr.Name = "lexicErr";
             this.lexicErr.ReadOnly = true;
             this.lexicErr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.lexicErr.Size = new System.Drawing.Size(324, 216);
+            this.lexicErr.Size = new System.Drawing.Size(324, 118);
             this.lexicErr.TabIndex = 0;
             // 
             // tabPage9
@@ -457,7 +457,8 @@
             this.errSint.Multiline = true;
             this.errSint.Name = "errSint";
             this.errSint.ReadOnly = true;
-            this.errSint.Size = new System.Drawing.Size(325, 204);
+            this.errSint.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.errSint.Size = new System.Drawing.Size(325, 131);
             this.errSint.TabIndex = 0;
             // 
             // tabPage10
@@ -478,10 +479,10 @@
             this.tabControl4.Controls.Add(this.tabPage14);
             this.tabControl4.Controls.Add(this.tabPage15);
             this.tabControl4.Controls.Add(this.tabPage13);
-            this.tabControl4.Location = new System.Drawing.Point(662, 284);
+            this.tabControl4.Location = new System.Drawing.Point(662, 189);
             this.tabControl4.Name = "tabControl4";
             this.tabControl4.SelectedIndex = 0;
-            this.tabControl4.Size = new System.Drawing.Size(331, 263);
+            this.tabControl4.Size = new System.Drawing.Size(331, 358);
             this.tabControl4.TabIndex = 7;
             // 
             // tabPage11
@@ -490,7 +491,7 @@
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(323, 237);
+            this.tabPage11.Size = new System.Drawing.Size(323, 332);
             this.tabPage11.TabIndex = 0;
             this.tabPage11.Text = "Lexico";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -498,41 +499,39 @@
             // lexicoText
             // 
             this.lexicoText.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lexicoText.Location = new System.Drawing.Point(0, 0);
+            this.lexicoText.Location = new System.Drawing.Point(-1, 0);
             this.lexicoText.Multiline = true;
             this.lexicoText.Name = "lexicoText";
             this.lexicoText.ReadOnly = true;
             this.lexicoText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.lexicoText.Size = new System.Drawing.Size(320, 234);
+            this.lexicoText.Size = new System.Drawing.Size(320, 329);
             this.lexicoText.TabIndex = 0;
             // 
             // tabPage12
             // 
-            this.tabPage12.Controls.Add(this.arbol);
+            this.tabPage12.Controls.Add(this.treeView);
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(323, 237);
+            this.tabPage12.Size = new System.Drawing.Size(323, 332);
             this.tabPage12.TabIndex = 1;
             this.tabPage12.Text = "Sintactico";
             this.tabPage12.UseVisualStyleBackColor = true;
             // 
-            // tabPage13
+            // treeView
             // 
-            this.tabPage13.Location = new System.Drawing.Point(4, 22);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(323, 237);
-            this.tabPage13.TabIndex = 2;
-            this.tabPage13.Text = "Semantico";
-            this.tabPage13.UseVisualStyleBackColor = true;
+            this.treeView.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView.Location = new System.Drawing.Point(3, 0);
+            this.treeView.Name = "treeView";
+            this.treeView.Size = new System.Drawing.Size(314, 329);
+            this.treeView.TabIndex = 0;
             // 
             // tabPage14
             // 
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(323, 237);
+            this.tabPage14.Size = new System.Drawing.Size(323, 311);
             this.tabPage14.TabIndex = 3;
             this.tabPage14.Text = "Hash Table";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -542,10 +541,20 @@
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(323, 237);
+            this.tabPage15.Size = new System.Drawing.Size(323, 311);
             this.tabPage15.TabIndex = 4;
             this.tabPage15.Text = "Codigo Intermedio";
             this.tabPage15.UseVisualStyleBackColor = true;
+            // 
+            // tabPage13
+            // 
+            this.tabPage13.Location = new System.Drawing.Point(4, 22);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage13.Size = new System.Drawing.Size(323, 311);
+            this.tabPage13.TabIndex = 2;
+            this.tabPage13.Text = "Semantico";
+            this.tabPage13.UseVisualStyleBackColor = true;
             // 
             // splitter1
             // 
@@ -554,15 +563,6 @@
             this.splitter1.Size = new System.Drawing.Size(3, 498);
             this.splitter1.TabIndex = 8;
             this.splitter1.TabStop = false;
-            // 
-            // arbol
-            // 
-            this.arbol.Location = new System.Drawing.Point(4, 0);
-            this.arbol.Multiline = true;
-            this.arbol.Name = "arbol";
-            this.arbol.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.arbol.Size = new System.Drawing.Size(319, 234);
-            this.arbol.TabIndex = 0;
             // 
             // Form1
             // 
@@ -596,7 +596,6 @@
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
             this.tabPage12.ResumeLayout(false);
-            this.tabPage12.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -653,7 +652,7 @@
         private System.Windows.Forms.TextBox lexicErr;
         private System.Windows.Forms.TextBox lexicoText;
         private System.Windows.Forms.TextBox errSint;
-        private System.Windows.Forms.TextBox arbol;
+        private System.Windows.Forms.TreeView treeView;
     }
 }
 

@@ -2,6 +2,9 @@ import sys
 import os
 from anytree  import Node, RenderTree, AsciiStyle, AbstractStyle
 from anytree.dotexport import RenderTreeGraph
+
+class MyNode(Node):
+        separator = "|"
 nombre=sys.argv[1]
 #nombre = "C:/Users/SARALU/Documents/GitHub/IDE/Compi/Compi/bin/Debug/pruebasSeparadas/prueba1.vol"
 #nombre="while.vol"
@@ -141,7 +144,7 @@ def principalMain(synchset):  # checar
 
     if token in P_PROGRAMA:
 
-        nodo=Node(token)
+        nodo=MyNode(token)
         comparar("main")
 
         comparar("{")
@@ -157,9 +160,10 @@ def principalMain(synchset):  # checar
 
 
 def listaDeclaracion(synchset):
-    global token,lista,nodoLista
+    global token,lista,nodoLista,lineas
     # while var==0: #Mientras la declaracion sea vacia
-    nodo= Node("ListDec")
+    nodo= MyNode(lineas[2]+" ListDec")
+    #nodo= MyNode("ListDec")
     verificar(P_LISTA_DECLARACION, synchset)
     #if not token in synchset:
     if token in P_LISTA_DECLARACION:
@@ -172,7 +176,7 @@ def listaDeclaracion(synchset):
 
 def declaracion(synchset):
     global token, listDecNod,nodoLista
-    nodo= Node("")
+    nodo= MyNode("")
     verificar(P_DECLARACION, synchset)
     #if not token in synchset:
     if token in P_DECLARACION:
@@ -188,7 +192,7 @@ def tipo(synchset):  # checar
     global token,NodoAux
 
     verificar(P_TIPO, synchset)
-    nodo=Node(token)
+    nodo=MyNode(lineas[2]+ " "+token)
     #if not token in synchset:
     if token in P_TIPO:
         if token == "int":
@@ -203,12 +207,13 @@ def tipo(synchset):  # checar
 
 def listaVariables(synchset):
     global token,lineas
-    nodoAux= Node("ListVar")
+    nodoAux= MyNode(lineas[2]+" ListVar")
+    #nodoAux= MyNode("ListVar: "+lineas[2])
     verificar(P_LSTA_VAR, synchset)
     #if not token in synchset:
     if token in P_LSTA_VAR:
         while (token in P_LSTA_VAR):
-            nodo=Node(lineas[0])
+            nodo=MyNode(lineas[0])
             nodo.parent=nodoAux;
             comparar("IDENTIFICADOR")
             if (token != ","):
@@ -219,9 +224,9 @@ def listaVariables(synchset):
     return nodoAux
 
 def listaSentencias(synchset):
-    global token,ls
-    nodo= Node("")
-    nodo_aux= Node("ListSent")#Cambiar el nombre
+    global token,ls,lineas
+    nodo= MyNode("")
+    nodo_aux= MyNode(lineas[2]+" ListSent")#Cambiar el nombre
     verificar(P_LSTA_SENT, synchset)
     if token in P_LSTA_SENT:
         while (token in P_LSTA_SENT):
@@ -234,7 +239,7 @@ def listaSentencias(synchset):
 def sentencia(synchset):
     global token
     #nodo = Node(token)
-    nodo= Node("")
+    nodo= MyNode("")
     verificar(P_SENT, synchset)
     # if not token in synchset:
     if token in P_SENT:
@@ -257,12 +262,12 @@ def sentencia(synchset):
     return nodo
 
 def seleccionIF(synchset):
-    global token
+    global token,lineas
     verificar(P_SEL, synchset)
-    nodo= Node("")
+    nodo= MyNode("")
     # if not token in synchset:
     if token in P_SEL:
-        nodo = Node(token)
+        nodo = MyNode(lineas[2]+" "+token)
         comparar("if")
         comparar("(")
         expresion(S_EXPRESION).parent=nodo  # nodo hijo primero
@@ -280,12 +285,12 @@ def seleccionIF(synchset):
     return nodo
 
 def iteracionWhile(synchset):
-    global token
+    global token,lineas
     verificar(P_ITERACION, synchset)
-    nodo= Node("")
+    nodo= MyNode("")
     # if not token in synchset:
     if token in P_ITERACION:
-        nodo = Node(token)
+        nodo = MyNode(lineas[2]+" "+token)
         comparar("while")  # nodo padre
         comparar("(")
         expresion(S_EXPRESION).parent=nodo  # nodo hijo 1
@@ -295,12 +300,12 @@ def iteracionWhile(synchset):
     return nodo
 
 def repeticion(synchset):
-    global token
+    global token, lineas
     verificar(P_REPET, synchset)
-    nodo= Node("")
+    nodo= MyNode("")
     # if not token in synchset:
     if token in P_REPET:
-        nodo = Node(token)
+        nodo = MyNode(lineas[2]+" "+token)
         comparar("repeat")  # nodo padre
         bloque(S_BLOQUE).parent = nodo  # nodo hijo 1
         comparar("until")
@@ -314,24 +319,24 @@ def repeticion(synchset):
 def sentCin(synchset):  # es solo el nodo padre
     global token,lineas
     verificar(P_SENT_CIN, synchset)
-    nodo= Node("")
+    nodo= MyNode("")
     # if not token in synchset:
     if token in P_SENT_CIN:
 
         comparar("cin")  # nodo padre
-        nodo = Node("cin: "+lineas[0])
+        nodo = MyNode(lineas[2]+" cin: "+lineas[0])
         comparar("IDENTIFICADOR")  # lo que lee es su atributo o nombre
         comparar(";")
     verificar(synchset, P_SENT_CIN)
     return nodo
 
 def sentCout(synchset):
-    global token
+    global token,lineas
     verificar(P_SENT_COUT, synchset)
-    nodo= Node("")
+    nodo= MyNode("")
     # if not token in synchset:
     if token in P_SENT_COUT:
-        nodo= Node(token)
+        nodo= MyNode(lineas[2]+" "+token)
         comparar("cout")  # nodo padre
         expresion(S_EXPRESION).parent=nodo  # nodo hijo
         comparar(";")
@@ -341,7 +346,7 @@ def sentCout(synchset):
 def bloque(synchset):
     global token
     verificar(P_BLOQUE, synchset)
-    nodo= Node("")
+    nodo= MyNode("")
     # if not token in synchset:
     if token in P_BLOQUE:
         comparar("{")
@@ -355,10 +360,10 @@ def bloque(synchset):
 def asignacion(synchset):
     global token, lineas
     verificar(P_ASIGN, synchset)
-    nodo= Node("")
+    nodo= MyNode("")
     # if not token in synchset:
     if token in P_ASIGN:
-        nodo = Node("Assign "+lineas[0])
+        nodo = MyNode(lineas[2]+" Assign "+lineas[0])
         comparar("IDENTIFICADOR")
         comparar(":=")
         expresion(S_EXPRESION).parent=nodo
@@ -368,14 +373,14 @@ def asignacion(synchset):
 
 
 def expresion(synchset):
-    global token
+    global token,lineas
     verificar(P_EXP, synchset)
-    nodo= Node("")
+    nodo= MyNode("")
     #if not token in synchset:
     if token in P_EXP:
         nodo=expresionSimple(S_EXPRESION_SIMPLE)
         if (token in P_REL):
-            nodoPadre=Node(token)
+            nodoPadre=MyNode(lineas[2]+" "+token)
             nodo.parent=nodoPadre
             comparar(token)
             nodo=nodoPadre
@@ -385,14 +390,14 @@ def expresion(synchset):
     return nodo
 
 def expresionSimple(synchset):
-    global token
+    global token,lineas
     verificar(P_EXP_SIM, synchset)
-    nodo= Node("")
+    nodo= MyNode("")
     if token in P_EXP_SIM:
     #if not token in synchset:
         nodo= termino(S_TERMINO)
         while (token == "+" or token == "-"):
-            nodoPadre=Node(token)
+            nodoPadre=MyNode(lineas[2]+" "+token)
             nodo.parent=nodoPadre
             if token == "+":
                 comparar("+")
@@ -406,14 +411,14 @@ def expresionSimple(synchset):
     return nodo
 
 def termino(synchset):
-    global token
+    global token,lineas
     verificar(P_TERM, synchset)
-    nodo= Node("")
+    nodo= MyNode("")
     #if not token in synchset:
     if token in P_TERM:
         nodo = factor(S_FACTOR)
         while (token == "/" or token == "*"):
-            nodoPadre= Node(token)
+            nodoPadre= MyNode(lineas[2]+" "+token)
             nodo.parent=nodoPadre
             if token == "/":
                 comparar("/")
@@ -428,7 +433,7 @@ def termino(synchset):
 def factor(synchset):
     global token,lineas
     verificar(P_FACT, synchset)
-    nodo= Node("")
+    nodo= MyNode("")
     if token in P_FACT:
     #if not token in synchset:
 
@@ -438,13 +443,13 @@ def factor(synchset):
             nodo=expresion(S_EXPRESION)
             comparar(")")
         elif (token == "REAL"):
-            nodo = Node(lineas[0])
+            nodo = MyNode(lineas[0])
             comparar("REAL")
         elif (token == "ENTERO"):
-            nodo = Node(lineas[0])
+            nodo = MyNode(lineas[0])
             comparar("ENTERO")
         else:
-            nodo = Node(lineas[0])
+            nodo = MyNode(lineas[0])
             comparar("IDENTIFICADOR")
     verificar(synchset, P_FACT)
     return nodo
@@ -458,8 +463,13 @@ nodo=principalMain(S_PROGRAMA)
 #for pre, _, node in RenderTree(nodo, childiter=reversed):
 #     archivoArbol.write("%s%s" % (pre, node.name))
 #     print("%s%s" % (pre, node.name))
-print(RenderTree(nodo,style=AbstractStyle("|   ","|-- ","|__ ")).by_attr())
-archivoArbol.write(RenderTree(nodo,style=AbstractStyle("|   ","|-- ","|__ ")).by_attr())
+#print(RenderTree(nodo,style=AbstractStyle("\t","\t","\t")).by_attr())
+print(RenderTree(nodo,style=AbstractStyle("","","")))
+arbolito=RenderTree(nodo,style=AbstractStyle("","",""))
+archivoArbol.write(str(arbolito).replace("MyNode('","").replace("')",""))
+#archivoArbol.write(str(arbolito))
+
+#archivoArbol.write(RenderTree(nodo,style=AbstractStyle("|   ","|-- ","|__ ")).by_attr())
 #archivoArbol.write(RenderTree(nodo).by_attr())
 archivo.close()
 archivoError.close()

@@ -8,6 +8,8 @@ using System.Threading;
 using System.Windows.Forms.VisualStyles;
 using System.Diagnostics;
 using System.ComponentModel;
+using System.Collections.Generic;
+using System;
 
 namespace Compi
 {
@@ -251,6 +253,9 @@ namespace Compi
                     eleccionGuardar();
                     TextArea.Text = "";
                     guardPrimeraVez = false;
+                }else
+                {
+                    TextArea.Text = "";
                 }
             }
             else
@@ -306,7 +311,7 @@ namespace Compi
 
             string comando = "python  automata.py " + FileName;
             string error, final,errorSintac,volcado="";
-            string[] error1, final1;
+            //string[] error1, final1;
             try
             {
                 volcado = FileName.Replace("mcp", "vol");
@@ -317,18 +322,16 @@ namespace Compi
             {
 
             }
-            // comando = "echo('Hola')";
-
-            //   Process cmd = new Process();
+           
             ProcessStartInfo cmd = new ProcessStartInfo();
             ProcessStartInfo cmd2 = new ProcessStartInfo();
             //  cmd.StartInfo.FileName = "cmd.exe";
             cmd.FileName = @"C:\Python27\python.exe";
             cmd2.FileName= @"C:\Python27\python.exe";
             cmd.Arguments = " automata.py " + FileName;
-            cmd2.Arguments = " gramatica.py " + volcado;
-            cmd.RedirectStandardOutput = true;
-            cmd2.RedirectStandardOutput = true;
+            cmd2.Arguments = "gramatica.py " + volcado;
+            cmd.RedirectStandardOutput = false;
+            cmd2.RedirectStandardOutput = false;
             cmd.UseShellExecute = false;
             cmd2.UseShellExecute = false;
             cmd.CreateNoWindow = true;
@@ -337,63 +340,29 @@ namespace Compi
             Process proc2 = new Process();
             proc.StartInfo = cmd;
             proc2.StartInfo = cmd2;
-            proc.Start();
-            var ou = proc.StandardOutput.ReadToEnd();
-            proc.WaitForExit();
-            proc2.Start();
-// arbol.Text = proc2.StandardOutput.ReadToEnd();
- //var tree = proc2.StandardOutput.ReadToEnd();
+            try
+            {
+                proc.Start();
+                //  var ou = proc.StandardOutput.ReadToEnd();
+                /*while(!proc.HasExited && proc.Responding)
+                {
+                    Thread.Sleep(10);
+                }*/
+                proc.WaitForExit();
 
-            proc2.WaitForExit();
-
-            
-            Console.WriteLine(ou);
-            Console.ReadLine();
-            // cmd.StartInfo.RedirectStandardInput = true;
-           // cmd.StartInfo.RedirectStandardOutput = true;
-            //cmd.StartInfo.CreateNoWindow = true;
-            //cmd.StartInfo.UseShellExecute = false;
-            //cmd.Start();
-
-
-          //  cmd.StandardInput.WriteLine(comando);
-           // cmd.StandardInput.Flush();
-           // cmd.StandardInput.Close();
-           // cmd.WaitForExit();
-            
-            //lexicoText.Text = cmd.StandardOutput.ReadToEnd();
-            //lexicErr.Text = FileName;
-
-            // lexicoText.Text = final;
-
-            //error1= System.IO.File.ReadAllLines(error); 
-            //final1 = System.IO.File.ReadAllLines(final);
-           /* System.IO.StreamReader err = new System.IO.StreamReader(error);
-            System.IO.StreamReader fin = new System.IO.StreamReader(final);
-
-            string linea1, linea2;
-
-            while ((linea1 = err.ReadLine()) != null)
-           {
-             lexicErr.AppendText(linea1);
+                //Thread.Sleep(5000);
+                if (proc.HasExited)
+                {
+                    proc2.Start();
+                    proc2.WaitForExit();
+                }
             }
+            catch(Exception a)
+            {
+              a.ToString();
+            }
+           
 
-            while ((linea2 = fin.ReadLine()) != null)
-            {
-                lexicoText.AppendText(linea2);
-            }*/
-            /*this.Invoke((MethodInvoker)delegate
-            {
-                // lexicErr.Text = System.IO.File.ReadAllText(error);
-                for(int i=0; i<final1.Length;i++)
-                lexicoText.Text += final1[i];
-            });
-            this.Invoke((MethodInvoker)delegate
-            {
-                for (int i = 0; i < final1.Length; i++)
-                    lexicErr.Text = error1[i];
-                // lexicoText.Text = System.IO.File.ReadAllText(final);
-            });*/
 
         }
         void worker_DoWork(object sender, DoWorkEventArgs e)
@@ -408,43 +377,39 @@ namespace Compi
             final = FileName.Replace("mcp", "fin");
             errorSintac = FileName.Replace("mcp", "errS");
             arbolText = FileName.Replace("mcp", "tree");
-            // System.IO.StreamReader err = new System.IO.StreamReader(error);
-            //System.IO.StreamReader fin = new System.IO.StreamReader(final);
-
-            //string linea1, linea2;
-
-            //while ((linea1 = err.ReadLine()) != null)
-            //{
-            //  lexicErr.AppendText(linea1);
-            //}
-
-            //while ((linea2 = fin.ReadLine()) != null)
-            //{
-            //  lexicoText.AppendText(linea2);
-            //}
-
-
-            //this.Invoke((MethodInvoker)delegate
-            //{
+            List<string> listaNodos = new List<string>();
+            
+            
             try
-                {
-
+            { 
+                
                 lexicErr.Text = System.IO.File.ReadAllText(error);
                 errSint.Text = System.IO.File.ReadAllText(errorSintac);
                 lexicoText.Text = System.IO.File.ReadAllText(final);
-                arbol.Text = System.IO.File.ReadAllText(arbolText);
-                }
+                string[] lineas = System.IO.File.ReadAllLines(arbolText);
+                 for(int i=0; i<lineas.Length;i++)
+                    {
+                        listaNodos.Add(lineas[i]);
+                        Console.WriteLine("Linea");
+                    }
+
+
+
+                //treeView.Nodes.Add(PopulateTreeNode2(listaNodos, "/"));
+
+                //LoadTreeViewFromFile(arbolText, treeView);
+                PopulateTreeView(treeView, listaNodos, '|');
+                treeView.ExpandAll();
+
+
+                //arbol.Text = System.IO.File.ReadAllText(arbolText);
+            }
             catch(Exception ex)
                 {
                     //Console.Write(e.ToString);
                 }
 
-           // });
-           // this.Invoke((MethodInvoker)delegate
-            //{
-                lexicoText.Text = System.IO.File.ReadAllText(final);
-               
-            //});
+         
             toolStripButton1.Enabled = true;
             buildToolStripMenuItem.Enabled = true;
 
@@ -490,5 +455,87 @@ namespace Compi
                 buildToolStripMenuItem.Enabled = false;
             }
         }
+
+        //private TreeNode PopulateTreeNode2(string[] paths, string pathSeparator)
+        private TreeNode PopulateTreeNode2(List<string> paths, string pathSeparator)
+        {
+            if (paths == null)
+                return null;
+
+            TreeNode thisnode = new TreeNode();
+            TreeNode currentnode;
+            char[] cachedpathseparator = pathSeparator.ToCharArray();
+            foreach (string path in paths)
+            {
+                currentnode = thisnode;
+                foreach (string subPath in path.Split(cachedpathseparator))
+                {
+                    if (null == currentnode.Nodes[subPath])
+                        currentnode = currentnode.Nodes.Add(subPath, subPath);
+                    else
+                        currentnode = currentnode.Nodes[subPath];
+                }
+            }
+
+            return thisnode;
+        }
+
+        private static void PopulateTreeView(TreeView treeView, List<string> paths, char pathSeparator)
+        {
+            TreeNode lastNode = null;
+            string subPathAgg;
+            foreach (string path in paths)
+            {
+                subPathAgg = string.Empty;
+                foreach (string subPath in path.Split(pathSeparator))
+                {
+                    subPathAgg += subPath + pathSeparator;
+                    TreeNode[] nodes = treeView.Nodes.Find(subPathAgg, true);
+                    if (nodes.Length == 0)
+                        if (lastNode == null)
+                            lastNode = treeView.Nodes.Add(subPathAgg, subPath);
+                        else
+                            lastNode = lastNode.Nodes.Add(subPathAgg, subPath);
+                    else
+                        lastNode = nodes[0];
+                }
+                lastNode = null; // This is the place code was changed
+
+            }
+        }
+
+        // Load a TreeView control from a file that uses tabs
+        // to show indentation.
+        private void LoadTreeViewFromFile(string file_name, TreeView trv)
+        {
+            // Get the file's contents.
+            string file_contents = File.ReadAllText(file_name);
+
+            // Break the file into lines.
+            string[] lines = System.IO.File.ReadAllLines(file_name);
+            /*string[] lines = file_contents.Split(
+                new char[] { '\r', '\n' },
+                StringSplitOptions.RemoveEmptyEntries);*/
+
+            // Process the lines.
+            trv.Nodes.Clear();
+            Dictionary<int, TreeNode> parents = new Dictionary<int, TreeNode>();
+            foreach (string text_line in lines)
+            {
+                // See how many tabs are at the start of the line.
+                int level = text_line.Length -text_line.TrimStart('\t').Length;
+                Console.WriteLine(text_line.TrimStart('\t').Length);
+
+                // Add the new node.
+                if (level == 0)
+                    parents[level] = trv.Nodes.Add(text_line.Trim());
+                else
+                    parents[level] =parents[level - 1].Nodes.Add(text_line.Trim());
+                parents[level].EnsureVisible();
+            }
+
+            if (trv.Nodes.Count > 0) trv.Nodes[0].EnsureVisible();
+        }
     }
+
 }
