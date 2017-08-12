@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System;
+using System.Text.RegularExpressions;
 
 namespace Compi
 {
@@ -378,17 +379,27 @@ namespace Compi
             errorSintac = FileName.Replace("mcp", "errS");
             arbolText = FileName.Replace("mcp", "tree");
             List<string> listaNodos = new List<string>();
+            Regex rgx = new Regex("/\\d$/");
             
-            
-            try
-            { 
+            try{ 
                 
                 lexicErr.Text = System.IO.File.ReadAllText(error);
                 errSint.Text = System.IO.File.ReadAllText(errorSintac);
                 lexicoText.Text = System.IO.File.ReadAllText(final);
                 string[] lineas = System.IO.File.ReadAllLines(arbolText);
-                 for(int i=0; i<lineas.Length;i++)
+                
+                 for(int i=0; i<lineas.Length;i++){
+                    //if(Double.TryParse(lineas[i][lineas[i].Length-1].ToString(),out num))
+                    var arrStr = lineas[i].Split('|');
+                    if(rgx.IsMatch(lineas[i]))
                     {
+                        Regex.Replace(lineas[i], "[0-9]", "");
+                        lineas[i] += arrStr[arrStr.Length - 1];
+                    }
+                    else
+                    {
+                        Regex.Replace(lineas[i], "[0-9]", "");
+                    }
                         listaNodos.Add(lineas[i]);
                         Console.WriteLine("Linea");
                     }
@@ -399,6 +410,7 @@ namespace Compi
 
                 //LoadTreeViewFromFile(arbolText, treeView);
                 PopulateTreeView(treeView, listaNodos, '|');
+                
                 treeView.ExpandAll();
 
 
