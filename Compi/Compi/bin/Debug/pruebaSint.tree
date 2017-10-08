@@ -1,125 +1,125 @@
 |main
-|main|ListDec: 4
-|main|ListDec: 4|int
-|main|ListDec: 4|int|ListVar: 4
-|main|ListDec: 4|int|ListVar: 4|x
-|main|ListDec: 4|int|ListVar: 4|y
-|main|ListDec: 4|int|ListVar: 4|z
-|main|ListDec: 4|real
-|main|ListDec: 4|real|ListVar: 6
-|main|ListDec: 4|real|ListVar: 6|a
-|main|ListDec: 4|real|ListVar: 6|b
-|main|ListDec: 4|real|ListVar: 6|c
-|main|ListSent: 8
-|main|ListSent: 8|Assign x : 8
-|main|ListSent: 8|Assign x : 8|23: 8
-|main|ListSent: 8|Assign y : 10
-|main|ListSent: 8|Assign y : 10|-: 10
-|main|ListSent: 8|Assign y : 10|-: 10|+: 10
-|main|ListSent: 8|Assign y : 10|-: 10|+: 10|2: 10
-|main|ListSent: 8|Assign y : 10|-: 10|+: 10|3: 10
-|main|ListSent: 8|Assign y : 10|-: 10|1: 10
-|main|ListSent: 8|Assign z : 12
-|main|ListSent: 8|Assign z : 12|+: 12
-|main|ListSent: 8|Assign z : 12|+: 12|y: 12
-|main|ListSent: 8|Assign z : 12|+: 12|7: 12
-|main|ListSent: 8|Assign x : 14
-|main|ListSent: 8|Assign x : 14|*: 14
-|main|ListSent: 8|Assign x : 14|*: 14|-: 14
-|main|ListSent: 8|Assign x : 14|*: 14|-: 14|5: 14
-|main|ListSent: 8|Assign x : 14|*: 14|-: 14|3: 14
-|main|ListSent: 8|Assign x : 14|*: 14|/: 14
-|main|ListSent: 8|Assign x : 14|*: 14|/: 14|8: 14
-|main|ListSent: 8|Assign x : 14|*: 14|/: 14|2: 14
-|main|ListSent: 8|Assign y : 15
-|main|ListSent: 8|Assign y : 15|-: 15
-|main|ListSent: 8|Assign y : 15|-: 15|-: 15
-|main|ListSent: 8|Assign y : 15|-: 15|-: 15|+: 15
-|main|ListSent: 8|Assign y : 15|-: 15|-: 15|+: 15|5: 15
-|main|ListSent: 8|Assign y : 15|-: 15|-: 15|+: 15|3: 15
-|main|ListSent: 8|Assign y : 15|-: 15|-: 15|/: 15
-|main|ListSent: 8|Assign y : 15|-: 15|-: 15|/: 15|*: 15
-|main|ListSent: 8|Assign y : 15|-: 15|-: 15|/: 15|*: 15|2: 15
-|main|ListSent: 8|Assign y : 15|-: 15|-: 15|/: 15|*: 15|4: 15
-|main|ListSent: 8|Assign y : 15|-: 15|-: 15|/: 15|7: 15
-|main|ListSent: 8|Assign y : 15|-: 15|9: 15
-|main|ListSent: 8|Assign z : 16
-|main|ListSent: 8|Assign z : 16|+: 16
-|main|ListSent: 8|Assign z : 16|+: 16|/: 16
-|main|ListSent: 8|Assign z : 16|+: 16|/: 16|8: 16
-|main|ListSent: 8|Assign z : 16|+: 16|/: 16|2: 16
-|main|ListSent: 8|Assign z : 16|+: 16|*: 16
-|main|ListSent: 8|Assign z : 16|+: 16|*: 16|15: 16
-|main|ListSent: 8|Assign z : 16|+: 16|*: 16|4: 16
-|main|ListSent: 8|Assign y : 17
-|main|ListSent: 8|Assign y : 17|14.54: 17
-|main|ListSent: 8|Assign a : 18
-|main|ListSent: 8|Assign a : 18|-: 18
-|main|ListSent: 8|Assign a : 18|-: 18|+: 18
-|main|ListSent: 8|Assign a : 18|-: 18|+: 18|-: 18
-|main|ListSent: 8|Assign a : 18|-: 18|+: 18|-: 18|+: 18
-|main|ListSent: 8|Assign a : 18|-: 18|+: 18|-: 18|+: 18|24.0: 18
-|main|ListSent: 8|Assign a : 18|-: 18|+: 18|-: 18|+: 18|4: 18
-|main|ListSent: 8|Assign a : 18|-: 18|+: 18|-: 18|/: 18
-|main|ListSent: 8|Assign a : 18|-: 18|+: 18|-: 18|/: 18|*: 18
-|main|ListSent: 8|Assign a : 18|-: 18|+: 18|-: 18|/: 18|*: 18|1: 18
-|main|ListSent: 8|Assign a : 18|-: 18|+: 18|-: 18|/: 18|*: 18|3: 18
-|main|ListSent: 8|Assign a : 18|-: 18|+: 18|-: 18|/: 18|2: 18
-|main|ListSent: 8|Assign a : 18|-: 18|+: 18|34: 18
-|main|ListSent: 8|Assign a : 18|-: 18|1: 18
-|main|ListSent: 8|if: 19
-|main|ListSent: 8|if: 19|<: 19
-|main|ListSent: 8|if: 19|<: 19|a: 19
-|main|ListSent: 8|if: 19|<: 19|v: 19
-|main|ListSent: 8|if: 19|ListSent: 20
-|main|ListSent: 8|if: 21
-|main|ListSent: 8|if: 21|>: 21
-|main|ListSent: 8|if: 21|>: 21|2: 21
-|main|ListSent: 8|if: 21|>: 21|3: 21
-|main|ListSent: 8|if: 21|ListSent: 23
-|main|ListSent: 8|if: 21|ListSent: 23|Assign y : 23
-|main|ListSent: 8|if: 21|ListSent: 23|Assign y : 23|+: 23
-|main|ListSent: 8|if: 21|ListSent: 23|Assign y : 23|+: 23|a: 23
-|main|ListSent: 8|if: 21|ListSent: 23|Assign y : 23|+: 23|3: 23
-|main|ListSent: 8|if: 21|ListSent: 27
-|main|ListSent: 8|if: 21|ListSent: 27|if: 27
-|main|ListSent: 8|if: 21|ListSent: 27|if: 27|4: 27
-|main|ListSent: 8|if: 21|ListSent: 27|if: 27|ListSent: 29
-|main|ListSent: 8|if: 21|ListSent: 27|if: 27|ListSent: 29|Assign b : 29
-|main|ListSent: 8|if: 21|ListSent: 27|if: 27|ListSent: 29|Assign b : 29|3.2: 29
-|main|ListSent: 8|if: 21|ListSent: 27|if: 27|ListSent: 33
-|main|ListSent: 8|if: 21|ListSent: 27|if: 27|ListSent: 33|Assign b : 33
-|main|ListSent: 8|if: 21|ListSent: 27|if: 27|ListSent: 33|Assign b : 33|5.0: 33
-|main|ListSent: 8|if: 21|ListSent: 27|Assign y : 37
-|main|ListSent: 8|if: 21|ListSent: 27|Assign y : 37|+: 37
-|main|ListSent: 8|if: 21|ListSent: 27|Assign y : 37|+: 37|y: 37
-|main|ListSent: 8|if: 21|ListSent: 27|Assign y : 37|+: 37|1: 37
-|main|ListSent: 8|Assign a : 41
-|main|ListSent: 8|Assign a : 41|+: 41
-|main|ListSent: 8|Assign a : 41|+: 41|a: 41
-|main|ListSent: 8|Assign a : 41|+: 41|1: 41
-|main|ListSent: 8|Assign b : 42
-|main|ListSent: 8|Assign b : 42|-: 42
-|main|ListSent: 8|Assign b : 42|-: 42|b: 42
-|main|ListSent: 8|Assign b : 42|-: 42|1: 42
-|main|ListSent: 8|Assign y : 45
-|main|ListSent: 8|Assign y : 45|+: 45
-|main|ListSent: 8|Assign y : 45|+: 45|*: 45
-|main|ListSent: 8|Assign y : 45|+: 45|*: 45|+: 45
-|main|ListSent: 8|Assign y : 45|+: 45|*: 45|+: 45|y: 45
-|main|ListSent: 8|Assign y : 45|+: 45|*: 45|+: 45|1: 45
-|main|ListSent: 8|Assign y : 45|+: 45|*: 45|2: 45
-|main|ListSent: 8|Assign y : 45|+: 45|1: 45
-|main|ListSent: 8|if: 46
-|main|ListSent: 8|if: 46|==: 46
-|main|ListSent: 8|if: 46|==: 46|a: 46
-|main|ListSent: 8|if: 46|==: 46|b: 46
-|main|ListSent: 8|if: 46|
-|main|ListSent: 8|Assign a : 48
-|main|ListSent: 8|Assign a : 48|+: 48
-|main|ListSent: 8|Assign a : 48|+: 48|a: 48
-|main|ListSent: 8|Assign a : 48|+: 48|1: 48
-|main|ListSent: 8|Assign b : 52
-|main|ListSent: 8|Assign b : 52|+: 52
-|main|ListSent: 8|Assign b : 52|+: 52|b: 52
-|main|ListSent: 8|Assign b : 52|+: 52|1: 52
+|main|4 ListDec
+|main|4 ListDec|4 int
+|main|4 ListDec|4 int|4 ListVar
+|main|4 ListDec|4 int|4 ListVar|x
+|main|4 ListDec|4 int|4 ListVar|y
+|main|4 ListDec|4 int|4 ListVar|z
+|main|4 ListDec|6 real
+|main|4 ListDec|6 real|6 ListVar
+|main|4 ListDec|6 real|6 ListVar|a
+|main|4 ListDec|6 real|6 ListVar|b
+|main|4 ListDec|6 real|6 ListVar|c
+|main|8 ListSent
+|main|8 ListSent|8 Assign x
+|main|8 ListSent|8 Assign x|23
+|main|8 ListSent|10 Assign y
+|main|8 ListSent|10 Assign y|10 -
+|main|8 ListSent|10 Assign y|10 -|10 +
+|main|8 ListSent|10 Assign y|10 -|10 +|2
+|main|8 ListSent|10 Assign y|10 -|10 +|3
+|main|8 ListSent|10 Assign y|10 -|1
+|main|8 ListSent|12 Assign z
+|main|8 ListSent|12 Assign z|12 +
+|main|8 ListSent|12 Assign z|12 +|y
+|main|8 ListSent|12 Assign z|12 +|7
+|main|8 ListSent|14 Assign x
+|main|8 ListSent|14 Assign x|14 *
+|main|8 ListSent|14 Assign x|14 *|14 -
+|main|8 ListSent|14 Assign x|14 *|14 -|5
+|main|8 ListSent|14 Assign x|14 *|14 -|3
+|main|8 ListSent|14 Assign x|14 *|14 /
+|main|8 ListSent|14 Assign x|14 *|14 /|8
+|main|8 ListSent|14 Assign x|14 *|14 /|2
+|main|8 ListSent|15 Assign y
+|main|8 ListSent|15 Assign y|15 -
+|main|8 ListSent|15 Assign y|15 -|15 -
+|main|8 ListSent|15 Assign y|15 -|15 -|15 +
+|main|8 ListSent|15 Assign y|15 -|15 -|15 +|5
+|main|8 ListSent|15 Assign y|15 -|15 -|15 +|3
+|main|8 ListSent|15 Assign y|15 -|15 -|15 /
+|main|8 ListSent|15 Assign y|15 -|15 -|15 /|15 *
+|main|8 ListSent|15 Assign y|15 -|15 -|15 /|15 *|2
+|main|8 ListSent|15 Assign y|15 -|15 -|15 /|15 *|4
+|main|8 ListSent|15 Assign y|15 -|15 -|15 /|7
+|main|8 ListSent|15 Assign y|15 -|9
+|main|8 ListSent|16 Assign z
+|main|8 ListSent|16 Assign z|16 +
+|main|8 ListSent|16 Assign z|16 +|16 /
+|main|8 ListSent|16 Assign z|16 +|16 /|8
+|main|8 ListSent|16 Assign z|16 +|16 /|2
+|main|8 ListSent|16 Assign z|16 +|16 *
+|main|8 ListSent|16 Assign z|16 +|16 *|15
+|main|8 ListSent|16 Assign z|16 +|16 *|4
+|main|8 ListSent|17 Assign y
+|main|8 ListSent|17 Assign y|14.54
+|main|8 ListSent|18 Assign a
+|main|8 ListSent|18 Assign a|18 -
+|main|8 ListSent|18 Assign a|18 -|18 +
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 +
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 +|24.0
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 +|4
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /|18 *
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /|18 *|1
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /|18 *|3
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /|2
+|main|8 ListSent|18 Assign a|18 -|18 +|34
+|main|8 ListSent|18 Assign a|18 -|1
+|main|8 ListSent|19 if
+|main|8 ListSent|19 if|19 <
+|main|8 ListSent|19 if|19 <|a
+|main|8 ListSent|19 if|19 <|v
+|main|8 ListSent|19 if|20 ListSent
+|main|8 ListSent|21 if
+|main|8 ListSent|21 if|21 >
+|main|8 ListSent|21 if|21 >|2
+|main|8 ListSent|21 if|21 >|3
+|main|8 ListSent|21 if|23 ListSent
+|main|8 ListSent|21 if|23 ListSent|23 Assign y
+|main|8 ListSent|21 if|23 ListSent|23 Assign y|23 +
+|main|8 ListSent|21 if|23 ListSent|23 Assign y|23 +|a
+|main|8 ListSent|21 if|23 ListSent|23 Assign y|23 +|3
+|main|8 ListSent|21 if|27 ListSent
+|main|8 ListSent|21 if|27 ListSent|27 if
+|main|8 ListSent|21 if|27 ListSent|27 if|4
+|main|8 ListSent|21 if|27 ListSent|27 if|29 ListSent
+|main|8 ListSent|21 if|27 ListSent|27 if|29 ListSent|29 Assign b
+|main|8 ListSent|21 if|27 ListSent|27 if|29 ListSent|29 Assign b|3.2
+|main|8 ListSent|21 if|27 ListSent|27 if|33 ListSent
+|main|8 ListSent|21 if|27 ListSent|27 if|33 ListSent|33 Assign b
+|main|8 ListSent|21 if|27 ListSent|27 if|33 ListSent|33 Assign b|5.0
+|main|8 ListSent|21 if|27 ListSent|37 Assign y
+|main|8 ListSent|21 if|27 ListSent|37 Assign y|37 +
+|main|8 ListSent|21 if|27 ListSent|37 Assign y|37 +|y
+|main|8 ListSent|21 if|27 ListSent|37 Assign y|37 +|1
+|main|8 ListSent|41 Assign a
+|main|8 ListSent|41 Assign a|41 +
+|main|8 ListSent|41 Assign a|41 +|a
+|main|8 ListSent|41 Assign a|41 +|1
+|main|8 ListSent|42 Assign b
+|main|8 ListSent|42 Assign b|42 -
+|main|8 ListSent|42 Assign b|42 -|b
+|main|8 ListSent|42 Assign b|42 -|1
+|main|8 ListSent|45 Assign y
+|main|8 ListSent|45 Assign y|45 +
+|main|8 ListSent|45 Assign y|45 +|45 *
+|main|8 ListSent|45 Assign y|45 +|45 *|45 +
+|main|8 ListSent|45 Assign y|45 +|45 *|45 +|y
+|main|8 ListSent|45 Assign y|45 +|45 *|45 +|1
+|main|8 ListSent|45 Assign y|45 +|45 *|2
+|main|8 ListSent|45 Assign y|45 +|1
+|main|8 ListSent|46 if
+|main|8 ListSent|46 if|46 ==
+|main|8 ListSent|46 if|46 ==|a
+|main|8 ListSent|46 if|46 ==|b
+|main|8 ListSent|46 if|
+|main|8 ListSent|48 Assign a
+|main|8 ListSent|48 Assign a|48 +
+|main|8 ListSent|48 Assign a|48 +|a
+|main|8 ListSent|48 Assign a|48 +|1
+|main|8 ListSent|52 Assign b
+|main|8 ListSent|52 Assign b|52 +
+|main|8 ListSent|52 Assign b|52 +|b
+|main|8 ListSent|52 Assign b|52 +|1
