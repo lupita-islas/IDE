@@ -23,7 +23,7 @@ estructura_hash = {
 def insertar(nodoPrincipal):
     global MEMORIA
     for nodo in PreOrderIter(nodoPrincipal):
-        if (nodo.tipo == "ASSIGN" || nodo.tipo == "CIN" || nodo.tipo == "ID"):
+        if (nodo.tipo == "ASSIGN" or nodo.tipo == "CIN" or nodo.tipo == "ID"):
             if (buscar_hash(nodo.name)== -1): #si no esta en la tabla hash devuelve -1
                 insertar_hash(nodo.name, nodo.linea, MEMORIA)
                 MEMORIA=MEMORIA+1
