@@ -372,14 +372,16 @@ namespace Compi
         }
         void worker_RunWorkerCompleted(object s, RunWorkerCompletedEventArgs e)
         {
-            string error, final,errorSintac,arbolText;
+            string error, final,errorSintac,arbolText,regx;
 
             error = FileName.Replace("mcp", "err");
             final = FileName.Replace("mcp", "fin");
             errorSintac = FileName.Replace("mcp", "errS");
             arbolText = FileName.Replace("mcp", "tree");
             List<string> listaNodos = new List<string>();
-            Regex rgx = new Regex("/\\d$/");
+            regx = @"(?:\d*\.)?\d+";
+
+            Regex rgx = new Regex(regx);
             
             try{ 
                 
@@ -389,19 +391,18 @@ namespace Compi
                 string[] lineas = System.IO.File.ReadAllLines(arbolText);
                 
                  for(int i=0; i<lineas.Length;i++){
-                    //if(Double.TryParse(lineas[i][lineas[i].Length-1].ToString(),out num))
-                    var arrStr = lineas[i].Split('|');
-                    if(rgx.IsMatch(lineas[i]))
-                    {
-                        Regex.Replace(lineas[i], "[0-9]", "");
-                        lineas[i] += arrStr[arrStr.Length - 1];
-                    }
-                    else
-                    {
-                        Regex.Replace(lineas[i], "[0-9]", "");
-                    }
+                    
+                     var arrStr = lineas[i].Split('|');
+                                      
+                        Double.TryParse(arrStr[arrStr.Length - 1], out var n);
+                      lineas[i] = rgx.Replace(lineas[i], "");
+                                        
+                        if (n != 0)
+                        {
+                            lineas[i] += arrStr[arrStr.Length - 1];
+                        }
                         listaNodos.Add(lineas[i]);
-                        Console.WriteLine("Linea");
+                       
                     }
 
 
