@@ -392,7 +392,7 @@ namespace Compi
                 
                  for(int i=0; i<lineas.Length;i++){
                     
-                     var arrStr = lineas[i].Split('|');
+                    /* var arrStr = lineas[i].Split('|');
                                       
                         Double.TryParse(arrStr[arrStr.Length - 1], out var n);
                       lineas[i] = rgx.Replace(lineas[i], "");
@@ -401,6 +401,7 @@ namespace Compi
                         {
                             lineas[i] += arrStr[arrStr.Length - 1];
                         }
+                        */
                         listaNodos.Add(lineas[i]);
                        
                     }

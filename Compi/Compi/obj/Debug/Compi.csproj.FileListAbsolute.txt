@@ -31,3 +31,14 @@ C:\Users\cesar\Documents\GitHub\IDE\Compi\Compi\obj\Debug\Compi.Properties.Resou
 C:\Users\cesar\Documents\GitHub\IDE\Compi\Compi\obj\Debug\Compi.csproj.GenerateResource.Cache
 C:\Users\cesar\Documents\GitHub\IDE\Compi\Compi\obj\Debug\Compi.exe
 C:\Users\cesar\Documents\GitHub\IDE\Compi\Compi\obj\Debug\Compi.pdb
+C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\bin\Debug\Compi.exe.config
+C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\bin\Debug\Compi.exe
+C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\bin\Debug\Compi.pdb
+C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\bin\Debug\ScintillaNET.dll
+C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\bin\Debug\ScintillaNET.xml
+C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\obj\Debug\Compi.csprojResolveAssemblyReference.cache
+C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\obj\Debug\Compi.Form1.resources
+C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\obj\Debug\Compi.Properties.Resources.resources
+C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\obj\Debug\Compi.csproj.GenerateResource.Cache
+C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\obj\Debug\Compi.exe
+C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\obj\Debug\Compi.pdb
