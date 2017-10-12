@@ -5,8 +5,8 @@ from anytree.dotexport import RenderTreeGraph
 
 class MyNode(Node):
         separator = "|"
-nombre=sys.argv[1]
-#nombre = "C:/Users/cesar/Documents/GitHub/IDE/IDE/Compi/Compi/bin/Debug/pruebFire.vol"
+#nombre=sys.argv[1]
+nombre = "C:/Users/cesar/Documents/GitHub/IDE/IDE/Compi/Compi/bin/Debug/pruebFire.vol"
 #nombre="while.vol"
 archivo = open(nombre, 'r')
 nombreError=nombre.replace("vol","errS")
@@ -505,17 +505,18 @@ def factor(synchset):
     verificar(synchset, P_FACT)
     return nodo
 
-def recorridoPos(mainNode):
-    for node in PostOrderIter(mainNode,filter_=lambda n: n.tipo in("Tipo","ListVar","ID")):#Lista variable,Identificador
+#def recorridoPos(mainNode):
+ #   for node in PostOrderIter(mainNode,filter_=lambda n: n.tipo in("Tipo","ListVar","ID")):#Lista variable,Identificador
     #print (node.name," ",node.type)
     #if(node.siblings!=None):
-        node.siblings[0].type=node.type
+ #       node.siblings[0].type=node.type
         
-    print(mainNode)    
+  #  print(mainNode)    
 
 
 nodo=principalMain(S_PROGRAMA)
 #recorridoPos(nodo)
+
 
 
 #print(RenderTree(nodo).by_attr())

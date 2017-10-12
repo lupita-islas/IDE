@@ -494,6 +494,21 @@ namespace Compi
             return thisnode;
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private static void PopulateTreeView(TreeView treeView, List<string> paths, char pathSeparator)
         {
             TreeNode lastNode = null;

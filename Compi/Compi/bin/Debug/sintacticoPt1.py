@@ -2,12 +2,16 @@ import sys
 import os
 from anytree  import Node, RenderTree, AsciiStyle, AbstractStyle, PostOrderIter, PreOrderIter
 from anytree.dotexport import RenderTreeGraph
+from sintactico import insertar, regresar, instValue
 
 class MyNode(Node):
         separator = "|"
         type=""
         value=""
         nombre=""
+        linea=""
+        valor=0
+        evaluar=0
 #nombre=sys.argv[1]
 nombre = "C:/Users/cesar/Documents/GitHub/IDE/IDE/Compi/Compi/bin/Debug/pruebFire.vol"
 #nombre="while.vol"
@@ -233,6 +237,8 @@ def listaVariables(synchset):
         while (token in P_LSTA_VAR):
             nodo=MyNode(lineas[0])
             nodo.tipo="ID"
+            nodo.nombre=lineas[0]
+            nodo.linea=lineas[2]
             nodo.parent=nodoAux
             comparar("IDENTIFICADOR")
             if (token != ","):
@@ -520,7 +526,7 @@ def factor(synchset):
             nodo.linea=lineas[2]
             nodo.nombre=lineas[0]
             nodo.tipo="ID"
-            nodo.value=lineas[0]
+            #nodo.value=lineas[0]
             comparar("IDENTIFICADOR")
     verificar(synchset, P_FACT)
     return nodo
@@ -531,7 +537,7 @@ def recorridoPosTipo(mainNode):
         if(permitidos.__contains__(node.tipo) and node.siblings):
             node.siblings[0].type=node.type
         
-    print(RenderTree(mainNode,style=AbstractStyle("","","")))    
+    #print(RenderTree(mainNode,style=AbstractStyle("","","")))    
  
 def recorridoPreTipo(mainNode):
     permitidos= ["ListVar"]
@@ -541,29 +547,54 @@ def recorridoPreTipo(mainNode):
                 nodo.type=node.type
                 print(nodo)
         
-    print(RenderTree(mainNode,style=AbstractStyle("","","")))    
+    #print(RenderTree(mainNode,style=AbstractStyle("","","")))    
+
+def parser(number):
+    #print("Es entero " + str(type(number) is int))
+    #print("Es float "+str(type(number) is float))
+    #print("Es str " +str(type(number) is str))
+    if( not isinstance(number,int) and not isinstance(number,float) and isinstance(number,str)  ):
+        if "." not in number:
+            return int(number)
+        else:
+            return float(number) 
+    else:
+         return number
+
 def recorridoPosValor (mainNode):
-    permitidos=["ID","ASSIGN","EXP","EXPSIMP","TERM","FACT","REAL","ENTERO"]
+    permitidos=["ID","EXP","EXPSIMP","TERM","FACT","REAL","ENTERO","OP"]
     for node in PostOrderIter(mainNode):
         if(permitidos.__contains__(node.tipo) and node.parent):
-            if(node.siblings and permitidos.__contains__(node.tipo)):
-                if(node.nombre=='+'):
-                    node.parent=node.value+node.siblings[0].value
-                elif (node.nombre=='*'):
-                    node.parent=node.value*node.siblings[0].value 
-                elif(node.nombre=='/'):
-                    node.parent=node.value/node.siblings[0].value      
-                elif(node.nombre=='-'):
-                    node.parent=node.value-node.siblings[0].value     
-            node.parent.value=node.value
+            if node.tipo!="ENTERO" and node.tipo!="REAL" and node.tipo!="OP":
+                node.value=regresar(node.nombre)
+            if node.parent.tipo=="ASSIGN" and node.parent.evaluar!=1 :
+                node.parent.value=node.value
+                node.parent.evaluar=1
+                instValue(node.parent)
+            elif not node.siblings:
+                node.parent.value=node.value
+                
+            elif(node.siblings and node.parent.evaluar!=1):
 
-    print(RenderTree(mainNode,style=AbstractStyle("","","")))
+                node.parent.evaluar=1
+                if(node.parent.nombre=='+'):
+                    node.parent.value=parser(node.value)+parser(node.siblings[0].value)
+                elif (node.parent.nombre=='*'):
+                    node.parent.value=parser(node.value)*parser(node.siblings[0].value) 
+                elif(node.parent.nombre=='/'):
+                    node.parent.value=parser(node.value)/parser(node.siblings[0].value)      
+                elif(node.parent.nombre=='-'):
+                    node.parent.value=parser(node.value)-parser(node.siblings[0].value)     
+
+
+    print(RenderTree(mainNode,style=AbstractStyle("","","")))   
 nodo=principalMain(S_PROGRAMA)
 recorridoPosTipo(nodo)
 recorridoPreTipo(nodo)
 print("VALUE")
-recorridoPosValor(nodo)
 
+insertar(nodo)
+recorridoPosValor(nodo)
 
 #print(RenderTree(nodo).by_attr())
 #for pre, node in RenderTree(nodo):
