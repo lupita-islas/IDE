@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using System;
 using System.Text.RegularExpressions;
+using System.Data;
 
 namespace Compi
 {
@@ -319,6 +320,7 @@ namespace Compi
                 errorSintac = FileName.Replace("mcp", "errS");
                 error = FileName.Replace("mcp", "err");
                 final = FileName.Replace("mcp", "fin");
+                
             } catch (Exception e)
             {
 
@@ -372,12 +374,14 @@ namespace Compi
         }
         void worker_RunWorkerCompleted(object s, RunWorkerCompletedEventArgs e)
         {
-            string error, final,errorSintac,arbolText,regx;
+            string error, final,errorSintac,arbolText,regx,tabla;
 
             error = FileName.Replace("mcp", "err");
             final = FileName.Replace("mcp", "fin");
             errorSintac = FileName.Replace("mcp", "errS");
             arbolText = FileName.Replace("mcp", "tree");
+            //tabla = FileName.Replace("mcp", "tabla");
+            tabla = "ejemplo.table";
             List<string> listaNodos = new List<string>();
             regx = @"(?:\d*\.)?\d+";
 
@@ -422,13 +426,30 @@ namespace Compi
                 {
                     //Console.Write(e.ToString);
                 }
-
-         
+            
+            dataGrid.DataSource= llenarTabla(tabla);
             toolStripButton1.Enabled = true;
             buildToolStripMenuItem.Enabled = true;
 
         }
+        private DataTable llenarTabla(string fileTabla)
+        {
+            string [] tablaInfo = System.IO.File.ReadAllLines(fileTabla);
+            DataTable table = new DataTable();
+            table.Columns.Add("Nombre", typeof(string));
+            table.Columns.Add("Tipo", typeof(string));
+            table.Columns.Add("Memoria", typeof(string));
+            table.Columns.Add("Valor", typeof(string));
+            table.Columns.Add("Lineas", typeof(string));
+            for (int i = 0; i < tablaInfo.Length; i++)
+            {
+                var camposArr = tablaInfo[i].Split('|');
+                table.Rows.Add(camposArr[0], camposArr[1], camposArr[2], camposArr[3], camposArr[4]);
 
+            }
+            return table;
+           
+        }
         private void buildToolStripMenuItem_Click(object sender, EventArgs e)
         {
             lexico();
