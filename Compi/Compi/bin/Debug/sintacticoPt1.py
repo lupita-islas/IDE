@@ -12,8 +12,12 @@ class MyNode(Node):
         linea=""
         valor=0
         evaluar=0
+        leftchild=""
+        rightchild=""
+
+
 #nombre=sys.argv[1]
-nombre = "C:/Users/cesar/Documents/GitHub/IDE/IDE/Compi/Compi/bin/Debug/pruebFire.vol"
+nombre = "pruebFire.vol"
 #nombre="while.vol"
 archivo = open(nombre, 'r')
 nombreError=nombre.replace("vol","errS")
@@ -561,7 +565,7 @@ def parser(number):
     else:
          return number
 
-def recorridoPosValor (mainNode):
+def recorridoPosValor2 (mainNode):
     permitidos=["ID","EXP","EXPSIMP","TERM","FACT","REAL","ENTERO","OP"]
     for node in PostOrderIter(mainNode):
         if(permitidos.__contains__(node.tipo) and node.parent):
@@ -584,10 +588,45 @@ def recorridoPosValor (mainNode):
                 elif(node.parent.nombre=='/'):
                     node.parent.value=parser(node.value)/parser(node.siblings[0].value)      
                 elif(node.parent.nombre=='-'):
-                    node.parent.value=parser(node.value)-parser(node.siblings[0].value)     
+                    node.parent.value=parser(node.value)-parser(node.siblings[0].value)
 
 
-    print(RenderTree(mainNode,style=AbstractStyle("","","")))   
+def recorridoPosValor (mainNode):
+    permitidos=["ID","EXP","EXPSIMP","TERM","FACT","REAL","ENTERO","OP","ASSIGN"]
+    for node in PostOrderIter(mainNode):
+        if(permitidos.__contains__(node.tipo) and node.parent):
+            #Trae el valor que tiene en tabla
+            if node.tipo!="ENTERO" and node.tipo!="REAL" and node.tipo!="OP" and node.tipo!="ASSIGN":
+                node.value=regresar(node.nombre)
+                node.evaluar=1
+
+            if node.evaluar==2:
+                if node.tipo=="ASSIGN":
+                    node.value=node.leftchild
+                    instValue(node)
+                elif node.tipo=="OP":
+                    if(node.nombre=='+'):
+                        node.value=parser(node.leftchild)+parser(node.rightchild)
+                    elif (node.parent.nombre=='*'):
+                        node.parent.value=parser(node.leftchild)*parser(node.rightchild)
+                    elif(node.parent.nombre=='/'):
+                        node.parent.value=parser(node.leftchild)/parser(node.rightchild)
+                    elif(node.parent.nombre=='-'):
+                        node.parent.value=parser(node.leftchild)-parser(node.rightchild)
+
+            if node.parent.evaluar==0:
+                node.parent.leftchild=node.value
+                node.parent.evaluar=1
+            elif node.parent.evaluar==1:
+                node.parent.rightchild=node.value
+                node.parent.evaluar=2
+
+            if not node.siblings and node.parent.evaluar!=2:
+                node.parent.leftchild=node.value
+                node.parent.evaluar=2
+
+    print(RenderTree(mainNode,style=AbstractStyle("","","")))
+
 nodo=principalMain(S_PROGRAMA)
 recorridoPosTipo(nodo)
 recorridoPreTipo(nodo)

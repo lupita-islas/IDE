@@ -51,7 +51,7 @@ class HashMap(object):
         for bucket in self.hashmap:
             for i, ntmlv in enumerate(bucket):
                  n, t, m, l, v = ntmlv
-                 print n,t,m,v,l
+                 print (n,t,m,v,l)
                  lineaPritn =str(n)+"|"+str(t)+"|"+str(m)+"|"+str(v)+"|"+str(l)+"\n"
                  archivo.write(lineaPritn)
         archivo.close()
