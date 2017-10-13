@@ -2,7 +2,7 @@ import sys
 import os
 from anytree  import Node, RenderTree, AsciiStyle, AbstractStyle, PostOrderIter, PreOrderIter
 from anytree.dotexport import RenderTreeGraph
-from sintactico import insertar, regresar, instValue
+from sintactico import insertar, regresar, instValue, imprimirTabla, errorDec
 
 class MyNode(Node):
         separator = "|"
@@ -14,10 +14,12 @@ class MyNode(Node):
         evaluar=0
         leftchild=""
         rightchild=""
+        tipo=""
 
 
 #nombre=sys.argv[1]
-nombre = "C:/Users/cesar/Documents/GitHub/IDE/IDE/Compi/Compi/bin/Debug/pruebFire.vol"
+#nombre = "C:/Users/cesar/Documents/GitHub/IDE/IDE/Compi/Compi/bin/Debug/pruebFire.vol"
+nombre = "pruebFire.vol"
 #nombre="while.vol"
 archivo = open(nombre, 'r')
 nombreError=nombre.replace("vol","errS")
@@ -157,7 +159,6 @@ def principalMain(synchset):  # checar
     if token in P_PROGRAMA:
 
         nodo=MyNode(token)
-        nodo.tipo="Main"
         comparar("main")
 
         comparar("{")
@@ -592,12 +593,12 @@ def recorridoPosValor2 (mainNode):
 
 
 def recorridoPosValor (mainNode):
-    permitidos=["ID","EXP","EXPSIMP","TERM","FACT","REAL","ENTERO","OP","ASSIGN"]
+    permitidos=["ID","EXP","EXPSIMP","TERM","FACT","REAL","ENTERO","OP","ASSIGN","REL"]
     for node in PostOrderIter(mainNode):
         if(permitidos.__contains__(node.tipo) and node.parent):
             if(node.parent.tipo!="ListVar"):
                 #Trae el valor que tiene en tabla
-                if node.tipo!="ENTERO" and node.tipo!="REAL" and node.tipo!="OP" and node.tipo!="ASSIGN":
+                if node.tipo!="ENTERO" and node.tipo!="REAL" and node.tipo!="OP" and node.tipo!="ASSIGN" and node.tipo!="REL":
                     node.value=regresar(node.nombre)
                     node.evaluar=1
 
@@ -614,6 +615,37 @@ def recorridoPosValor (mainNode):
                             node.value=parser(node.leftchild)/parser(node.rightchild)
                         elif(node.nombre=='-'):
                             node.value=parser(node.leftchild)-parser(node.rightchild)
+                    elif node.tipo=="REL":
+                        if node.nombre=="!=":
+                            if node.leftchild != node.rightchild:
+                                node.value=1
+                            else:
+                                node.value=0
+                        elif node.nombre=="==":
+                            if node.leftchild == node.rightchild:
+                                node.value=1
+                            else:
+                                node.value=0
+                        elif node.nombre==">=":
+                            if node.leftchild >= node.rightchild:
+                                node.value=1
+                            else:
+                                node.value=0
+                        elif node.nombre=="<=":
+                            if node.leftchild <= node.rightchild:
+                                node.value=1
+                            else:
+                                node.value=0
+                        elif node.nombre=="<":
+                            if node.leftchild < node.rightchild:
+                                node.value=1
+                            else:
+                                node.value=0
+                        elif node.nombre == '>':
+                            if node.leftchild > node.rightchild:
+                                node.value=1
+                            else:
+                                node.value=0
                 
                 if not node.siblings and node.parent.evaluar!=2:
                     node.parent.leftchild=node.value
@@ -637,6 +669,9 @@ print("VALUE")
 
 insertar(nodo)
 recorridoPosValor(nodo)
+
+imprimirTabla()
+errorDec()
 
 #print(RenderTree(nodo).by_attr())
 #for pre, node in RenderTree(nodo):

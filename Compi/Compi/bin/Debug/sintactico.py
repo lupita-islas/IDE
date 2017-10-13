@@ -24,7 +24,11 @@ def insertar(nodoPrincipal):
         if (PRE_ALOW.__contains__(nodo.tipo)):
             miTabla.insert(nodo.nombre,nodo.type,MEMORIA,nodo.linea,nodo.valor)
             MEMORIA+=1
+
+def imprimirTabla():
     miTabla.imprimirTabla()
+
+def errorDec():
     miTabla.errorDec()
 
 #Pregunta: si el valor cambia en cierto momento en una asignacion y no corresponde
