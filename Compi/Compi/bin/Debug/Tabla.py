@@ -7,6 +7,7 @@ class HashMap(object):
     def __init__(self):
         self.hashmap = [[] for i in range(256)]
 
+    #funcion que inserta en la tabla hash, recibe como parametros el nombre de la variable (key), el tipo, espacio de memoria, linea y valor
     def insert(self, key, ty, memory, line, value):
         #Crea la llave hash
         hash_key = hash(key) % len(self.hashmap)
@@ -22,12 +23,16 @@ class HashMap(object):
         #si ya existe solo se le agrega la linea donde se encontro
         if key_exists:
             bucket[i][3].append(line)
+            if ty!=bucket[i][1]:
+                self.errorTipo(ty,line,key)
             #bucket[i][4]=value
             #bucket[i] = ((key, type, memory, line, value))
         #si no existe el valor lo agrega de forma normal
         else:
             bucket.append([key, ty, memory, [line], value])
 
+    #Funcion que regresa el valor de una variable en la tabla hash, recibe de parametro la variable (key)
+    #Utilizada al momento de hacer el paso de valores para obtener el valor previo de la variable
     def retrieve(self, key):
         hash_key = hash(key) % len(self.hashmap)
         bucket = self.hashmap[hash_key]
@@ -36,6 +41,8 @@ class HashMap(object):
             return v
         return 0
 
+    #Itera en la tabla hash para detectar las variables que no fueron declaradas y que se encontraron despues en el codigo
+    #Para esto verifica cuales estan vacias es el atributo de tipo
     def errorDec(self,nombre):
         global nombreError
         nombreError=nombre
@@ -52,6 +59,7 @@ class HashMap(object):
 
         archivoError.close()
 
+    #Itera por la tabla hash para mostrar su contenido
     def imprimirTabla(self):
         nombreTabla="ejemplo.table"
         if os.path.exists(nombreTabla):
@@ -67,7 +75,11 @@ class HashMap(object):
                  archivo.write(lineaPritn)
         archivo.close()
 
+    #Función utilizada cuando se hace el paso de valores
+    #Recibe el ID e identifica si ya existe, si ya existe solo le va a agregar el nuevo valor pero debe verificar
+    #que el nuevo valor conincida con el tipo que debe recibir
     def instValTable(self,nombre, valor,memory,line):
+        global nombreError
         #Crea la llave hash
         hash_key = hash(nombre) % len(self.hashmap)
         key_exists = False
@@ -98,12 +110,16 @@ class HashMap(object):
                     bucket[i][4]=float(valor)
                 else:    
                     bucket[i][4]=valor
-                if(ty=="int" and not isinstance(valor,int)) or (ty=="real" and not isinstance(valor,float) and not isinstance(valor,int)) or (ty=="boolean" and ("true" not in valor or "false" not in valor)):
+                if(ty=="int" and not isinstance(valor,int)) or (ty=="real" and not isinstance(valor,float) and not isinstance(valor,int)) or (ty=="boolean" and (1 not in valor or 2 not in valor)):
+                #if(ty=="int" and not isinstance(valor,int)) or (ty=="real" and not isinstance(valor,float) and not isinstance(valor,int)) or (ty=="boolean" and ("true" not in valor or "false" not in valor)):
                     self.errorTipo(ty,line,nombre)       
             #bucket[i] = ((key, type, memory, line, value))
         #si no existe el valor lo agrega de forma normal
         else:
             bucket.append([nombre, ty, memory, [line], valor])
+            archivoError= open(nombreError,"a")
+            archivoError.write("No coincide el tipo "+ty+" variable "+nombre+" en linea: "+str(line)+"\n")
+            archivoError.close()
 
     def errorTipo(self,tipo,linea,variable):
         global nombreError

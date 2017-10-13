@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da30a8ef-e54b-47ee-b4be-695ecda4c9f8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compi/Compi/bin/Debug/.idea/workspace.xml" afterPath="$PROJECT_DIR$/Compi/Compi/bin/Debug/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compi/Compi/bin/Debug/Tabla.py" afterPath="$PROJECT_DIR$/Compi/Compi/bin/Debug/Tabla.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compi/Compi/bin/Debug/ejemplo.table" afterPath="$PROJECT_DIR$/Compi/Compi/bin/Debug/ejemplo.table" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compi/Compi/bin/Debug/pruebFire.tree" afterPath="$PROJECT_DIR$/Compi/Compi/bin/Debug/pruebFire.tree" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compi/Compi/bin/Debug/sintactico.py" afterPath="$PROJECT_DIR$/Compi/Compi/bin/Debug/sintactico.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compi/Compi/bin/Debug/sintacticoPt1.py" afterPath="$PROJECT_DIR$/Compi/Compi/bin/Debug/sintacticoPt1.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,19 +13,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sintacticoPt1.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Compi/Compi/bin/Debug/sintacticoPt1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="657" column="0" lean-forward="false" selection-start-line="657" selection-start-column="0" selection-end-line="657" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-                <element signature="e#16540#17776#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="sintactico.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Compi/Compi/bin/Debug/sintactico.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -45,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tabla.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Tabla.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Compi/Compi/bin/Debug/Tabla.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="92" column="45" lean-forward="false" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
+            <state relative-caret-position="1200">
+              <caret line="80" column="53" lean-forward="true" selection-start-line="80" selection-start-column="53" selection-end-line="80" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -206,7 +186,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Compi/Compi/bin/Debug/Tabla.py</url>
-          <line>69</line>
+          <line>80</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
@@ -244,11 +224,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Compi/Compi/bin/Debug/Tabla.py">
+    <entry file="file://$PROJECT_DIR$/Compi/Compi/bin/Debug/sintacticoPt1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="92" column="45" lean-forward="false" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
-          <folding />
+        <state relative-caret-position="29">
+          <caret line="657" column="0" lean-forward="false" selection-start-line="657" selection-start-column="0" selection-end-line="657" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#16540#17776#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Compi/Compi/bin/Debug/sintactico2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -262,14 +255,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Compi/Compi/bin/Debug/sintacticoPt1.py">
+    <entry file="file://$PROJECT_DIR$/Compi/Compi/bin/Debug/Tabla.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="657" column="0" lean-forward="false" selection-start-line="657" selection-start-column="0" selection-end-line="657" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#16540#17776#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="1200">
+          <caret line="80" column="53" lean-forward="true" selection-start-line="80" selection-start-column="53" selection-end-line="80" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
