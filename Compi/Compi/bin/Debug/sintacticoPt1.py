@@ -593,12 +593,12 @@ def recorridoPosValor2 (mainNode):
 
 
 def recorridoPosValor (mainNode):
-    permitidos=["ID","EXP","EXPSIMP","TERM","FACT","REAL","ENTERO","OP","ASSIGN","REL"]
+    permitidos=["ID","EXP","EXPSIMP","TERM","FACT","REAL","ENTERO","OP","ASSIGN","REL","COUT"]
     for node in PostOrderIter(mainNode):
         if(permitidos.__contains__(node.tipo) and node.parent):
             if(node.parent.tipo!="ListVar"):
                 #Trae el valor que tiene en tabla
-                if node.tipo!="ENTERO" and node.tipo!="REAL" and node.tipo!="OP" and node.tipo!="ASSIGN" and node.tipo!="REL":
+                if node.tipo!="ENTERO" and node.tipo!="REAL" and node.tipo!="OP" and node.tipo!="ASSIGN" and node.tipo!="REL" and node.tipo!="COUT":
                     node.value=regresar(node.nombre)
                     node.evaluar=1
 
@@ -615,6 +615,8 @@ def recorridoPosValor (mainNode):
                             node.value=parser(node.leftchild)/parser(node.rightchild)
                         elif(node.nombre=='-'):
                             node.value=parser(node.leftchild)-parser(node.rightchild)
+                    elif node.tipo=="COUT":
+                        node.value=node.leftchild
                     elif node.tipo=="REL":
                         if node.nombre=="!=":
                             if node.leftchild != node.rightchild:

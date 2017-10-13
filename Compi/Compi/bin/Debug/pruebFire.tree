@@ -133,10 +133,10 @@
 |main|8 ListSent|58 while|58 ==', evaluar=2, leftchild=130.0, linea='58', nombre='==', rightchild='0', tipo='REL', value=0)
 |main|8 ListSent|58 while|58 ==|y', evaluar=1, linea='58', nombre='y', tipo='ID', value=130.0)
 |main|8 ListSent|58 while|58 ==|0', linea='58', nombre='0', tipo='ENTERO', value='0
-|main|8 ListSent|58 while|61 ListSent', linea='61', nombre='LISTSENT', tipo='LISTSENT
-|main|8 ListSent|58 while|61 ListSent|61 cout', evaluar=2, leftchild=8.0, linea='61', nombre='cout', tipo='COUT
+|main|8 ListSent|58 while|61 ListSent', evaluar=2, leftchild=8.0, linea='61', nombre='LISTSENT', rightchild=10, tipo='LISTSENT
+|main|8 ListSent|58 while|61 ListSent|61 cout', evaluar=2, leftchild=8.0, linea='61', nombre='cout', tipo='COUT', value=8.0)
 |main|8 ListSent|58 while|61 ListSent|61 cout|x', evaluar=1, linea='61', nombre='x', tipo='ID', value=8.0)
-|main|8 ListSent|58 while|61 ListSent|63 cout', evaluar=2, leftchild=10, linea='63', nombre='cout', tipo='COUT
+|main|8 ListSent|58 while|61 ListSent|63 cout', evaluar=2, leftchild=10, linea='63', nombre='cout', tipo='COUT', value=10)
 |main|8 ListSent|58 while|61 ListSent|63 cout|63 +', evaluar=2, leftchild=0, linea='63', nombre='+', rightchild=10, tipo='OP', value=10)
 |main|8 ListSent|58 while|61 ListSent|63 cout|63 +|mas', evaluar=1, linea='63', nombre='mas', tipo='ID', value=0)
 |main|8 ListSent|58 while|61 ListSent|63 cout|63 +|63 *', evaluar=2, leftchild='5', linea='63', nombre='*', rightchild='2', tipo='OP', value=10)
