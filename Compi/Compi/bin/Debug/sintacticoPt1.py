@@ -2,7 +2,7 @@ import sys
 import os
 from anytree  import Node, RenderTree, AsciiStyle, AbstractStyle, PostOrderIter, PreOrderIter
 from anytree.dotexport import RenderTreeGraph
-from sintactico import insertar, regresar, instValue, imprimirTabla, errorDec
+from sintactico import insertar, regresar, instValue, imprimirTabla
 
 class MyNode(Node):
         separator = "|"
@@ -612,7 +612,13 @@ def recorridoPosValor (mainNode):
                         elif (node.nombre=='*'):
                             node.value=parser(node.leftchild)*parser(node.rightchild)
                         elif(node.nombre=='/'):
-                            node.value=parser(node.leftchild)/parser(node.rightchild)
+                            if isinstance(parser(node.leftchild),int) and isinstance(parser(node.rightchild),int):
+                            #if node.tipo=="ENTERO":
+                                node.value=int(parser(node.leftchild)/parser(node.rightchild))
+                            else:
+                                node.value=parser(node.leftchild)/parser(node.rightchild)
+
+
                         elif(node.nombre=='-'):
                             node.value=parser(node.leftchild)-parser(node.rightchild)
                     elif node.tipo=="COUT":
@@ -669,11 +675,10 @@ recorridoPosTipo(nodo)
 recorridoPreTipo(nodo)
 print("VALUE")
 
-insertar(nodo)
+insertar(nodo,nombre)
 recorridoPosValor(nodo)
 
 imprimirTabla()
-errorDec()
 
 #print(RenderTree(nodo).by_attr())
 #for pre, node in RenderTree(nodo):

@@ -2,6 +2,8 @@
 import os
 class HashMap(object):
     #Crea la tabla hash de un tamano de 256
+    nombreError=""
+
     def __init__(self):
         self.hashmap = [[] for i in range(256)]
 
@@ -34,12 +36,21 @@ class HashMap(object):
             return v
         return 0
 
-    def errorDec(self):
+    def errorDec(self,nombre):
+        global nombreError
+        nombreError=nombre
+
+        if os.path.exists(nombreError):
+            os.remove(nombreError)
+        archivoError = open(nombreError, "w+")
+
         for bucket in self.hashmap:
             for i, ntmlv in enumerate(bucket):
                 n, t, m, l, v = ntmlv
                 if t=='':
-                    print("Variable '"+str(n)+"' no declarada en "+l[0])
+                    archivoError.write("Variable '"+str(n)+"' no declarada en "+l[0]+"\n")
+
+        archivoError.close()
 
     def imprimirTabla(self):
         nombreTabla="ejemplo.table"
@@ -55,6 +66,7 @@ class HashMap(object):
                  lineaPritn =str(n)+"|"+str(t)+"|"+str(m)+"|"+str(v)+"|"+str(l)+"\n"
                  archivo.write(lineaPritn)
         archivo.close()
+
     def instValTable(self,nombre, valor,memory,line):
         #Crea la llave hash
         hash_key = hash(nombre) % len(self.hashmap)
@@ -72,15 +84,13 @@ class HashMap(object):
                 break
         #si ya existe solo se le agrega la linea donde se encontro
         if key_exists:
-            #if(ty=="int" and not isinstance(valor,int)) or (ty=="real" and not isinstance(valor,float) and not isinstance(valor,int)) or (ty=="boolean" and ("true" not in valor or "false" not in valor)):
-            if ty=='':
-                print("Error declaracion")
             if(isinstance(valor,str) ):
                 if(ty=="real" and  ("." not in valor)):
                     bucket[i][4]=float(valor)
                 else:    
                     bucket[i][4]=valor
-                if(ty=="int" and ("." in valor) and ("true"  in valor or "false"  in valor)) or (ty=="real" and  ("true"  in valor or "false"  in valor)) or (ty=="boolean" and ("true" not in valor or "false" not in valor) ):
+                #if(ty=="int" and ("." in valor) and ("true"  in valor or "false"  in valor)) or (ty=="real" and  ("true"  in valor or "false"  in valor)) or (ty=="boolean" and ("true" not in valor or "false" not in valor) ):
+                if(ty=="int" and "." in valor ):
                     self.errorTipo(ty,line,nombre)
                 
             else:
@@ -96,7 +106,10 @@ class HashMap(object):
             bucket.append([nombre, ty, memory, [line], valor])
 
     def errorTipo(self,tipo,linea,variable):
-        print ("No coincide el tipo ",tipo," variable ",variable," en linea: "+str(linea))
+        global nombreError
+        archivoError= open(nombreError,"a")
+        archivoError.write("No coincide el tipo "+tipo+" variable "+variable+" en linea: "+str(linea)+"\n")
+        archivoError.close()
 
 
 #tabla hash debe contener
