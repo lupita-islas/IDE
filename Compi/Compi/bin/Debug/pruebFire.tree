@@ -1,152 +1,152 @@
 |main
-|main|4 ListDec', linea='4', nombre='ListDec', tipo='ListDec
-|main|4 ListDec|4 Dec', linea='4', nombre='Dec', tipo='Dec
-|main|4 ListDec|4 Dec|4 int', linea='4', nombre='int', tipo='Tipo', type='int
-|main|4 ListDec|4 Dec|4 ListVar', linea='4', nombre='ListVar', tipo='ListVar', type='int
-|main|4 ListDec|4 Dec|4 ListVar|x', linea='4', nombre='x', tipo='ID', type='int
-|main|4 ListDec|4 Dec|4 ListVar|y', linea='4', nombre='y', tipo='ID', type='int
-|main|4 ListDec|4 Dec|4 ListVar|z', linea='4', nombre='z', tipo='ID', type='int
-|main|4 ListDec|4 Dec|4 ListVar|d', linea='4', nombre='d', tipo='ID', type='int
-|main|4 ListDec|6 Dec', linea='6', nombre='Dec', tipo='Dec
-|main|4 ListDec|6 Dec|6 real', linea='6', nombre='real', tipo='Tipo', type='real
-|main|4 ListDec|6 Dec|6 ListVar', linea='6', nombre='ListVar', tipo='ListVar', type='real
-|main|4 ListDec|6 Dec|6 ListVar|a', linea='6', nombre='a', tipo='ID', type='real
-|main|4 ListDec|6 Dec|6 ListVar|b', linea='6', nombre='b', tipo='ID', type='real
-|main|4 ListDec|6 Dec|6 ListVar|c', linea='6', nombre='c', tipo='ID', type='real
-|main|8 ListSent', evaluar=2, leftchild='23', linea='8', nombre='LISTSENT', rightchild=4, tipo='LISTSENT
-|main|8 ListSent|8 Assign x', evaluar=2, leftchild='23', linea='8', nombre='x', tipo='ASSIGN', value='23
-|main|8 ListSent|8 Assign x|23', linea='8', nombre='23', tipo='ENTERO', value='23
-|main|8 ListSent|10 Assign y', evaluar=2, leftchild=4, linea='10', nombre='y', tipo='ASSIGN', value=4)
-|main|8 ListSent|10 Assign y|10 -', evaluar=2, leftchild=5, linea='10', nombre='-', rightchild='1', tipo='OP', value=4)
-|main|8 ListSent|10 Assign y|10 -|10 +', evaluar=2, leftchild='2', linea='10', nombre='+', rightchild='3', tipo='OP', value=5)
-|main|8 ListSent|10 Assign y|10 -|10 +|2', linea='10', nombre='2', tipo='ENTERO', value='2
-|main|8 ListSent|10 Assign y|10 -|10 +|3', linea='10', nombre='3', tipo='ENTERO', value='3
-|main|8 ListSent|10 Assign y|10 -|1', linea='10', nombre='1', tipo='ENTERO', value='1
-|main|8 ListSent|12 Assign z', evaluar=2, leftchild=11, linea='12', nombre='z', tipo='ASSIGN', value=11)
-|main|8 ListSent|12 Assign z|12 +', evaluar=2, leftchild=4, linea='12', nombre='+', rightchild='7', tipo='OP', value=11)
-|main|8 ListSent|12 Assign z|12 +|y', evaluar=1, linea='12', nombre='y', tipo='ID', value=4)
-|main|8 ListSent|12 Assign z|12 +|7', linea='12', nombre='7', tipo='ENTERO', value='7
-|main|8 ListSent|14 Assign x', evaluar=2, leftchild=8, linea='14', nombre='x', tipo='ASSIGN', value=8)
-|main|8 ListSent|14 Assign x|14 *', evaluar=2, leftchild=2, linea='14', nombre='*', rightchild=4, tipo='OP', value=8)
-|main|8 ListSent|14 Assign x|14 *|14 -', evaluar=2, leftchild='5', linea='14', nombre='-', rightchild='3', tipo='OP', value=2)
-|main|8 ListSent|14 Assign x|14 *|14 -|5', linea='14', nombre='5', tipo='ENTERO', value='5
-|main|8 ListSent|14 Assign x|14 *|14 -|3', linea='14', nombre='3', tipo='ENTERO', value='3
-|main|8 ListSent|14 Assign x|14 *|14 /', evaluar=2, leftchild='8', linea='14', nombre='/', rightchild='2', tipo='OP', value=4)
-|main|8 ListSent|14 Assign x|14 *|14 /|8', linea='14', nombre='8', tipo='ENTERO', value='8
-|main|8 ListSent|14 Assign x|14 *|14 /|2', linea='14', nombre='2', tipo='ENTERO', value='2
-|main|8 ListSent|15 Assign y', evaluar=2, leftchild=-2, linea='15', nombre='y', tipo='ASSIGN', value=-2)
-|main|8 ListSent|15 Assign y|15 -', evaluar=2, leftchild=7, linea='15', nombre='-', rightchild='9', tipo='OP', value=-2)
-|main|8 ListSent|15 Assign y|15 -|15 -', evaluar=2, leftchild=8, linea='15', nombre='-', rightchild=1, tipo='OP', value=7)
-|main|8 ListSent|15 Assign y|15 -|15 -|15 +', evaluar=2, leftchild='5', linea='15', nombre='+', rightchild='3', tipo='OP', value=8)
-|main|8 ListSent|15 Assign y|15 -|15 -|15 +|5', linea='15', nombre='5', tipo='ENTERO', value='5
-|main|8 ListSent|15 Assign y|15 -|15 -|15 +|3', linea='15', nombre='3', tipo='ENTERO', value='3
-|main|8 ListSent|15 Assign y|15 -|15 -|15 /', evaluar=2, leftchild=8, linea='15', nombre='/', rightchild='7', tipo='OP', value=1)
-|main|8 ListSent|15 Assign y|15 -|15 -|15 /|15 *', evaluar=2, leftchild='2', linea='15', nombre='*', rightchild='4', tipo='OP', value=8)
-|main|8 ListSent|15 Assign y|15 -|15 -|15 /|15 *|2', linea='15', nombre='2', tipo='ENTERO', value='2
-|main|8 ListSent|15 Assign y|15 -|15 -|15 /|15 *|4', linea='15', nombre='4', tipo='ENTERO', value='4
-|main|8 ListSent|15 Assign y|15 -|15 -|15 /|7', linea='15', nombre='7', tipo='ENTERO', value='7
-|main|8 ListSent|15 Assign y|15 -|9', linea='15', nombre='9', tipo='ENTERO', value='9
-|main|8 ListSent|16 Assign z', evaluar=2, leftchild=64, linea='16', nombre='z', tipo='ASSIGN', value=64)
-|main|8 ListSent|16 Assign z|16 +', evaluar=2, leftchild=4, linea='16', nombre='+', rightchild=60, tipo='OP', value=64)
-|main|8 ListSent|16 Assign z|16 +|16 /', evaluar=2, leftchild='8', linea='16', nombre='/', rightchild='2', tipo='OP', value=4)
-|main|8 ListSent|16 Assign z|16 +|16 /|8', linea='16', nombre='8', tipo='ENTERO', value='8
-|main|8 ListSent|16 Assign z|16 +|16 /|2', linea='16', nombre='2', tipo='ENTERO', value='2
-|main|8 ListSent|16 Assign z|16 +|16 *', evaluar=2, leftchild='15', linea='16', nombre='*', rightchild='4', tipo='OP', value=60)
-|main|8 ListSent|16 Assign z|16 +|16 *|15', linea='16', nombre='15', tipo='ENTERO', value='15
-|main|8 ListSent|16 Assign z|16 +|16 *|4', linea='16', nombre='4', tipo='ENTERO', value='4
-|main|8 ListSent|17 Assign y', evaluar=2, leftchild='14.54', linea='17', nombre='y', tipo='ASSIGN', value='14.54
-|main|8 ListSent|17 Assign y|14.54', linea='17', nombre='14.54', tipo='REAL', value='14.54
-|main|8 ListSent|18 Assign a', evaluar=2, leftchild=60.0, linea='18', nombre='a', tipo='ASSIGN', value=60.0)
-|main|8 ListSent|18 Assign a|18 -', evaluar=2, leftchild=61.0, linea='18', nombre='-', rightchild='1', tipo='OP', value=60.0)
-|main|8 ListSent|18 Assign a|18 -|18 +', evaluar=2, leftchild=27.0, linea='18', nombre='+', rightchild='34', tipo='OP', value=61.0)
-|main|8 ListSent|18 Assign a|18 -|18 +|18 -', evaluar=2, leftchild=28.0, linea='18', nombre='-', rightchild=1, tipo='OP', value=27.0)
-|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 +', evaluar=2, leftchild='24.0', linea='18', nombre='+', rightchild='4', tipo='OP', value=28.0)
-|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 +|24.0', linea='18', nombre='24.0', tipo='REAL', value='24.0
-|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 +|4', linea='18', nombre='4', tipo='ENTERO', value='4
-|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /', evaluar=2, leftchild=3, linea='18', nombre='/', rightchild='2', tipo='OP', value=1)
-|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /|18 *', evaluar=2, leftchild='1', linea='18', nombre='*', rightchild='3', tipo='OP', value=3)
-|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /|18 *|1', linea='18', nombre='1', tipo='ENTERO', value='1
-|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /|18 *|3', linea='18', nombre='3', tipo='ENTERO', value='3
-|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /|2', linea='18', nombre='2', tipo='ENTERO', value='2
-|main|8 ListSent|18 Assign a|18 -|18 +|34', linea='18', nombre='34', tipo='ENTERO', value='34
-|main|8 ListSent|18 Assign a|18 -|1', linea='18', nombre='1', tipo='ENTERO', value='1
-|main|8 ListSent|20 if', evaluar=1, leftchild=0, linea='20', nombre='if', tipo='IF
-|main|8 ListSent|20 if|20 >', evaluar=2, leftchild='2', linea='20', nombre='>', rightchild='3', tipo='REL', value=0)
-|main|8 ListSent|20 if|20 >|2', linea='20', nombre='2', tipo='ENTERO', value='2
-|main|8 ListSent|20 if|20 >|3', linea='20', nombre='3', tipo='ENTERO', value='3
-|main|8 ListSent|20 if|22 ListSent', evaluar=2, leftchild=63.0, linea='22', nombre='LISTSENT', tipo='LISTSENT
-|main|8 ListSent|20 if|22 ListSent|22 Assign y', evaluar=2, leftchild=63.0, linea='22', nombre='y', tipo='ASSIGN', value=63.0)
-|main|8 ListSent|20 if|22 ListSent|22 Assign y|22 +', evaluar=2, leftchild=60.0, linea='22', nombre='+', rightchild='3', tipo='OP', value=63.0)
-|main|8 ListSent|20 if|22 ListSent|22 Assign y|22 +|a', evaluar=1, linea='22', nombre='a', tipo='ID', value=60.0)
-|main|8 ListSent|20 if|22 ListSent|22 Assign y|22 +|3', linea='22', nombre='3', tipo='ENTERO', value='3
-|main|8 ListSent|20 if|26 ListSent', evaluar=1, leftchild=64.0, linea='26', nombre='LISTSENT', tipo='LISTSENT
-|main|8 ListSent|20 if|26 ListSent|26 if', evaluar=1, leftchild=1, linea='26', nombre='if', tipo='IF
-|main|8 ListSent|20 if|26 ListSent|26 if|26 >', evaluar=2, leftchild='4', linea='26', nombre='>', rightchild='2', tipo='REL', value=1)
-|main|8 ListSent|20 if|26 ListSent|26 if|26 >|4', linea='26', nombre='4', tipo='ENTERO', value='4
-|main|8 ListSent|20 if|26 ListSent|26 if|26 >|2', linea='26', nombre='2', tipo='ENTERO', value='2
-|main|8 ListSent|20 if|26 ListSent|26 if|28 ListSent', evaluar=2, leftchild='3.2', linea='28', nombre='LISTSENT', tipo='LISTSENT
-|main|8 ListSent|20 if|26 ListSent|26 if|28 ListSent|28 Assign b', evaluar=2, leftchild='3.2', linea='28', nombre='b', tipo='ASSIGN', value='3.2
-|main|8 ListSent|20 if|26 ListSent|26 if|28 ListSent|28 Assign b|3.2', linea='28', nombre='3.2', tipo='REAL', value='3.2
-|main|8 ListSent|20 if|26 ListSent|26 if|32 ListSent', evaluar=2, leftchild='5.0', linea='32', nombre='LISTSENT', tipo='LISTSENT
-|main|8 ListSent|20 if|26 ListSent|26 if|32 ListSent|32 Assign b', evaluar=2, leftchild='5.0', linea='32', nombre='b', tipo='ASSIGN', value='5.0
-|main|8 ListSent|20 if|26 ListSent|26 if|32 ListSent|32 Assign b|5.0', linea='32', nombre='5.0', tipo='REAL', value='5.0
-|main|8 ListSent|20 if|26 ListSent|36 Assign y', evaluar=2, leftchild=64.0, linea='36', nombre='y', tipo='ASSIGN', value=64.0)
-|main|8 ListSent|20 if|26 ListSent|36 Assign y|36 +', evaluar=2, leftchild=63.0, linea='36', nombre='+', rightchild='1', tipo='OP', value=64.0)
-|main|8 ListSent|20 if|26 ListSent|36 Assign y|36 +|y', evaluar=1, linea='36', nombre='y', tipo='ID', value=63.0)
-|main|8 ListSent|20 if|26 ListSent|36 Assign y|36 +|1', linea='36', nombre='1', tipo='ENTERO', value='1
-|main|8 ListSent|40 Assign a', evaluar=2, leftchild=61.0, linea='40', nombre='a', tipo='ASSIGN', value=61.0)
-|main|8 ListSent|40 Assign a|40 +', evaluar=2, leftchild=60.0, linea='40', nombre='+', rightchild='1', tipo='OP', value=61.0)
-|main|8 ListSent|40 Assign a|40 +|a', evaluar=1, linea='40', nombre='a', tipo='ID', value=60.0)
-|main|8 ListSent|40 Assign a|40 +|1', linea='40', nombre='1', tipo='ENTERO', value='1
-|main|8 ListSent|41 Assign b', evaluar=2, leftchild=4.0, linea='41', nombre='b', tipo='ASSIGN', value=4.0)
-|main|8 ListSent|41 Assign b|41 -', evaluar=2, leftchild='5.0', linea='41', nombre='-', rightchild='1', tipo='OP', value=4.0)
-|main|8 ListSent|41 Assign b|41 -|b', evaluar=1, linea='41', nombre='b', tipo='ID', value='5.0
-|main|8 ListSent|41 Assign b|41 -|1', linea='41', nombre='1', tipo='ENTERO', value='1
-|main|8 ListSent|42 repeat', evaluar=1, leftchild=0, linea='42', nombre='repeat', tipo='REPEAT
-|main|8 ListSent|42 repeat|44 ListSent', evaluar=1, leftchild=131.0, linea='44', nombre='LISTSENT', tipo='LISTSENT
-|main|8 ListSent|42 repeat|44 ListSent|44 Assign y', evaluar=2, leftchild=131.0, linea='44', nombre='y', tipo='ASSIGN', value=131.0)
-|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +', evaluar=2, leftchild=130.0, linea='44', nombre='+', rightchild='1', tipo='OP', value=131.0)
-|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +|44 *', evaluar=2, leftchild=65.0, linea='44', nombre='*', rightchild='2', tipo='OP', value=130.0)
-|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +|44 *|44 +', evaluar=2, leftchild=64.0, linea='44', nombre='+', rightchild='1', tipo='OP', value=65.0)
-|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +|44 *|44 +|y', evaluar=1, linea='44', nombre='y', tipo='ID', value=64.0)
-|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +|44 *|44 +|1', linea='44', nombre='1', tipo='ENTERO', value='1
-|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +|44 *|2', linea='44', nombre='2', tipo='ENTERO', value='2
-|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +|1', linea='44', nombre='1', tipo='ENTERO', value='1
-|main|8 ListSent|42 repeat|44 ListSent|45 if', evaluar=1, leftchild=0, linea='45', nombre='if', tipo='IF
-|main|8 ListSent|42 repeat|44 ListSent|45 if|45 ==', evaluar=2, leftchild=61.0, linea='45', nombre='==', rightchild=4.0, tipo='REL', value=0)
-|main|8 ListSent|42 repeat|44 ListSent|45 if|45 ==|a', evaluar=1, linea='45', nombre='a', tipo='ID', value=61.0)
-|main|8 ListSent|42 repeat|44 ListSent|45 if|45 ==|b', evaluar=1, linea='45', nombre='b', tipo='ID', value=4.0)
-|main|8 ListSent|42 repeat|44 ListSent|45 if|47 ListSent', evaluar=2, leftchild=62.0, linea='47', nombre='LISTSENT', tipo='LISTSENT
-|main|8 ListSent|42 repeat|44 ListSent|45 if|47 ListSent|47 Assign a', evaluar=2, leftchild=62.0, linea='47', nombre='a', tipo='ASSIGN', value=62.0)
-|main|8 ListSent|42 repeat|44 ListSent|45 if|47 ListSent|47 Assign a|47 +', evaluar=2, leftchild=61.0, linea='47', nombre='+', rightchild='1', tipo='OP', value=62.0)
-|main|8 ListSent|42 repeat|44 ListSent|45 if|47 ListSent|47 Assign a|47 +|a', evaluar=1, linea='47', nombre='a', tipo='ID', value=61.0)
-|main|8 ListSent|42 repeat|44 ListSent|45 if|47 ListSent|47 Assign a|47 +|1', linea='47', nombre='1', tipo='ENTERO', value='1
-|main|8 ListSent|42 repeat|44 ListSent|45 if|51 ListSent', evaluar=2, leftchild=5.0, linea='51', nombre='LISTSENT', tipo='LISTSENT
-|main|8 ListSent|42 repeat|44 ListSent|45 if|51 ListSent|51 Assign b', evaluar=2, leftchild=5.0, linea='51', nombre='b', tipo='ASSIGN', value=5.0)
-|main|8 ListSent|42 repeat|44 ListSent|45 if|51 ListSent|51 Assign b|51 +', evaluar=2, leftchild=4.0, linea='51', nombre='+', rightchild='1', tipo='OP', value=5.0)
-|main|8 ListSent|42 repeat|44 ListSent|45 if|51 ListSent|51 Assign b|51 +|b', evaluar=1, linea='51', nombre='b', tipo='ID', value=4.0)
-|main|8 ListSent|42 repeat|44 ListSent|45 if|51 ListSent|51 Assign b|51 +|1', linea='51', nombre='1', tipo='ENTERO', value='1
-|main|8 ListSent|42 repeat|56 ==', evaluar=2, leftchild=131.0, linea='56', nombre='==', rightchild='5', tipo='REL', value=0)
-|main|8 ListSent|42 repeat|56 ==|y', evaluar=1, linea='56', nombre='y', tipo='ID', value=131.0)
-|main|8 ListSent|42 repeat|56 ==|5', linea='56', nombre='5', tipo='ENTERO', value='5
-|main|8 ListSent|58 while', evaluar=1, leftchild=0, linea='58', nombre='while', tipo='WHILE
-|main|8 ListSent|58 while|58 ==', evaluar=2, leftchild=131.0, linea='58', nombre='==', rightchild='0', tipo='REL', value=0)
-|main|8 ListSent|58 while|58 ==|y', evaluar=1, linea='58', nombre='y', tipo='ID', value=131.0)
-|main|8 ListSent|58 while|58 ==|0', linea='58', nombre='0', tipo='ENTERO', value='0
-|main|8 ListSent|58 while|61 ListSent', evaluar=2, leftchild=8, linea='61', nombre='LISTSENT', rightchild=10, tipo='LISTSENT
-|main|8 ListSent|58 while|61 ListSent|61 cout', evaluar=2, leftchild=8, linea='61', nombre='cout', tipo='COUT', value=8)
-|main|8 ListSent|58 while|61 ListSent|61 cout|x', evaluar=1, linea='61', nombre='x', tipo='ID', value=8)
-|main|8 ListSent|58 while|61 ListSent|63 cout', evaluar=2, leftchild=10, linea='63', nombre='cout', tipo='COUT', value=10)
-|main|8 ListSent|58 while|61 ListSent|63 cout|63 +', evaluar=2, leftchild=0, linea='63', nombre='+', rightchild=10, tipo='OP', value=10)
-|main|8 ListSent|58 while|61 ListSent|63 cout|63 +|mas', evaluar=1, linea='63', nombre='mas', tipo='ID', value=0)
-|main|8 ListSent|58 while|61 ListSent|63 cout|63 +|63 *', evaluar=2, leftchild='5', linea='63', nombre='*', rightchild='2', tipo='OP', value=10)
-|main|8 ListSent|58 while|61 ListSent|63 cout|63 +|63 *|5', linea='63', nombre='5', tipo='ENTERO', value='5
-|main|8 ListSent|58 while|61 ListSent|63 cout|63 +|63 *|2', linea='63', nombre='2', tipo='ENTERO', value='2
-|main|8 ListSent|65 if', evaluar=1, leftchild=1, linea='65', nombre='if', tipo='IF
-|main|8 ListSent|65 if|65 !=', evaluar=2, leftchild='6', linea='65', nombre='!=', rightchild=62.0, tipo='REL', value=1)
-|main|8 ListSent|65 if|65 !=|6', linea='65', nombre='6', tipo='ENTERO', value='6
-|main|8 ListSent|65 if|65 !=|a', evaluar=1, linea='65', nombre='a', tipo='ID', value=62.0)
-|main|8 ListSent|65 if|70 ListSent', evaluar=1, leftchild='5', linea='70', nombre='LISTSENT', tipo='LISTSENT
-|main|8 ListSent|65 if|70 ListSent|70 Assign a', evaluar=2, leftchild='5', linea='70', nombre='a', tipo='ASSIGN', value='5
-|main|8 ListSent|65 if|70 ListSent|70 Assign a|5', linea='70', nombre='5', tipo='ENTERO', value='5
-|main|8 ListSent|65 if|70 ListSent|71 cin: x', linea='71', nombre='x', tipo='CIN
+|main|4 ListDec
+|main|4 ListDec|4 Dec
+|main|4 ListDec|4 Dec|4 int
+|main|4 ListDec|4 Dec|4 ListVar
+|main|4 ListDec|4 Dec|4 ListVar|x
+|main|4 ListDec|4 Dec|4 ListVar|y
+|main|4 ListDec|4 Dec|4 ListVar|z
+|main|4 ListDec|4 Dec|4 ListVar|d
+|main|4 ListDec|6 Dec
+|main|4 ListDec|6 Dec|6 real
+|main|4 ListDec|6 Dec|6 ListVar
+|main|4 ListDec|6 Dec|6 ListVar|a
+|main|4 ListDec|6 Dec|6 ListVar|b
+|main|4 ListDec|6 Dec|6 ListVar|c
+|main|8 ListSent
+|main|8 ListSent|8 Assign x
+|main|8 ListSent|8 Assign x|23
+|main|8 ListSent|10 Assign y
+|main|8 ListSent|10 Assign y|10 -
+|main|8 ListSent|10 Assign y|10 -|10 +
+|main|8 ListSent|10 Assign y|10 -|10 +|2
+|main|8 ListSent|10 Assign y|10 -|10 +|3
+|main|8 ListSent|10 Assign y|10 -|1
+|main|8 ListSent|12 Assign z
+|main|8 ListSent|12 Assign z|12 +
+|main|8 ListSent|12 Assign z|12 +|y
+|main|8 ListSent|12 Assign z|12 +|7
+|main|8 ListSent|14 Assign x
+|main|8 ListSent|14 Assign x|14 *
+|main|8 ListSent|14 Assign x|14 *|14 -
+|main|8 ListSent|14 Assign x|14 *|14 -|5
+|main|8 ListSent|14 Assign x|14 *|14 -|3
+|main|8 ListSent|14 Assign x|14 *|14 /
+|main|8 ListSent|14 Assign x|14 *|14 /|8
+|main|8 ListSent|14 Assign x|14 *|14 /|2
+|main|8 ListSent|15 Assign y
+|main|8 ListSent|15 Assign y|15 -
+|main|8 ListSent|15 Assign y|15 -|15 -
+|main|8 ListSent|15 Assign y|15 -|15 -|15 +
+|main|8 ListSent|15 Assign y|15 -|15 -|15 +|5
+|main|8 ListSent|15 Assign y|15 -|15 -|15 +|3
+|main|8 ListSent|15 Assign y|15 -|15 -|15 /
+|main|8 ListSent|15 Assign y|15 -|15 -|15 /|15 *
+|main|8 ListSent|15 Assign y|15 -|15 -|15 /|15 *|2
+|main|8 ListSent|15 Assign y|15 -|15 -|15 /|15 *|4
+|main|8 ListSent|15 Assign y|15 -|15 -|15 /|7
+|main|8 ListSent|15 Assign y|15 -|9
+|main|8 ListSent|16 Assign z
+|main|8 ListSent|16 Assign z|16 +
+|main|8 ListSent|16 Assign z|16 +|16 /
+|main|8 ListSent|16 Assign z|16 +|16 /|8
+|main|8 ListSent|16 Assign z|16 +|16 /|2
+|main|8 ListSent|16 Assign z|16 +|16 *
+|main|8 ListSent|16 Assign z|16 +|16 *|15
+|main|8 ListSent|16 Assign z|16 +|16 *|4
+|main|8 ListSent|17 Assign y
+|main|8 ListSent|17 Assign y|14.54
+|main|8 ListSent|18 Assign a
+|main|8 ListSent|18 Assign a|18 -
+|main|8 ListSent|18 Assign a|18 -|18 +
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 +
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 +|24.0
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 +|4
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /|18 *
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /|18 *|1
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /|18 *|3
+|main|8 ListSent|18 Assign a|18 -|18 +|18 -|18 /|2
+|main|8 ListSent|18 Assign a|18 -|18 +|34
+|main|8 ListSent|18 Assign a|18 -|1
+|main|8 ListSent|20 if
+|main|8 ListSent|20 if|20 >
+|main|8 ListSent|20 if|20 >|2
+|main|8 ListSent|20 if|20 >|3
+|main|8 ListSent|20 if|22 ListSent
+|main|8 ListSent|20 if|22 ListSent|22 Assign y
+|main|8 ListSent|20 if|22 ListSent|22 Assign y|22 +
+|main|8 ListSent|20 if|22 ListSent|22 Assign y|22 +|a
+|main|8 ListSent|20 if|22 ListSent|22 Assign y|22 +|3
+|main|8 ListSent|20 if|26 ListSent
+|main|8 ListSent|20 if|26 ListSent|26 if
+|main|8 ListSent|20 if|26 ListSent|26 if|26 >
+|main|8 ListSent|20 if|26 ListSent|26 if|26 >|4
+|main|8 ListSent|20 if|26 ListSent|26 if|26 >|2
+|main|8 ListSent|20 if|26 ListSent|26 if|28 ListSent
+|main|8 ListSent|20 if|26 ListSent|26 if|28 ListSent|28 Assign b
+|main|8 ListSent|20 if|26 ListSent|26 if|28 ListSent|28 Assign b|3.2
+|main|8 ListSent|20 if|26 ListSent|26 if|32 ListSent
+|main|8 ListSent|20 if|26 ListSent|26 if|32 ListSent|32 Assign b
+|main|8 ListSent|20 if|26 ListSent|26 if|32 ListSent|32 Assign b|5.0
+|main|8 ListSent|20 if|26 ListSent|36 Assign y
+|main|8 ListSent|20 if|26 ListSent|36 Assign y|36 +
+|main|8 ListSent|20 if|26 ListSent|36 Assign y|36 +|y
+|main|8 ListSent|20 if|26 ListSent|36 Assign y|36 +|1
+|main|8 ListSent|40 Assign a
+|main|8 ListSent|40 Assign a|40 +
+|main|8 ListSent|40 Assign a|40 +|a
+|main|8 ListSent|40 Assign a|40 +|1
+|main|8 ListSent|41 Assign b
+|main|8 ListSent|41 Assign b|41 -
+|main|8 ListSent|41 Assign b|41 -|b
+|main|8 ListSent|41 Assign b|41 -|1
+|main|8 ListSent|42 repeat
+|main|8 ListSent|42 repeat|44 ListSent
+|main|8 ListSent|42 repeat|44 ListSent|44 Assign y
+|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +
+|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +|44 *
+|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +|44 *|44 +
+|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +|44 *|44 +|y
+|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +|44 *|44 +|1
+|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +|44 *|2
+|main|8 ListSent|42 repeat|44 ListSent|44 Assign y|44 +|1
+|main|8 ListSent|42 repeat|44 ListSent|45 if
+|main|8 ListSent|42 repeat|44 ListSent|45 if|45 ==
+|main|8 ListSent|42 repeat|44 ListSent|45 if|45 ==|a
+|main|8 ListSent|42 repeat|44 ListSent|45 if|45 ==|b
+|main|8 ListSent|42 repeat|44 ListSent|45 if|47 ListSent
+|main|8 ListSent|42 repeat|44 ListSent|45 if|47 ListSent|47 Assign a
+|main|8 ListSent|42 repeat|44 ListSent|45 if|47 ListSent|47 Assign a|47 +
+|main|8 ListSent|42 repeat|44 ListSent|45 if|47 ListSent|47 Assign a|47 +|a
+|main|8 ListSent|42 repeat|44 ListSent|45 if|47 ListSent|47 Assign a|47 +|1
+|main|8 ListSent|42 repeat|44 ListSent|45 if|51 ListSent
+|main|8 ListSent|42 repeat|44 ListSent|45 if|51 ListSent|51 Assign b
+|main|8 ListSent|42 repeat|44 ListSent|45 if|51 ListSent|51 Assign b|51 +
+|main|8 ListSent|42 repeat|44 ListSent|45 if|51 ListSent|51 Assign b|51 +|b
+|main|8 ListSent|42 repeat|44 ListSent|45 if|51 ListSent|51 Assign b|51 +|1
+|main|8 ListSent|42 repeat|56 ==
+|main|8 ListSent|42 repeat|56 ==|y
+|main|8 ListSent|42 repeat|56 ==|5
+|main|8 ListSent|58 while
+|main|8 ListSent|58 while|58 ==
+|main|8 ListSent|58 while|58 ==|y
+|main|8 ListSent|58 while|58 ==|0
+|main|8 ListSent|58 while|61 ListSent
+|main|8 ListSent|58 while|61 ListSent|61 cout
+|main|8 ListSent|58 while|61 ListSent|61 cout|x
+|main|8 ListSent|58 while|61 ListSent|63 cout
+|main|8 ListSent|58 while|61 ListSent|63 cout|63 +
+|main|8 ListSent|58 while|61 ListSent|63 cout|63 +|mas
+|main|8 ListSent|58 while|61 ListSent|63 cout|63 +|63 *
+|main|8 ListSent|58 while|61 ListSent|63 cout|63 +|63 *|5
+|main|8 ListSent|58 while|61 ListSent|63 cout|63 +|63 *|2
+|main|8 ListSent|65 if
+|main|8 ListSent|65 if|65 !=
+|main|8 ListSent|65 if|65 !=|6
+|main|8 ListSent|65 if|65 !=|a
+|main|8 ListSent|65 if|70 ListSent
+|main|8 ListSent|65 if|70 ListSent|70 Assign a
+|main|8 ListSent|65 if|70 ListSent|70 Assign a|5
+|main|8 ListSent|65 if|70 ListSent|71 cin: x

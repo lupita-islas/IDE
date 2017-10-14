@@ -31,8 +31,8 @@ def insertar(nodoPrincipal,nombre):
 
     miTabla.errorDec(nombreError)
 
-def imprimirTabla():
-    miTabla.imprimirTabla()
+def imprimirTabla(nombreArchivo):
+    miTabla.imprimirTabla(nombreArchivo)
 
 def instValue(node):
     global MEMORIA, miTabla
@@ -41,3 +41,9 @@ def instValue(node):
 
 def regresar(nombre):
     return miTabla.retrieve(nombre)
+
+def regTipo(nombre):
+    return miTabla.retrieveT(nombre)
+
+def abir(nombre):
+    miTabla.abrir(nombre)

@@ -9,7 +9,7 @@ using System.Windows.Forms.VisualStyles;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Collections.Generic;
-using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Data;
 
@@ -328,21 +328,29 @@ namespace Compi
            
             ProcessStartInfo cmd = new ProcessStartInfo();
             ProcessStartInfo cmd2 = new ProcessStartInfo();
+            ProcessStartInfo cmd3 = new ProcessStartInfo();
             //  cmd.StartInfo.FileName = "cmd.exe";
-            cmd.FileName = @"C:\Python27\python.exe";
-            cmd2.FileName= @"C:\Python27\python.exe";
+            cmd.FileName = @"C:\Program Files (x86)\Python36-32\python.exe";
+            cmd2.FileName= @"C:\Program Files (x86)\Python36-32\python.exe";
+            cmd3.FileName = @"C:\Program Files (x86)\Python36-32\python.exe";
             cmd.Arguments = " automata.py " + FileName;
             cmd2.Arguments = "gramatica.py " + volcado;
+            cmd3.Arguments = "semantico.py " + volcado; 
             cmd.RedirectStandardOutput = false;
             cmd2.RedirectStandardOutput = false;
+            cmd3.RedirectStandardOutput = false;
             cmd.UseShellExecute = false;
             cmd2.UseShellExecute = false;
+            cmd3.UseShellExecute = false;
             cmd.CreateNoWindow = true;
             cmd2.CreateNoWindow = true;
+            cmd3.CreateNoWindow = true;
             Process proc = new Process();
             Process proc2 = new Process();
+            Process proc3 = new Process();
             proc.StartInfo = cmd;
             proc2.StartInfo = cmd2;
+            proc3.StartInfo = cmd3;
             try
             {
                 proc.Start();
@@ -352,17 +360,25 @@ namespace Compi
                     Thread.Sleep(10);
                 }*/
                 proc.WaitForExit();
-
+                Console.WriteLine("Proceso1");
                 //Thread.Sleep(5000);
                 if (proc.HasExited)
                 {
                     proc2.Start();
                     proc2.WaitForExit();
+                    Console.WriteLine("Proceso2");
+                    if (proc2.HasExited)
+                    {
+                        proc3.Start();
+                        proc3.WaitForExit();
+                        Console.WriteLine("Proceso3");
+                    }
                 }
             }
             catch(Exception a)
             {
-              a.ToString();
+                Console.WriteLine("Error XDDD");
+                a.ToString();
             }
            
 
@@ -374,27 +390,32 @@ namespace Compi
         }
         void worker_RunWorkerCompleted(object s, RunWorkerCompletedEventArgs e)
         {
-            string error, final,errorSintac,arbolText,regx,tabla;
+            string error, final,errorSintac,arbolText,regx,tabla,errSem,arbolSem,regx2;
 
             error = FileName.Replace("mcp", "err");
             final = FileName.Replace("mcp", "fin");
             errorSintac = FileName.Replace("mcp", "errS");
             arbolText = FileName.Replace("mcp", "tree");
-            //tabla = FileName.Replace("mcp", "tabla");
-            tabla = "ejemplo.table";
+            tabla = FileName.Replace("mcp", "table");
+            errSem = FileName.Replace("mcp", "errSem");
+            arbolSem = FileName.Replace("mcp", "treeSint");
             List<string> listaNodos = new List<string>();
+            List<string> listaNodosSem = new List<string>();
             regx = @"(?:\d*\.)?\d+";
+            
 
             Regex rgx = new Regex(regx);
-            
+           
             try{ 
                 
                 lexicErr.Text = System.IO.File.ReadAllText(error);
                 errSint.Text = System.IO.File.ReadAllText(errorSintac);
                 lexicoText.Text = System.IO.File.ReadAllText(final);
                 string[] lineas = System.IO.File.ReadAllLines(arbolText);
-                
-                 for(int i=0; i<lineas.Length;i++){
+                string[] lineasSem = System.IO.File.ReadAllLines(arbolSem);
+                string[] tablaInfo = System.IO.File.ReadAllLines(tabla);
+                errSemtx.Text = System.IO.File.ReadAllText(errSem);
+                for (int i=0; i<lineas.Length;i++){
                     
                     /* var arrStr = lineas[i].Split('|');
                                       
@@ -408,7 +429,27 @@ namespace Compi
                         */
                         listaNodos.Add(lineas[i]);
                        
+                }
+                for(int i = 0; i < lineasSem.Length; i++)
+                {
+                    
+                    var splitedLine = lineasSem[i].Split(',');
+                   /* for(int j = 1; j < splitedLine.Length; j++)
+                    {
+                        if (splitedLine[j].Contains("type") || splitedLine[j].Contains("value"))
+                        {
+                            
+                          
+                            splitedLine[0] += " " + splitedLine[j];
+                        }
                     }
+                    */
+                    
+                    
+                   // splitedLine[0] = rgx2.Replace(splitedLine[0], " ");
+                    Console.WriteLine(splitedLine[0]);
+                    listaNodosSem.Add(splitedLine[0]);
+                }
 
 
 
@@ -416,25 +457,30 @@ namespace Compi
 
                 //LoadTreeViewFromFile(arbolText, treeView);
                 PopulateTreeView(treeView, listaNodos, '|');
-                
+                PopulateTreeView(treeViewSem, listaNodosSem, '|');
                 treeView.ExpandAll();
+                treeViewSem.ExpandAll();
+                
 
+                dataGrid.DataSource = llenarTabla(tablaInfo);
+                
 
                 //arbol.Text = System.IO.File.ReadAllText(arbolText);
             }
             catch(Exception ex)
                 {
-                    //Console.Write(e.ToString);
+                    Console.WriteLine("Error de archivos");
+                    Console.WriteLine(ex.ToString());
                 }
             
-            dataGrid.DataSource= llenarTabla(tabla);
+           
             toolStripButton1.Enabled = true;
             buildToolStripMenuItem.Enabled = true;
 
         }
-        private DataTable llenarTabla(string fileTabla)
+        private DataTable llenarTabla(string[] tablaInfo)
         {
-            string [] tablaInfo = System.IO.File.ReadAllLines(fileTabla);
+            
             DataTable table = new DataTable();
             table.Columns.Add("Nombre", typeof(string));
             table.Columns.Add("Tipo", typeof(string));
@@ -586,6 +632,35 @@ namespace Compi
 
             if (trv.Nodes.Count > 0) trv.Nodes[0].EnsureVisible();
         }
+        private static void PopulateTreeViewSem(TreeView treeView, List<string> paths, char pathSeparator)
+        {
+            TreeNode lastNode = null;
+            string subPathAgg="",subPathAggBus="";
+            foreach (string path in paths)
+            {
+                subPathAgg = string.Empty;
+                foreach (string subPath in path.Split(pathSeparator))
+                {
+                    var temporal = subPath.Split(null);
+
+                    
+                    subPathAggBus = subPathAgg+temporal[0] + pathSeparator;
+                    subPathAgg += subPath + pathSeparator;
+
+                    TreeNode[] nodes = treeView.Nodes.Find(subPathAggBus, true);
+                    if (nodes.Length == 0)
+                        if (lastNode == null)
+                            lastNode = treeView.Nodes.Add(subPathAgg, subPath);
+                        else
+                            lastNode = lastNode.Nodes.Add(subPathAgg, subPath);
+                    else
+                        lastNode = nodes[0];
+                }
+                lastNode = null; // This is the place code was changed
+
+            }
+        }
+
     }
 
 }

@@ -70,7 +70,7 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.errSint = new System.Windows.Forms.TextBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.errSemtx = new System.Windows.Forms.TextBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage11 = new System.Windows.Forms.TabPage();
@@ -81,6 +81,7 @@
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.treeViewSem = new System.Windows.Forms.TreeView();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -93,6 +94,7 @@
             this.tabPage12.SuspendLayout();
             this.tabPage14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            this.tabPage13.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -399,7 +401,7 @@
             this.TextPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TextPanel.Location = new System.Drawing.Point(3, 49);
             this.TextPanel.Name = "TextPanel";
-            this.TextPanel.Size = new System.Drawing.Size(1069, 453);
+            this.TextPanel.Size = new System.Drawing.Size(1069, 403);
             this.TextPanel.TabIndex = 5;
             // 
             // tabControl3
@@ -472,7 +474,7 @@
             // 
             // tabPage10
             // 
-            this.tabPage10.Controls.Add(this.textBox1);
+            this.tabPage10.Controls.Add(this.errSemtx);
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
@@ -481,14 +483,14 @@
             this.tabPage10.Text = "Error Semantico";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // errSemtx
             // 
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(264, 640);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.errSemtx.Location = new System.Drawing.Point(0, 0);
+            this.errSemtx.Multiline = true;
+            this.errSemtx.Name = "errSemtx";
+            this.errSemtx.Size = new System.Drawing.Size(264, 640);
+            this.errSemtx.TabIndex = 0;
+            this.errSemtx.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // splitter1
             // 
@@ -507,10 +509,10 @@
             this.tabControl4.Controls.Add(this.tabPage14);
             this.tabControl4.Controls.Add(this.tabPage15);
             this.tabControl4.Controls.Add(this.tabPage13);
-            this.tabControl4.Location = new System.Drawing.Point(0, 498);
+            this.tabControl4.Location = new System.Drawing.Point(0, 458);
             this.tabControl4.Name = "tabControl4";
             this.tabControl4.SelectedIndex = 0;
-            this.tabControl4.Size = new System.Drawing.Size(1076, 216);
+            this.tabControl4.Size = new System.Drawing.Size(1076, 256);
             this.tabControl4.TabIndex = 9;
             // 
             // tabPage11
@@ -564,7 +566,7 @@
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(1068, 190);
+            this.tabPage14.Size = new System.Drawing.Size(1068, 230);
             this.tabPage14.TabIndex = 3;
             this.tabPage14.Text = "Hash Table";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -573,8 +575,9 @@
             // 
             this.dataGrid.AllowUserToAddRows = false;
             this.dataGrid.AllowUserToDeleteRows = false;
+            this.dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGrid.Location = new System.Drawing.Point(3, 3);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
@@ -587,20 +590,32 @@
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(1068, 190);
+            this.tabPage15.Size = new System.Drawing.Size(1068, 230);
             this.tabPage15.TabIndex = 4;
             this.tabPage15.Text = "Codigo Intermedio";
             this.tabPage15.UseVisualStyleBackColor = true;
             // 
             // tabPage13
             // 
+            this.tabPage13.Controls.Add(this.treeViewSem);
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(1068, 190);
+            this.tabPage13.Size = new System.Drawing.Size(1068, 230);
             this.tabPage13.TabIndex = 2;
             this.tabPage13.Text = "Semantico";
             this.tabPage13.UseVisualStyleBackColor = true;
+            // 
+            // treeViewSem
+            // 
+            this.treeViewSem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeViewSem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewSem.Location = new System.Drawing.Point(-4, 0);
+            this.treeViewSem.Name = "treeViewSem";
+            this.treeViewSem.Size = new System.Drawing.Size(1069, 227);
+            this.treeViewSem.TabIndex = 0;
             // 
             // Form1
             // 
@@ -638,6 +653,7 @@
             this.tabPage12.ResumeLayout(false);
             this.tabPage14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
+            this.tabPage13.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -695,8 +711,9 @@
         private System.Windows.Forms.TabPage tabPage14;
         private System.Windows.Forms.TabPage tabPage15;
         private System.Windows.Forms.TabPage tabPage13;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox errSemtx;
         private System.Windows.Forms.DataGridView dataGrid;
+        private System.Windows.Forms.TreeView treeViewSem;
     }
 }
 

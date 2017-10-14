@@ -2,7 +2,7 @@ import sys
 import os
 from anytree  import Node, RenderTree, AsciiStyle, AbstractStyle, PostOrderIter, PreOrderIter
 from anytree.dotexport import RenderTreeGraph
-from sintactico import insertar, regresar, instValue, imprimirTabla
+from sintactico import insertar, regresar, instValue, imprimirTabla, regTipo
 
 class MyNode(Node):
         separator = "|"
@@ -17,13 +17,14 @@ class MyNode(Node):
         tipo=""
 
 
-#nombre=sys.argv[1]
-#nombre = "C:/Users/cesar/Documents/GitHub/IDE/IDE/Compi/Compi/bin/Debug/pruebFire.vol"
-nombre = "pruebFire.vol"
+nombre=sys.argv[1]
+#nombre = "C:/Users/cesar/Documents/GitHub/IDE/Compi/Compi/bin/Debug/Semantico/pruebaSem.vol"
+#nombre = "pruebFire.vol"
 #nombre="while.vol"
 archivo = open(nombre, 'r')
 nombreError=nombre.replace("vol","errS")
-nombreArbol=nombre.replace("vol","tree")
+nombreArbol=nombre.replace("vol","treeSint")
+nombreTabla=nombre.replace("vol","table")
 if os.path.exists(nombreError):
     os.remove(nombreError)
     archivoError = open(nombreError, "w+")
@@ -517,14 +518,14 @@ def factor(synchset):
             nodo.linea=lineas[2]
             nodo.nombre=lineas[0]
             nodo.tipo="REAL"
-            nodo.value=lineas[0]
+            nodo.value=float(lineas[0])
             comparar("REAL")
         elif (token == "ENTERO"):
             nodo = MyNode(lineas[0])
             nodo.linea=lineas[2]
             nodo.nombre=lineas[0]
             nodo.tipo="ENTERO"
-            nodo.value=lineas[0]
+            nodo.value=int(lineas[0])
             comparar("ENTERO")
         else:
             nodo = MyNode(lineas[0])
@@ -604,16 +605,25 @@ def recorridoPosValor (mainNode):
 
                 if node.evaluar==2:
                     if node.tipo=="ASSIGN":
-                        node.value=node.leftchild
+                        if regTipo(node.nombre)=="int":
+                            node.value=int(node.leftchild)
+                        else:
+                            
+                            node.value=node.leftchild
                         instValue(node)
                     elif node.tipo=="OP":
                         if(node.nombre=='+'):
                             node.value=parser(node.leftchild)+parser(node.rightchild)
                         elif (node.nombre=='*'):
-                            node.value=parser(node.leftchild)*parser(node.rightchild)
+                            #if isinstance(parser(node.leftchild),int) and isinstance(parser(node.rightchild),int):
+                            if(node.type=="int"):
+                                  node.value=int(parser(node.leftchild)*parser(node.rightchild))
+                            else:
+                                node.value=parser(node.leftchild)*parser(node.rightchild)
+
                         elif(node.nombre=='/'):
-                            if isinstance(parser(node.leftchild),int) and isinstance(parser(node.rightchild),int):
-                            #if node.tipo=="ENTERO":
+                            #if isinstance(parser(node.leftchild),int) and isinstance(parser(node.rightchild),int):
+                            if(node.type=="int"):
                                 node.value=int(parser(node.leftchild)/parser(node.rightchild))
                             else:
                                 node.value=parser(node.leftchild)/parser(node.rightchild)
@@ -669,17 +679,25 @@ def recorridoPosValor (mainNode):
                 
 
     print(RenderTree(mainNode,style=AbstractStyle("","","")))
+def cleanTree(nodo):
+    for node in PostOrderIter(nodo):
+        #if(nodo.is_leaf ):
+        node.name+="      Tipo= "+node.type+"     Valor= "+str(node.value)
+    print(RenderTree(nodo,style=AbstractStyle("","","")))    
 
 nodo=principalMain(S_PROGRAMA)
 recorridoPosTipo(nodo)
 recorridoPreTipo(nodo)
 print("VALUE")
 
+#insertar(nodo,"pruebFire.vol")
+#abiri(nombre)
 insertar(nodo,nombre)
 recorridoPosValor(nodo)
 
-imprimirTabla()
-
+imprimirTabla(nombreTabla)
+print("Clean")
+cleanTree(nodo)
 #print(RenderTree(nodo).by_attr())
 #for pre, node in RenderTree(nodo):
  #   print("%s%s" % (pre, node.name))
@@ -691,11 +709,12 @@ imprimirTabla()
 #print(RenderTree(nodo,style=AbstractStyle("\t","\t","\t")).by_attr())
 #print(RenderTree(nodo,style=AbstractStyle("","","")))
 arbolito=RenderTree(nodo,style=AbstractStyle("","",""))
-archivoArbol.write(str(arbolito).replace("MyNode('","").replace("')",""))
+archivoArbol.write(str(arbolito).replace("MyNode('","").replace("')","").replace("\'","").replace(")",""))
 #archivoArbol.write(str(arbolito))
+archivoArbol.close()
 
 #archivoArbol.write(RenderTree(nodo,style=AbstractStyle("|   ","|-- ","|__ ")).by_attr())
 #archivoArbol.write(RenderTree(nodo).by_attr())
 archivo.close()
 archivoError.close()
-archivoArbol.close()
+

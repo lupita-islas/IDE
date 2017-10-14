@@ -5,8 +5,8 @@ from anytree.dotexport import RenderTreeGraph
 
 class MyNode(Node):
         separator = "|"
-#nombre=sys.argv[1]
-nombre = "C:/Users/cesar/Documents/GitHub/IDE/IDE/Compi/Compi/bin/Debug/pruebFire.vol"
+nombre=sys.argv[1]
+#nombre = "C:/Users/cesar/Documents/GitHub/IDE/IDE/Compi/Compi/bin/Debug/pruebFire.vol"
 #nombre="while.vol"
 archivo = open(nombre, 'r')
 nombreError=nombre.replace("vol","errS")

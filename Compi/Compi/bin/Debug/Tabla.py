@@ -7,6 +7,10 @@ class HashMap(object):
     def __init__(self):
         self.hashmap = [[] for i in range(256)]
 
+    def abrir(self,nombre):
+        global nombreError
+        nombreError=nombre
+
     #funcion que inserta en la tabla hash, recibe como parametros el nombre de la variable (key), el tipo, espacio de memoria, linea y valor
     def insert(self, key, ty, memory, line, value):
         #Crea la llave hash
@@ -18,13 +22,14 @@ class HashMap(object):
         for i, ntmlv in enumerate(bucket):
             n, t, m, l, v = ntmlv
             if key == n:
+                lineno=l
                 key_exists = True
                 break
         #si ya existe solo se le agrega la linea donde se encontro
         if key_exists:
             bucket[i][3].append(line)
-            if ty!=bucket[i][1]:
-                self.errorTipo(ty,line,key)
+            #if lineno==l:
+             #   self.errorTipo(ty,line,key)
             #bucket[i][4]=value
             #bucket[i] = ((key, type, memory, line, value))
         #si no existe el valor lo agrega de forma normal
@@ -39,6 +44,14 @@ class HashMap(object):
         for i, ntmlv in enumerate(bucket):
             n, t, m, l, v = ntmlv
             return v
+        return 0
+
+    def retrieveT(self, key):
+        hash_key = hash(key) % len(self.hashmap)
+        bucket = self.hashmap[hash_key]
+        for i, ntmlv in enumerate(bucket):
+            n, t, m, l, v = ntmlv
+            return t
         return 0
 
     #Itera en la tabla hash para detectar las variables que no fueron declaradas y que se encontraron despues en el codigo
@@ -60,8 +73,8 @@ class HashMap(object):
         archivoError.close()
 
     #Itera por la tabla hash para mostrar su contenido
-    def imprimirTabla(self):
-        nombreTabla="ejemplo.table"
+    def imprimirTabla(self,file):
+        nombreTabla=file
         if os.path.exists(nombreTabla):
             os.remove(nombreTabla)
         
