@@ -22,11 +22,12 @@ def insertar(nodoPrincipal,nombre):
     global MEMORIA
     global miTabla
 
-    nombreError=nombre.replace("vol","errSem")
+    miTabla.abrir(nombre)
+    nombreError=nombre
 
     for nodo in PreOrderIter(nodoPrincipal):
         if (PRE_ALOW.__contains__(nodo.tipo)):
-            miTabla.insert(nodo.nombre,nodo.type,MEMORIA,nodo.linea,nodo.valor)
+            miTabla.insert(nodo.nombre,nodo.type,MEMORIA,nodo.linea,nodo.valor,nodo.parent.tipo)
             MEMORIA+=1
 
     miTabla.errorDec(nombreError)
@@ -47,3 +48,4 @@ def regTipo(nombre):
 
 def abir(nombre):
     miTabla.abrir(nombre)
+

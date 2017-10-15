@@ -12,7 +12,7 @@ class HashMap(object):
         nombreError=nombre
 
     #funcion que inserta en la tabla hash, recibe como parametros el nombre de la variable (key), el tipo, espacio de memoria, linea y valor
-    def insert(self, key, ty, memory, line, value):
+    def insert(self, key, ty, memory, line, value,padre):
         #Crea la llave hash
         hash_key = hash(key) % len(self.hashmap)
         key_exists = False
@@ -23,10 +23,15 @@ class HashMap(object):
             n, t, m, l, v = ntmlv
             if key == n:
                 lineno=l
+                type=t
                 key_exists = True
                 break
         #si ya existe solo se le agrega la linea donde se encontro
         if key_exists:
+            if ((padre=="ListVar" and lineno.__contains__(line) ) or (padre=="ListVar" and type!=ty)):
+                archivoError= open(nombreError,"a")
+                archivoError.write("Variable "+key+" doblemente declarada en linea: "+str(line)+"\n")
+                archivoError.close()
             bucket[i][3].append(line)
             #if lineno==l:
              #   self.errorTipo(ty,line,key)
@@ -58,11 +63,7 @@ class HashMap(object):
     #Para esto verifica cuales estan vacias es el atributo de tipo
     def errorDec(self,nombre):
         global nombreError
-        nombreError=nombre
-
-        if os.path.exists(nombreError):
-            os.remove(nombreError)
-        archivoError = open(nombreError, "w+")
+        archivoError= open(nombreError,"a")
 
         for bucket in self.hashmap:
             for i, ntmlv in enumerate(bucket):

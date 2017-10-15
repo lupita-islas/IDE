@@ -19,12 +19,19 @@ class MyNode(Node):
 
 nombre=sys.argv[1]
 #nombre = "C:/Users/cesar/Documents/GitHub/IDE/Compi/Compi/bin/Debug/Semantico/pruebaSem.vol"
-#nombre = "pruebFire.vol"
+#nombre="/Users/Ruth/Documents/7 semestre/Compiladores/IDE/Compi/Compi/bin/Debug/Semantico/pruebaSem.vol"
+#nombre = "pruebaSem.vol"
 #nombre="while.vol"
 archivo = open(nombre, 'r')
 nombreError=nombre.replace("vol","errS")
 nombreArbol=nombre.replace("vol","treeSint")
 nombreTabla=nombre.replace("vol","table")
+nombreSem=nombre.replace("vol","errSem")
+
+if os.path.exists(nombreSem):
+    os.remove(nombreSem)
+archivoError = open(nombreSem, "w+")
+
 if os.path.exists(nombreError):
     os.remove(nombreError)
     archivoError = open(nombreError, "w+")
@@ -605,25 +612,24 @@ def recorridoPosValor (mainNode):
 
                 if node.evaluar==2:
                     if node.tipo=="ASSIGN":
-                        if regTipo(node.nombre)=="int":
-                            node.value=int(node.leftchild)
+                        if regTipo(node.nombre)=="real":
+                            node.value=float(node.leftchild)
                         else:
-                            
                             node.value=node.leftchild
                         instValue(node)
                     elif node.tipo=="OP":
                         if(node.nombre=='+'):
                             node.value=parser(node.leftchild)+parser(node.rightchild)
                         elif (node.nombre=='*'):
-                            #if isinstance(parser(node.leftchild),int) and isinstance(parser(node.rightchild),int):
-                            if(node.type=="int"):
+                            if isinstance(parser(node.leftchild),int) and isinstance(parser(node.rightchild),int):
+                            #if(node.type=="int"):
                                   node.value=int(parser(node.leftchild)*parser(node.rightchild))
                             else:
                                 node.value=parser(node.leftchild)*parser(node.rightchild)
 
                         elif(node.nombre=='/'):
-                            #if isinstance(parser(node.leftchild),int) and isinstance(parser(node.rightchild),int):
-                            if(node.type=="int"):
+                            if isinstance(parser(node.leftchild),int) and isinstance(parser(node.rightchild),int):
+                            #if(node.type=="int"):
                                 node.value=int(parser(node.leftchild)/parser(node.rightchild))
                             else:
                                 node.value=parser(node.leftchild)/parser(node.rightchild)
@@ -692,7 +698,7 @@ print("VALUE")
 
 #insertar(nodo,"pruebFire.vol")
 #abiri(nombre)
-insertar(nodo,nombre)
+insertar(nodo,nombreSem)
 recorridoPosValor(nodo)
 
 imprimirTabla(nombreTabla)
