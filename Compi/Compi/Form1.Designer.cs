@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,6 +85,8 @@
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.treeViewSem = new System.Windows.Forms.TreeView();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.treeView2 = new System.Windows.Forms.TreeView();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -95,6 +100,7 @@
             this.tabPage14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.tabPage13.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -401,7 +407,7 @@
             this.TextPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TextPanel.Location = new System.Drawing.Point(3, 49);
             this.TextPanel.Name = "TextPanel";
-            this.TextPanel.Size = new System.Drawing.Size(1069, 403);
+            this.TextPanel.Size = new System.Drawing.Size(889, 403);
             this.TextPanel.TabIndex = 5;
             // 
             // tabControl3
@@ -410,11 +416,12 @@
             this.tabControl3.Controls.Add(this.tabPage8);
             this.tabControl3.Controls.Add(this.tabPage9);
             this.tabControl3.Controls.Add(this.tabPage10);
+            this.tabControl3.Controls.Add(this.tabPage1);
             this.tabControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tabControl3.Location = new System.Drawing.Point(1078, 49);
+            this.tabControl3.Location = new System.Drawing.Point(898, 49);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(275, 669);
+            this.tabControl3.Size = new System.Drawing.Size(455, 669);
             this.tabControl3.TabIndex = 6;
             // 
             // tabPage7
@@ -433,22 +440,24 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(267, 643);
+            this.tabPage8.Size = new System.Drawing.Size(447, 643);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Error Lexico";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // lexicErr
             // 
-            this.lexicErr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lexicErr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lexicErr.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lexicErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lexicErr.Location = new System.Drawing.Point(0, 0);
             this.lexicErr.Multiline = true;
             this.lexicErr.Name = "lexicErr";
             this.lexicErr.ReadOnly = true;
             this.lexicErr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.lexicErr.Size = new System.Drawing.Size(271, 639);
+            this.lexicErr.Size = new System.Drawing.Size(444, 639);
             this.lexicErr.TabIndex = 0;
             // 
             // tabPage9
@@ -457,19 +466,23 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(267, 643);
+            this.tabPage9.Size = new System.Drawing.Size(447, 643);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Error Sintactico";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
             // errSint
             // 
+            this.errSint.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.errSint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errSint.Location = new System.Drawing.Point(2, 3);
             this.errSint.Multiline = true;
             this.errSint.Name = "errSint";
             this.errSint.ReadOnly = true;
             this.errSint.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.errSint.Size = new System.Drawing.Size(265, 576);
+            this.errSint.Size = new System.Drawing.Size(445, 636);
             this.errSint.TabIndex = 0;
             // 
             // tabPage10
@@ -478,17 +491,21 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(267, 643);
+            this.tabPage10.Size = new System.Drawing.Size(447, 643);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Error Semantico";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
             // errSemtx
             // 
+            this.errSemtx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.errSemtx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errSemtx.Location = new System.Drawing.Point(0, 0);
             this.errSemtx.Multiline = true;
             this.errSemtx.Name = "errSemtx";
-            this.errSemtx.Size = new System.Drawing.Size(264, 640);
+            this.errSemtx.Size = new System.Drawing.Size(447, 640);
             this.errSemtx.TabIndex = 0;
             this.errSemtx.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -512,7 +529,7 @@
             this.tabControl4.Location = new System.Drawing.Point(0, 458);
             this.tabControl4.Name = "tabControl4";
             this.tabControl4.SelectedIndex = 0;
-            this.tabControl4.Size = new System.Drawing.Size(1076, 256);
+            this.tabControl4.Size = new System.Drawing.Size(892, 256);
             this.tabControl4.TabIndex = 9;
             // 
             // tabPage11
@@ -521,7 +538,7 @@
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(1068, 190);
+            this.tabPage11.Size = new System.Drawing.Size(1068, 230);
             this.tabPage11.TabIndex = 0;
             this.tabPage11.Text = "Lexico";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -536,7 +553,7 @@
             this.lexicoText.Name = "lexicoText";
             this.lexicoText.ReadOnly = true;
             this.lexicoText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.lexicoText.Size = new System.Drawing.Size(1069, 188);
+            this.lexicoText.Size = new System.Drawing.Size(1069, 224);
             this.lexicoText.TabIndex = 0;
             // 
             // tabPage12
@@ -545,7 +562,7 @@
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(1068, 190);
+            this.tabPage12.Size = new System.Drawing.Size(1068, 230);
             this.tabPage12.TabIndex = 1;
             this.tabPage12.Text = "Sintactico";
             this.tabPage12.UseVisualStyleBackColor = true;
@@ -566,7 +583,7 @@
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(1068, 230);
+            this.tabPage14.Size = new System.Drawing.Size(884, 230);
             this.tabPage14.TabIndex = 3;
             this.tabPage14.Text = "Hash Table";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -577,11 +594,36 @@
             this.dataGrid.AllowUserToDeleteRows = false;
             this.dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid.Location = new System.Drawing.Point(3, 3);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
-            this.dataGrid.Size = new System.Drawing.Size(1062, 184);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGrid.Size = new System.Drawing.Size(878, 221);
             this.dataGrid.TabIndex = 0;
             this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -601,7 +643,7 @@
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(1068, 230);
+            this.tabPage13.Size = new System.Drawing.Size(884, 230);
             this.tabPage13.TabIndex = 2;
             this.tabPage13.Text = "Semantico";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -614,8 +656,30 @@
             this.treeViewSem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeViewSem.Location = new System.Drawing.Point(-4, 0);
             this.treeViewSem.Name = "treeViewSem";
-            this.treeViewSem.Size = new System.Drawing.Size(1069, 227);
+            this.treeViewSem.Size = new System.Drawing.Size(882, 227);
             this.treeViewSem.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.treeView2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(447, 643);
+            this.tabPage1.TabIndex = 4;
+            this.tabPage1.Text = "Semantico";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // treeView2
+            // 
+            this.treeView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView2.Location = new System.Drawing.Point(0, 3);
+            this.treeView2.Name = "treeView2";
+            this.treeView2.Size = new System.Drawing.Size(447, 640);
+            this.treeView2.TabIndex = 1;
             // 
             // Form1
             // 
@@ -654,6 +718,7 @@
             this.tabPage14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.tabPage13.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -714,6 +779,8 @@
         private System.Windows.Forms.TextBox errSemtx;
         private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.TreeView treeViewSem;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TreeView treeView2;
     }
 }
 

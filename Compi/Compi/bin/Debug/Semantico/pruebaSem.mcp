@@ -1,7 +1,7 @@
 ﻿main
 {
 int x,y,z;
-real x,a,b,c;
+real x,a,b,c,c;
 suma:=9;
 a++;
 b--;

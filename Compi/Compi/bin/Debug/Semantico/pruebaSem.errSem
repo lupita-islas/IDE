@@ -1,2 +1,8 @@
-Variable 'suma' no declarada en 5
+Variable x doblemente declarada en linea: 4
+Variable c doblemente declarada en linea: 4
 Variable 'd' no declarada en 37
+Variable 'suma' no declarada en 5
+No coincide el tipo int variable y en linea: 14
+No coincide el tipo int variable y en linea: 26
+No coincide el tipo int variable y en linea: 39
+No coincide el tipo int variable y en linea: 43

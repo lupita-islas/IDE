@@ -458,11 +458,14 @@ namespace Compi
                 //LoadTreeViewFromFile(arbolText, treeView);
                 PopulateTreeView(treeView, listaNodos, '|');
                 PopulateTreeView(treeViewSem, listaNodosSem, '|');
+                PopulateTreeView(treeView2, listaNodosSem, '|');
                 treeView.ExpandAll();
                 treeViewSem.ExpandAll();
+                treeView2.ExpandAll();
                 
 
                 dataGrid.DataSource = llenarTabla(tablaInfo);
+                
                 
 
                 //arbol.Text = System.IO.File.ReadAllText(arbolText);
