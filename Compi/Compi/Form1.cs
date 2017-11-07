@@ -457,10 +457,10 @@ namespace Compi
 
                 //LoadTreeViewFromFile(arbolText, treeView);
                 PopulateTreeView(treeView, listaNodos, '|');
-                PopulateTreeView(treeViewSem, listaNodosSem, '|');
+                //PopulateTreeView(treeViewSem, listaNodosSem, '|');
                 PopulateTreeView(treeView2, listaNodosSem, '|');
                 treeView.ExpandAll();
-                treeViewSem.ExpandAll();
+               // treeViewSem.ExpandAll();
                 treeView2.ExpandAll();
                 
 
