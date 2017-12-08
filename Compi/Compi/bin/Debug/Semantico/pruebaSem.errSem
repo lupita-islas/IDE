@@ -1,10 +1,10 @@
 Variable x doblemente declarada en linea: 4
 Variable c doblemente declarada en linea: 4
-Variable 'suma' no declarada en 8
-Variable 'd' no declarada en 40
+Variable 'd' no declarada en 42
+Variable 'suma' no declarada en 10
 No coincide el tipo int variable y en linea: 5
-Division entre cero  en linea: 14
-No coincide el tipo int variable y en linea: 17
-No coincide el tipo int variable y en linea: 29
-No coincide el tipo int variable y en linea: 42
-No coincide el tipo int variable y en linea: 46
+Division entre cero  en linea: 16
+No coincide el tipo int variable y en linea: 19
+No coincide el tipo int variable y en linea: 31
+No coincide el tipo int variable y en linea: 45
+No coincide el tipo int variable y en linea: 49

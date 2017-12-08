@@ -456,6 +456,8 @@ namespace Compi
                 //treeView.Nodes.Add(PopulateTreeNode2(listaNodos, "/"));
 
                 //LoadTreeViewFromFile(arbolText, treeView);
+                treeView.Nodes.Clear();
+                treeView2.Nodes.Clear();
                 PopulateTreeView(treeView, listaNodos, '|');
                 //PopulateTreeView(treeViewSem, listaNodosSem, '|');
                 PopulateTreeView(treeView2, listaNodosSem, '|');

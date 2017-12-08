@@ -6,6 +6,9 @@
 |main|3 ListDec|3 Dec|3 ListVar|x
 |main|3 ListDec|3 Dec|3 ListVar|y
 |main|3 ListDec|3 Dec|3 ListVar|z
+|main|3 ListDec|3 Dec|3 ListVar|kk
+|main|3 ListDec|3 Dec|3 ListVar|whiteSnow
+|main|3 ListDec|3 Dec|3 ListVar|puzzle
 |main|3 ListDec|4 Dec
 |main|3 ListDec|4 Dec|4 real
 |main|3 ListDec|4 Dec|4 ListVar
@@ -14,175 +17,182 @@
 |main|3 ListDec|4 Dec|4 ListVar|b
 |main|3 ListDec|4 Dec|4 ListVar|c
 |main|3 ListDec|4 Dec|4 ListVar|c
+|main|3 ListDec|4 Dec|4 ListVar|pp
 |main|5 ListSent
 |main|5 ListSent|5 Assign y
 |main|5 ListSent|5 Assign y|8.0
-|main|5 ListSent|6 Assign b
-|main|5 ListSent|6 Assign b|7
-|main|5 ListSent|7 cout
-|main|5 ListSent|7 cout|7 !=
-|main|5 ListSent|7 cout|7 !=|5
-|main|5 ListSent|7 cout|7 !=|7
-|main|5 ListSent|8 Assign suma
-|main|5 ListSent|8 Assign suma|9
-|main|5 ListSent|9 Assign a
-|main|5 ListSent|9 Assign a|9 +
-|main|5 ListSent|9 Assign a|9 +|a
-|main|5 ListSent|9 Assign a|9 +|1
-|main|5 ListSent|10 Assign b
-|main|5 ListSent|10 Assign b|10 -
-|main|5 ListSent|10 Assign b|10 -|b
-|main|5 ListSent|10 Assign b|10 -|1
-|main|5 ListSent|11 Assign x
-|main|5 ListSent|11 Assign x|23
-|main|5 ListSent|12 Assign y
-|main|5 ListSent|12 Assign y|12 -
-|main|5 ListSent|12 Assign y|12 -|12 +
-|main|5 ListSent|12 Assign y|12 -|12 +|2
-|main|5 ListSent|12 Assign y|12 -|12 +|3
-|main|5 ListSent|12 Assign y|12 -|1
-|main|5 ListSent|13 Assign z
-|main|5 ListSent|13 Assign z|13 +
-|main|5 ListSent|13 Assign z|13 +|y
-|main|5 ListSent|13 Assign z|13 +|7
-|main|5 ListSent|14 Assign x
-|main|5 ListSent|14 Assign x|14 *
-|main|5 ListSent|14 Assign x|14 *|14 -
-|main|5 ListSent|14 Assign x|14 *|14 -|5
-|main|5 ListSent|14 Assign x|14 *|14 -|3
-|main|5 ListSent|14 Assign x|14 *|14 /
-|main|5 ListSent|14 Assign x|14 *|14 /|8
-|main|5 ListSent|14 Assign x|14 *|14 /|0
-|main|5 ListSent|15 Assign y
-|main|5 ListSent|15 Assign y|15 -
-|main|5 ListSent|15 Assign y|15 -|15 -
-|main|5 ListSent|15 Assign y|15 -|15 -|15 +
-|main|5 ListSent|15 Assign y|15 -|15 -|15 +|5
-|main|5 ListSent|15 Assign y|15 -|15 -|15 +|3
-|main|5 ListSent|15 Assign y|15 -|15 -|15 /
-|main|5 ListSent|15 Assign y|15 -|15 -|15 /|15 *
-|main|5 ListSent|15 Assign y|15 -|15 -|15 /|15 *|2
-|main|5 ListSent|15 Assign y|15 -|15 -|15 /|15 *|4
-|main|5 ListSent|15 Assign y|15 -|15 -|15 /|7
-|main|5 ListSent|15 Assign y|15 -|9
-|main|5 ListSent|16 Assign z
-|main|5 ListSent|16 Assign z|16 +
-|main|5 ListSent|16 Assign z|16 +|16 /
-|main|5 ListSent|16 Assign z|16 +|16 /|8
-|main|5 ListSent|16 Assign z|16 +|16 /|2
-|main|5 ListSent|16 Assign z|16 +|16 *
-|main|5 ListSent|16 Assign z|16 +|16 *|15
-|main|5 ListSent|16 Assign z|16 +|16 *|4
+|main|5 ListSent|6 Assign pp
+|main|5 ListSent|6 Assign pp|9.5
+|main|5 ListSent|7 Assign c
+|main|5 ListSent|7 Assign c|15.0
+|main|5 ListSent|8 Assign b
+|main|5 ListSent|8 Assign b|7
+|main|5 ListSent|9 cout
+|main|5 ListSent|9 cout|9 !=
+|main|5 ListSent|9 cout|9 !=|5
+|main|5 ListSent|9 cout|9 !=|7
+|main|5 ListSent|10 Assign suma
+|main|5 ListSent|10 Assign suma|9
+|main|5 ListSent|11 Assign a
+|main|5 ListSent|11 Assign a|11 +
+|main|5 ListSent|11 Assign a|11 +|a
+|main|5 ListSent|11 Assign a|11 +|1
+|main|5 ListSent|12 Assign b
+|main|5 ListSent|12 Assign b|12 -
+|main|5 ListSent|12 Assign b|12 -|b
+|main|5 ListSent|12 Assign b|12 -|1
+|main|5 ListSent|13 Assign x
+|main|5 ListSent|13 Assign x|23
+|main|5 ListSent|14 Assign y
+|main|5 ListSent|14 Assign y|14 -
+|main|5 ListSent|14 Assign y|14 -|14 +
+|main|5 ListSent|14 Assign y|14 -|14 +|2
+|main|5 ListSent|14 Assign y|14 -|14 +|3
+|main|5 ListSent|14 Assign y|14 -|1
+|main|5 ListSent|15 Assign z
+|main|5 ListSent|15 Assign z|15 +
+|main|5 ListSent|15 Assign z|15 +|y
+|main|5 ListSent|15 Assign z|15 +|7
+|main|5 ListSent|16 Assign x
+|main|5 ListSent|16 Assign x|16 *
+|main|5 ListSent|16 Assign x|16 *|16 -
+|main|5 ListSent|16 Assign x|16 *|16 -|5
+|main|5 ListSent|16 Assign x|16 *|16 -|3
+|main|5 ListSent|16 Assign x|16 *|16 /
+|main|5 ListSent|16 Assign x|16 *|16 /|8
+|main|5 ListSent|16 Assign x|16 *|16 /|0
 |main|5 ListSent|17 Assign y
-|main|5 ListSent|17 Assign y|14.54
-|main|5 ListSent|18 Assign a
-|main|5 ListSent|18 Assign a|18 -
-|main|5 ListSent|18 Assign a|18 -|18 +
-|main|5 ListSent|18 Assign a|18 -|18 +|18 -
-|main|5 ListSent|18 Assign a|18 -|18 +|18 -|18 +
-|main|5 ListSent|18 Assign a|18 -|18 +|18 -|18 +|24.0
-|main|5 ListSent|18 Assign a|18 -|18 +|18 -|18 +|4
-|main|5 ListSent|18 Assign a|18 -|18 +|18 -|18 /
-|main|5 ListSent|18 Assign a|18 -|18 +|18 -|18 /|18 *
-|main|5 ListSent|18 Assign a|18 -|18 +|18 -|18 /|18 *|1
-|main|5 ListSent|18 Assign a|18 -|18 +|18 -|18 /|18 *|3
-|main|5 ListSent|18 Assign a|18 -|18 +|18 -|18 /|2
-|main|5 ListSent|18 Assign a|18 -|18 +|34
-|main|5 ListSent|18 Assign a|18 -|1
-|main|5 ListSent|19 cin: a
-|main|5 ListSent|20 cout
-|main|5 ListSent|20 cout|a
-|main|5 ListSent|21 cout
-|main|5 ListSent|21 cout|21 +
-|main|5 ListSent|21 cout|21 +|a
-|main|5 ListSent|21 cout|21 +|4
-|main|5 ListSent|22 Assign a
-|main|5 ListSent|22 Assign a|7
-|main|5 ListSent|23 Assign a
-|main|5 ListSent|23 Assign a|23 *
-|main|5 ListSent|23 Assign a|23 *|z
-|main|5 ListSent|23 Assign a|23 *|x
-|main|5 ListSent|24 cout
-|main|5 ListSent|24 cout|24 >
-|main|5 ListSent|24 cout|24 >|a
-|main|5 ListSent|24 cout|24 >|4
-|main|5 ListSent|25 if
-|main|5 ListSent|25 if|25 >
-|main|5 ListSent|25 if|25 >|25 +
-|main|5 ListSent|25 if|25 >|25 +|x
-|main|5 ListSent|25 if|25 >|25 +|4
-|main|5 ListSent|25 if|25 >|a
-|main|5 ListSent|25 if|26 ListSent
-|main|5 ListSent|25 if|26 ListSent|26 Assign a
-|main|5 ListSent|25 if|26 ListSent|26 Assign a|26 +
-|main|5 ListSent|25 if|26 ListSent|26 Assign a|26 +|a
-|main|5 ListSent|25 if|26 ListSent|26 Assign a|26 +|3
-|main|5 ListSent|28 if
-|main|5 ListSent|28 if|28 <
-|main|5 ListSent|28 if|28 <|2
-|main|5 ListSent|28 if|28 <|a
-|main|5 ListSent|28 if|29 ListSent
-|main|5 ListSent|28 if|29 ListSent|29 Assign y
-|main|5 ListSent|28 if|29 ListSent|29 Assign y|29 +
-|main|5 ListSent|28 if|29 ListSent|29 Assign y|29 +|a
-|main|5 ListSent|28 if|29 ListSent|29 Assign y|29 +|3
-|main|5 ListSent|28 if|33 ListSent
-|main|5 ListSent|28 if|33 ListSent|33 if
-|main|5 ListSent|28 if|33 ListSent|33 if|33 >
-|main|5 ListSent|28 if|33 ListSent|33 if|33 >|4
-|main|5 ListSent|28 if|33 ListSent|33 if|33 >|2
-|main|5 ListSent|28 if|33 ListSent|33 if|35 ListSent
-|main|5 ListSent|28 if|33 ListSent|33 if|35 ListSent|35 Assign b
-|main|5 ListSent|28 if|33 ListSent|33 if|35 ListSent|35 Assign b|3.2
-|main|5 ListSent|28 if|33 ListSent|33 if|39 ListSent
-|main|5 ListSent|28 if|33 ListSent|33 if|39 ListSent|39 Assign b
-|main|5 ListSent|28 if|33 ListSent|33 if|39 ListSent|39 Assign b|5.0
-|main|5 ListSent|28 if|33 ListSent|33 if|39 ListSent|40 Assign d
-|main|5 ListSent|28 if|33 ListSent|33 if|39 ListSent|40 Assign d|40 +
-|main|5 ListSent|28 if|33 ListSent|33 if|39 ListSent|40 Assign d|40 +|40 +
-|main|5 ListSent|28 if|33 ListSent|33 if|39 ListSent|40 Assign d|40 +|40 +|a
-|main|5 ListSent|28 if|33 ListSent|33 if|39 ListSent|40 Assign d|40 +|40 +|b
-|main|5 ListSent|28 if|33 ListSent|33 if|39 ListSent|40 Assign d|40 +|40 *
-|main|5 ListSent|28 if|33 ListSent|33 if|39 ListSent|40 Assign d|40 +|40 *|c
-|main|5 ListSent|28 if|33 ListSent|33 if|39 ListSent|40 Assign d|40 +|40 *|5
-|main|5 ListSent|28 if|33 ListSent|42 Assign y
-|main|5 ListSent|28 if|33 ListSent|42 Assign y|42 +
-|main|5 ListSent|28 if|33 ListSent|42 Assign y|42 +|y
-|main|5 ListSent|28 if|33 ListSent|42 Assign y|42 +|1
-|main|5 ListSent|44 Assign a
-|main|5 ListSent|44 Assign a|44 +
-|main|5 ListSent|44 Assign a|44 +|a
-|main|5 ListSent|44 Assign a|44 +|1
-|main|5 ListSent|45 repeat
-|main|5 ListSent|45 repeat|46 ListSent
-|main|5 ListSent|45 repeat|46 ListSent|46 Assign y
-|main|5 ListSent|45 repeat|46 ListSent|46 Assign y|46 +
-|main|5 ListSent|45 repeat|46 ListSent|46 Assign y|46 +|46 *
-|main|5 ListSent|45 repeat|46 ListSent|46 Assign y|46 +|46 *|46 +
-|main|5 ListSent|45 repeat|46 ListSent|46 Assign y|46 +|46 *|46 +|y
-|main|5 ListSent|45 repeat|46 ListSent|46 Assign y|46 +|46 *|46 +|1
-|main|5 ListSent|45 repeat|46 ListSent|46 Assign y|46 +|46 *|2
-|main|5 ListSent|45 repeat|46 ListSent|46 Assign y|46 +|1
-|main|5 ListSent|45 repeat|46 ListSent|47 if
-|main|5 ListSent|45 repeat|46 ListSent|47 if|47 ==
-|main|5 ListSent|45 repeat|46 ListSent|47 if|47 ==|a
-|main|5 ListSent|45 repeat|46 ListSent|47 if|47 ==|b
-|main|5 ListSent|45 repeat|46 ListSent|47 if|49 ListSent
-|main|5 ListSent|45 repeat|46 ListSent|47 if|49 ListSent|49 Assign a
-|main|5 ListSent|45 repeat|46 ListSent|47 if|49 ListSent|49 Assign a|49 +
-|main|5 ListSent|45 repeat|46 ListSent|47 if|49 ListSent|49 Assign a|49 +|a
-|main|5 ListSent|45 repeat|46 ListSent|47 if|49 ListSent|49 Assign a|49 +|1
-|main|5 ListSent|45 repeat|46 ListSent|47 if|53 ListSent
-|main|5 ListSent|45 repeat|46 ListSent|47 if|53 ListSent|53 Assign b
-|main|5 ListSent|45 repeat|46 ListSent|47 if|53 ListSent|53 Assign b|53 +
-|main|5 ListSent|45 repeat|46 ListSent|47 if|53 ListSent|53 Assign b|53 +|b
-|main|5 ListSent|45 repeat|46 ListSent|47 if|53 ListSent|53 Assign b|53 +|1
-|main|5 ListSent|45 repeat|55 ==
-|main|5 ListSent|45 repeat|55 ==|y
-|main|5 ListSent|45 repeat|55 ==|5
-|main|5 ListSent|56 while
-|main|5 ListSent|56 while|56 ==
-|main|5 ListSent|56 while|56 ==|y
-|main|5 ListSent|56 while|56 ==|0
-|main|5 ListSent|56 while|57 ListSent
-|main|5 ListSent|56 while|57 ListSent|57 cin: x
+|main|5 ListSent|17 Assign y|17 -
+|main|5 ListSent|17 Assign y|17 -|17 -
+|main|5 ListSent|17 Assign y|17 -|17 -|17 +
+|main|5 ListSent|17 Assign y|17 -|17 -|17 +|5
+|main|5 ListSent|17 Assign y|17 -|17 -|17 +|3
+|main|5 ListSent|17 Assign y|17 -|17 -|17 /
+|main|5 ListSent|17 Assign y|17 -|17 -|17 /|17 *
+|main|5 ListSent|17 Assign y|17 -|17 -|17 /|17 *|2
+|main|5 ListSent|17 Assign y|17 -|17 -|17 /|17 *|4
+|main|5 ListSent|17 Assign y|17 -|17 -|17 /|7
+|main|5 ListSent|17 Assign y|17 -|9
+|main|5 ListSent|18 Assign z
+|main|5 ListSent|18 Assign z|18 +
+|main|5 ListSent|18 Assign z|18 +|18 /
+|main|5 ListSent|18 Assign z|18 +|18 /|8
+|main|5 ListSent|18 Assign z|18 +|18 /|2
+|main|5 ListSent|18 Assign z|18 +|18 *
+|main|5 ListSent|18 Assign z|18 +|18 *|15
+|main|5 ListSent|18 Assign z|18 +|18 *|4
+|main|5 ListSent|19 Assign y
+|main|5 ListSent|19 Assign y|14.54
+|main|5 ListSent|20 Assign a
+|main|5 ListSent|20 Assign a|20 -
+|main|5 ListSent|20 Assign a|20 -|20 +
+|main|5 ListSent|20 Assign a|20 -|20 +|20 -
+|main|5 ListSent|20 Assign a|20 -|20 +|20 -|20 +
+|main|5 ListSent|20 Assign a|20 -|20 +|20 -|20 +|24.0
+|main|5 ListSent|20 Assign a|20 -|20 +|20 -|20 +|4
+|main|5 ListSent|20 Assign a|20 -|20 +|20 -|20 /
+|main|5 ListSent|20 Assign a|20 -|20 +|20 -|20 /|20 *
+|main|5 ListSent|20 Assign a|20 -|20 +|20 -|20 /|20 *|1
+|main|5 ListSent|20 Assign a|20 -|20 +|20 -|20 /|20 *|3
+|main|5 ListSent|20 Assign a|20 -|20 +|20 -|20 /|2
+|main|5 ListSent|20 Assign a|20 -|20 +|34
+|main|5 ListSent|20 Assign a|20 -|1
+|main|5 ListSent|21 cin: a
+|main|5 ListSent|22 cout
+|main|5 ListSent|22 cout|a
+|main|5 ListSent|23 cout
+|main|5 ListSent|23 cout|23 +
+|main|5 ListSent|23 cout|23 +|a
+|main|5 ListSent|23 cout|23 +|4
+|main|5 ListSent|24 Assign a
+|main|5 ListSent|24 Assign a|7
+|main|5 ListSent|25 Assign a
+|main|5 ListSent|25 Assign a|25 *
+|main|5 ListSent|25 Assign a|25 *|z
+|main|5 ListSent|25 Assign a|25 *|x
+|main|5 ListSent|26 cout
+|main|5 ListSent|26 cout|26 >
+|main|5 ListSent|26 cout|26 >|a
+|main|5 ListSent|26 cout|26 >|4
+|main|5 ListSent|27 if
+|main|5 ListSent|27 if|27 >
+|main|5 ListSent|27 if|27 >|27 +
+|main|5 ListSent|27 if|27 >|27 +|x
+|main|5 ListSent|27 if|27 >|27 +|4
+|main|5 ListSent|27 if|27 >|a
+|main|5 ListSent|27 if|28 ListSent
+|main|5 ListSent|27 if|28 ListSent|28 Assign a
+|main|5 ListSent|27 if|28 ListSent|28 Assign a|28 +
+|main|5 ListSent|27 if|28 ListSent|28 Assign a|28 +|a
+|main|5 ListSent|27 if|28 ListSent|28 Assign a|28 +|3
+|main|5 ListSent|30 if
+|main|5 ListSent|30 if|30 <
+|main|5 ListSent|30 if|30 <|2
+|main|5 ListSent|30 if|30 <|a
+|main|5 ListSent|30 if|31 ListSent
+|main|5 ListSent|30 if|31 ListSent|31 Assign y
+|main|5 ListSent|30 if|31 ListSent|31 Assign y|31 +
+|main|5 ListSent|30 if|31 ListSent|31 Assign y|31 +|a
+|main|5 ListSent|30 if|31 ListSent|31 Assign y|31 +|3
+|main|5 ListSent|30 if|35 ListSent
+|main|5 ListSent|30 if|35 ListSent|35 if
+|main|5 ListSent|30 if|35 ListSent|35 if|35 >
+|main|5 ListSent|30 if|35 ListSent|35 if|35 >|4
+|main|5 ListSent|30 if|35 ListSent|35 if|35 >|2
+|main|5 ListSent|30 if|35 ListSent|35 if|37 ListSent
+|main|5 ListSent|30 if|35 ListSent|35 if|37 ListSent|37 Assign b
+|main|5 ListSent|30 if|35 ListSent|35 if|37 ListSent|37 Assign b|3.2
+|main|5 ListSent|30 if|35 ListSent|35 if|41 ListSent
+|main|5 ListSent|30 if|35 ListSent|35 if|41 ListSent|41 Assign b
+|main|5 ListSent|30 if|35 ListSent|35 if|41 ListSent|41 Assign b|5.0
+|main|5 ListSent|30 if|35 ListSent|35 if|41 ListSent|42 Assign d
+|main|5 ListSent|30 if|35 ListSent|35 if|41 ListSent|42 Assign d|42 +
+|main|5 ListSent|30 if|35 ListSent|35 if|41 ListSent|42 Assign d|42 +|42 +
+|main|5 ListSent|30 if|35 ListSent|35 if|41 ListSent|42 Assign d|42 +|42 +|a
+|main|5 ListSent|30 if|35 ListSent|35 if|41 ListSent|42 Assign d|42 +|42 +|b
+|main|5 ListSent|30 if|35 ListSent|35 if|41 ListSent|42 Assign d|42 +|42 *
+|main|5 ListSent|30 if|35 ListSent|35 if|41 ListSent|42 Assign d|42 +|42 *|c
+|main|5 ListSent|30 if|35 ListSent|35 if|41 ListSent|42 Assign d|42 +|42 *|5
+|main|5 ListSent|30 if|35 ListSent|35 if|41 ListSent|43 Assign b
+|main|5 ListSent|30 if|35 ListSent|35 if|41 ListSent|43 Assign b|3.0
+|main|5 ListSent|30 if|35 ListSent|45 Assign y
+|main|5 ListSent|30 if|35 ListSent|45 Assign y|45 +
+|main|5 ListSent|30 if|35 ListSent|45 Assign y|45 +|y
+|main|5 ListSent|30 if|35 ListSent|45 Assign y|45 +|1
+|main|5 ListSent|47 Assign a
+|main|5 ListSent|47 Assign a|47 +
+|main|5 ListSent|47 Assign a|47 +|a
+|main|5 ListSent|47 Assign a|47 +|1
+|main|5 ListSent|48 repeat
+|main|5 ListSent|48 repeat|49 ListSent
+|main|5 ListSent|48 repeat|49 ListSent|49 Assign y
+|main|5 ListSent|48 repeat|49 ListSent|49 Assign y|49 +
+|main|5 ListSent|48 repeat|49 ListSent|49 Assign y|49 +|49 *
+|main|5 ListSent|48 repeat|49 ListSent|49 Assign y|49 +|49 *|49 +
+|main|5 ListSent|48 repeat|49 ListSent|49 Assign y|49 +|49 *|49 +|y
+|main|5 ListSent|48 repeat|49 ListSent|49 Assign y|49 +|49 *|49 +|1
+|main|5 ListSent|48 repeat|49 ListSent|49 Assign y|49 +|49 *|2
+|main|5 ListSent|48 repeat|49 ListSent|49 Assign y|49 +|1
+|main|5 ListSent|48 repeat|49 ListSent|50 if
+|main|5 ListSent|48 repeat|49 ListSent|50 if|50 ==
+|main|5 ListSent|48 repeat|49 ListSent|50 if|50 ==|a
+|main|5 ListSent|48 repeat|49 ListSent|50 if|50 ==|b
+|main|5 ListSent|48 repeat|49 ListSent|50 if|52 ListSent
+|main|5 ListSent|48 repeat|49 ListSent|50 if|52 ListSent|52 Assign a
+|main|5 ListSent|48 repeat|49 ListSent|50 if|52 ListSent|52 Assign a|52 +
+|main|5 ListSent|48 repeat|49 ListSent|50 if|52 ListSent|52 Assign a|52 +|a
+|main|5 ListSent|48 repeat|49 ListSent|50 if|52 ListSent|52 Assign a|52 +|1
+|main|5 ListSent|48 repeat|49 ListSent|50 if|56 ListSent
+|main|5 ListSent|48 repeat|49 ListSent|50 if|56 ListSent|56 Assign b
+|main|5 ListSent|48 repeat|49 ListSent|50 if|56 ListSent|56 Assign b|56 +
+|main|5 ListSent|48 repeat|49 ListSent|50 if|56 ListSent|56 Assign b|56 +|b
+|main|5 ListSent|48 repeat|49 ListSent|50 if|56 ListSent|56 Assign b|56 +|1
+|main|5 ListSent|48 repeat|58 ==
+|main|5 ListSent|48 repeat|58 ==|y
+|main|5 ListSent|48 repeat|58 ==|5
+|main|5 ListSent|59 while
+|main|5 ListSent|59 while|59 ==
+|main|5 ListSent|59 while|59 ==|y
+|main|5 ListSent|59 while|59 ==|0
+|main|5 ListSent|59 while|60 ListSent
+|main|5 ListSent|59 while|60 ListSent|60 cin: x

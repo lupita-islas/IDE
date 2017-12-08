@@ -1,8 +1,10 @@
 ﻿main
 {
-int x,y,z;
-real x,a,b,c,c;
+int x,y,z,kk,whiteSnow,puzzle;
+real x,a,b,c,c,pp;
 y:=8.0;
+pp:=9.5;
+c:=15.0;
 b:=7;
 cout 5!=7;
 suma:=9;
@@ -38,6 +40,7 @@ if (2<a) then{
        { 
         b:=5.0;
 	    d:=a+b+c*5;
+        b:=3.0;
        }
    y:=y+1;
 } 
