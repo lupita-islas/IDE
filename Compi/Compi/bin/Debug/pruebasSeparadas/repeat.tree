@@ -1,24 +1,30 @@
 |main
-|main|5 ListSent
-|main|5 ListSent|5 repeat
-|main|5 ListSent|5 repeat|7 ListSent
-|main|5 ListSent|5 repeat|7 ListSent|7 Assign y
-|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +
-|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *
-|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *|7 +
-|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *|7 +|y
-|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *|7 +|1
-|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *|2
-|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|1
-|main|5 ListSent|5 repeat|7 ListSent|8 if
-|main|5 ListSent|5 repeat|7 ListSent|8 if|8 ==
-|main|5 ListSent|5 repeat|7 ListSent|8 if|8 ==|a
-|main|5 ListSent|5 repeat|7 ListSent|8 if|8 ==|b
-|main|5 ListSent|5 repeat|7 ListSent|8 if|
-|main|5 ListSent|5 repeat|7 ListSent|10 Assign a
-|main|5 ListSent|5 repeat|7 ListSent|10 Assign a|10 +
-|main|5 ListSent|5 repeat|7 ListSent|10 Assign a|10 +|a
-|main|5 ListSent|5 repeat|7 ListSent|10 Assign a|10 +|1
-|main|5 ListSent|5 repeat|b
-|main|5 ListSent|15 Assign b
-|main|5 ListSent|15 Assign b|1
+|main|2 ListDec
+|main|2 ListDec|2 Dec
+|main|2 ListDec|2 Dec|2 int
+|main|2 ListDec|2 Dec|2 ListVar
+|main|2 ListDec|2 Dec|2 ListVar|val
+|main|2 ListDec|2 Dec|2 ListVar|i
+|main|2 ListDec|2 Dec|2 ListVar|fac
+|main|3 ListSent
+|main|3 ListSent|3 Assign val
+|main|3 ListSent|3 Assign val|5
+|main|3 ListSent|4 Assign i
+|main|3 ListSent|4 Assign i|1
+|main|3 ListSent|5 Assign fac
+|main|3 ListSent|5 Assign fac|1
+|main|3 ListSent|6 repeat
+|main|3 ListSent|6 repeat|7 ListSent
+|main|3 ListSent|6 repeat|7 ListSent|7 Assign fac
+|main|3 ListSent|6 repeat|7 ListSent|7 Assign fac|7 *
+|main|3 ListSent|6 repeat|7 ListSent|7 Assign fac|7 *|fac
+|main|3 ListSent|6 repeat|7 ListSent|7 Assign fac|7 *|i
+|main|3 ListSent|6 repeat|7 ListSent|8 Assign i
+|main|3 ListSent|6 repeat|7 ListSent|8 Assign i|8 +
+|main|3 ListSent|6 repeat|7 ListSent|8 Assign i|8 +|i
+|main|3 ListSent|6 repeat|7 ListSent|8 Assign i|8 +|1
+|main|3 ListSent|6 repeat|9 ==
+|main|3 ListSent|6 repeat|9 ==|i
+|main|3 ListSent|6 repeat|9 ==|5
+|main|3 ListSent|10 cout
+|main|3 ListSent|10 cout|fac

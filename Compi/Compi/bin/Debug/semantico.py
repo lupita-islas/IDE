@@ -18,7 +18,7 @@ class MyNode(Node):
 
 
 #nombre=sys.argv[1]
-nombre = "C:/Users/cesar/Documents/GitHub/IDE/Compi/Compi/bin/Debug/pruebasSeparadas/prueba1.vol"
+nombre = "C:/Users/cesar/Documents/GitHub/IDE/Compi/Compi/bin/Debug/pruebasSeparadas/repeat.vol"
 #nombre="/Users/Ruth/Documents/7 semestre/Compiladores/IDE/Compi/Compi/bin/Debug/Semantico/pruebaSem.vol"
 #nombre = "pruebaSem.vol"
 #nombre="while.vol"
@@ -123,6 +123,7 @@ expk=("+","-","*","/",">","<",">=","<=","==","!=")
 emitLoc=0 #numero de instruccion emitida
 highEmitLoc=0 #localidada TM mas alta que se puede alzanar para usarla junto con emitSkip, emitBackup y emitRestore
 fbreak = False
+tmpOffset=0
 pc=7
 mp=6
 gp=5
@@ -883,7 +884,7 @@ def evaluar(raiz):
         emitRM("LDC",ac,raiz.nombre,0)
     elif es_id(raiz.nombre):
         #emitComment("-> Id")
-        loc=memoria(raiz.children[0].nombre)
+        loc=memoria(raiz.nombre)
         #loc = d[raiz.nombre].locmem
         emitRM("LD",ac,loc,gp)
     elif raiz.nombre in expk:
@@ -956,11 +957,11 @@ def InterCodeGen(raiz):
         #InterCodeGen(raiz.children[1]) '''
 
 def InterCodeGen(raiz):
-    if object.nombre=="LISTSENT":
-        for i in range(0, len(object.children)):
-            InterCodeGen(object.children[i])
+    if raiz.nombre=="LISTSENT":
+        for i in range(0, len(raiz.children)):
+            InterCodeGen(raiz.children[i])
     else:
-        evaluar(object)
+        evaluar(raiz)
 
 def generator(raiz):
     global mp
@@ -989,7 +990,7 @@ recorridoPosValor(nodo)
 
 
 #Generador codigo intermedio
-generator(nodo)
+generator(nodo.children[1])
 
 
 #FIN generador codigo intermedio
