@@ -2,7 +2,7 @@ import os
 import sys
 especiales=["{", "}","(",")",";",":",","]
 operadores=["*","%"]
-reservadas=["main","if","then","else","end","do","while","repeat","until","cin","cout","real","int", "boolean"]
+reservadas=["main","if","then","else","end","do","while","repeat","until","cin","cout","real","int", "boolean","break"]
 ignorar=['\n','\t'," ",'\xef','\xbb','\xbf']
 ncol=0
 nfil=0

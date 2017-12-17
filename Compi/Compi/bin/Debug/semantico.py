@@ -66,7 +66,7 @@ S_ITERACION = S_SENTENCIA
 S_REPETICION = S_SENTENCIA
 S_SENT_CIN = S_SENTENCIA
 S_COUT = S_SENTENCIA
-S_BLOQUE = ["if", "while", "repeat", "cin", "cout", "{", "IDENTIFICADOR", "}", "until", "else"]
+S_BLOQUE = ["if", "while", "repeat", "cin", "cout", "{", "IDENTIFICADOR", "}", "until", "else","break"]
 S_ASIGNACION = S_SENTENCIA
 S_EXPRESION = [")", ";"]
 S_RELACION = ["(", "REAL", "ENTERO", "IDENTIFICADOR"]
@@ -87,7 +87,7 @@ P_LISTA_DECLARACION = ["int", "real", "boolean"]  # vacio
 P_DECLARACION = ["int", "real", "boolean"]
 P_TIPO = ["int", "real", "boolean"]
 P_LSTA_VAR = ["IDENTIFICADOR"]
-P_LSTA_SENT = ["if", "while", "repeat", "cin", "cout", "{", "IDENTIFICADOR"]  # vacio
+P_LSTA_SENT = ["if", "while", "repeat", "cin", "cout", "{", "IDENTIFICADOR","break"]  # vacio
 P_SENT = ["if", "while", "repeat", "cin", "cout", "{", "IDENTIFICADOR"]
 P_SEL = ["if"]
 P_ITERACION = ["while"]
@@ -300,6 +300,14 @@ def sentencia(synchset):
             nodo = asignacion(S_ASIGNACION)
         elif (token == "{"):   # bloque
             nodo = bloque(S_BLOQUE)
+        elif (token=="break"):
+            comparar("break")
+            comparar(";")
+            nodo=MyNode(lineas[2]+" "+token)
+            nodo.tipo="BREAK"
+            nodo.linea=lineas[2]
+            nodo.nombre=token
+            return
     verificar(synchset, P_SENT)
     return nodo
 
