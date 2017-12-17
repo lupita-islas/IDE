@@ -49,3 +49,6 @@ def regTipo(nombre):
 def abir(nombre):
     miTabla.abrir(nombre)
 
+def memoria(nombre):
+    return miTabla.retrieveM(nombre)
+

@@ -2,7 +2,7 @@ import sys
 import os
 from anytree  import Node, RenderTree, AsciiStyle, AbstractStyle, PostOrderIter, PreOrderIter
 from anytree.dotexport import RenderTreeGraph
-from sintactico import insertar, regresar, instValue, imprimirTabla, regTipo
+from sintactico import insertar, regresar, instValue, imprimirTabla, regTipo, memoria
 
 class MyNode(Node):
         separator = "|"
@@ -28,6 +28,8 @@ nombreArbol=nombre.replace("vol","treeSint")
 nombreTabla=nombre.replace("vol","table")
 nombreSem=nombre.replace("vol","errSem")
 
+nombreMachine=nombre.replace("vol","mach")
+
 if os.path.exists(nombreSem):
     os.remove(nombreSem)
 archivoSem = open(nombreSem, "w+")
@@ -43,6 +45,13 @@ if os.path.exists(nombreArbol):
     archivoArbol = open(nombreArbol, "w+")
 else:
     archivoArbol= open(nombreArbol,"w+")
+
+if os.path.exists(nombreMachine):
+    os.remove(nombreMachine)
+    archivoMachine = open(nombreMachine, "w+")
+else:
+    archivoMachine = open(nombreMachine, "w+")
+
 token = ""
 ERROR = "False"
 
@@ -105,6 +114,20 @@ P_TERM = ["(", "REAL", "ENTERO", "IDENTIFICADOR"]
 P_MUL = ["*", "/"]
 P_FACT = ["(", "REAL", "ENTERO", "IDENTIFICADOR"]
 
+
+#Generar código intermedio
+reservadas=("main","if","then","else","end","do","while","repeat","until","cin","cout","real","int","boolean","break") #lista de palabras reservadas
+stmk=("if","while","repeat","cin","cout",":=","break","ASSIGN")
+expk=("+","-","*","/",">","<",">=","<=","==","!=")
+
+emitLoc=0 #numero de instruccion emitida
+highEmitLoc=0 #localidada TM mas alta que se puede alzanar para usarla junto con emitSkip, emitBackup y emitRestore
+fbreak = False
+pc=7
+gp=5
+ac=0 #acumulador
+ac1=1 #segundo acumulador
+#Generar código intermedio
 
 def verificar(primero, siguiente):
     global token
@@ -583,31 +606,6 @@ def parser(number):
     else:
          return number
 
-def recorridoPosValor2 (mainNode):
-    permitidos=["ID","EXP","EXPSIMP","TERM","FACT","REAL","ENTERO","OP"]
-    for node in PostOrderIter(mainNode):
-        if(permitidos.__contains__(node.tipo) and node.parent):
-            if node.tipo!="ENTERO" and node.tipo!="REAL" and node.tipo!="OP":
-                node.value=regresar(node.nombre)
-            if node.parent.tipo=="ASSIGN" and node.parent.evaluar!=1 :
-                node.parent.value=node.value
-                node.parent.evaluar=1
-                instValue(node.parent)
-            elif not node.siblings:
-                node.parent.value=node.value
-                
-            elif(node.siblings and node.parent.evaluar!=1):
-
-                node.parent.evaluar=1
-                if(node.parent.nombre=='+'):
-                    node.parent.value=parser(node.value)+parser(node.siblings[0].value)
-                elif (node.parent.nombre=='*'):
-                    node.parent.value=parser(node.value)*parser(node.siblings[0].value) 
-                elif(node.parent.nombre=='/'):
-                    node.parent.value=parser(node.value)/parser(node.siblings[0].value)      
-                elif(node.parent.nombre=='-'):
-                    node.parent.value=parser(node.value)-parser(node.siblings[0].value)
-
 
 def recorridoPosValor (mainNode):
     permitidos=["ID","EXP","EXPSIMP","TERM","FACT","REAL","ENTERO","OP","ASSIGN","REL","COUT"]
@@ -698,45 +696,309 @@ def recorridoPosValor (mainNode):
                     node.parent.rightchild=node.value
                     node.parent.evaluar=2
 
-                
-
     print(RenderTree(mainNode,style=AbstractStyle("","","")))
+
+
 def cleanTree(nodo):
     for node in PostOrderIter(nodo):
         #if(nodo.is_leaf ):
         node.name+="      Tipo= "+node.type+"     Valor= "+str(node.value)
-    print(RenderTree(nodo,style=AbstractStyle("","","")))    
+    print(RenderTree(nodo,style=AbstractStyle("","","")))
+
+
+#Generador codigo intermedio
+def genRM(op,r,d,s):
+    global emitLoc
+    global highEmitLoc
+    code=str(emitLoc)+": "+str(op)+"  "+str(r)+","+str(d)+"("+str(s)+") \n";
+    emitLoc+=1
+    archivoMachine.write(code)
+    if highEmitLoc < emitLoc:
+        highEmitLoc = emitLoc
+
+
+def recorridoPre(mainNode):
+    permitidos= ["ListVar"]
+    for node in PreOrderIter(mainNode):#Lista variable,Identificador
+        if(permitidos.__contains__(node.tipo) and node.children):
+            for nodo in node.children:
+                nodo.type=node.type
+                print(nodo)
+
+#emitSkip retorna cuantas omisiones o saltos de localidades de codigo hay despues del backpatch
+def emitSkip(hm):
+    global emitLoc
+    global highEmitLoc
+    i=emitLoc
+    emitLoc+=hm
+    if highEmitLoc < emitLoc:
+        highEmitLoc = emitLoc
+    return i
+
+def emitComment(com):
+    archivoMachine.write("* "+com+" \n")
+
+#emitBackup regresa a la localidad antes del salto. loc =a
+def emitBackup(loc):
+    global emitLoc
+    global highEmitLoc
+    if loc > highEmitLoc:
+        emitComment("BUG in emitBackup\n")
+    emitLoc = loc
+
+#convierte una referencia absoluta a una referencia relativa de pc que emite una instruccion RM
+def emitRM_Abs(op,r,a):
+    global emitLoc
+    global highEmitLoc
+    x=a-(emitLoc+1)
+    code=str(emitLoc)+": "+str(op)+"  "+str(r)+","+str(x)+"("+str(pc)+") \n"
+    emitLoc+=1
+    archivoMachine.write(code)
+    if highEmitLoc < emitLoc:
+        highEmitLoc = emitLoc
+
+#restarura la actual posicion del codigo a la mas alta previamente posicion sin emitir
+def emitRestore():
+    global emitLoc
+    global highEmitLoc
+    emitLoc = highEmitLoc
+
+#emite instrucciones TM de register-only
+def emitRO(op,r,s,t):
+    global emitLoc
+    global highEmitLoc
+    code=str(emitLoc)+": "+str(op)+"  "+str(r)+","+str(s)+","+str(t)+" \n";
+    emitLoc+=1
+    archivoMachine.write(code)
+    if highEmitLoc < emitLoc:
+        highEmitLoc = emitLoc
+
+def genSentencia(raiz):
+    global fbreak,b
+    if raiz.nombre=="if":
+        p1=raiz.children[0] #condicion
+        p2=raiz.children[1] #parte verdadera
+        InterCodeGen(p1)
+        savedLoc1 = emitSkip(1)
+        InterCodeGen(p2)
+        savedLoc2 = emitSkip(1)
+        currentLoc = emitSkip(0)
+        emitBackup(savedLoc1)
+        emitRM_Abs("JEQ",ac,currentLoc)
+        emitRestore()
+        if len(raiz.children) > 2:
+            InterCodeGen(raiz.children[2]) #parte falsa
+        currentLoc = emitSkip(0)
+        emitBackup(savedLoc2)
+        emitRM_Abs("LDA",pc,currentLoc)
+        emitRestore()
+    elif raiz.nombre=="while":
+        p1=raiz.children[0] #condicion
+        p2=raiz.children[1] #cuerpo
+        savedLoc1 = emitSkip(0)
+        InterCodeGen(p1)
+        savedLoc2 = emitSkip(1)
+        InterCodeGen(p2)
+        currentLoc = emitSkip(0)
+        emitBackup(savedLoc2)
+        emitRM_Abs("JEQ",ac,currentLoc+1)
+        if fbreak:
+            #emitBackup(breakLoc)
+            emitBackup(b)
+            emitRM_Abs("LDA",pc,currentLoc+1)
+            fbreak = False
+        emitRestore()
+        emitRM_Abs("LDA",pc,savedLoc1)
+    elif raiz.nombre=="repeat":
+        p1=raiz.children[0] #condicion
+        p2=raiz.children[1] #cuerpo
+        savedLoc1 = emitSkip(0)
+        #emitComment("repeat: jump after body comes back here")
+        # generacion de codigo para el cuerpo
+        InterCodeGen(p1)
+        # generacion de codigo para la parte de prueba
+        InterCodeGen(p2)
+        if fbreak:
+            currentLoc=emitSkip(0)
+            emitBackup(b)
+            emitRM_Abs("LDA",pc,currentLoc+1)
+            fbreak = False
+            emitRestore()
+        emitRM_Abs("JEQ",ac,savedLoc1)
+    elif raiz.nombre=="ASSIGN": #:=
+        # generacion de codugo para id
+        InterCodeGen(raiz.children[1])
+        #buscamos su localidad de memoria en la tabla hash
+        loc=memoria(raiz.children[0].nombre)
+        #loc = d[raiz.children[0].nombre].locmem
+        genRM("ST",ac,loc,gp)
+        #emitComment("<- assign")
+    elif raiz.nombre=="cin":
+        emitRO("IN",ac,0,0)
+        loc=memoria(raiz.children[0].nombre)
+        #loc = d[raiz.children[0].nombre].locmem
+        genRM("ST",ac,loc,gp)
+    elif raiz.nombre=="cout":
+        InterCodeGen(raiz.children[0])
+        #ahora lo muestra
+        emitRO("OUT",ac,0,0)
+    elif raiz.nombre=="break":
+        fbreak=True
+        breakLoc=emitSkip(1)
+        b=breakLoc
+        #print(str(breakLoc))
+
+def es_id(texto):
+    try:
+        if texto[0].isalpha() and texto not in reservadas:
+            #if texto in reservadas:
+            #    return False
+            #else:
+                return True
+        else:
+            return False
+    except IndexError:
+        return False
+
+def es_num(texto):
+    try:
+        float(texto)
+        return True
+    except ValueError:
+        return False
+
+#emite instrucciones TM de register-to-memory
+def emitRM(op,r,d,s):
+    global emitLoc
+    global highEmitLoc
+    code=str(emitLoc)+": "+str(op)+"  "+str(r)+","+str(d)+"("+str(s)+") \n";
+    emitLoc+=1
+    archivoMachine.write(code)
+    if highEmitLoc < emitLoc:
+        highEmitLoc = emitLoc
+
+def genExpresion(raiz):
+    global d
+    global tmpOffset
+    if es_num(raiz.nombre):
+        #emitComment("-> Const")
+        #generacion de codigo para carga de constante
+        emitRM("LDC",ac,raiz.nombre,0)
+    elif es_id(raiz.nombre):
+        #emitComment("-> Id")
+        loc=memoria(raiz.children[0].nombre)
+        #loc = d[raiz.nombre].locmem
+        emitRM("LD",ac,loc,gp)
+    elif raiz.nombre in expk:
+        #emitComment("-> Op")
+        p1 = raiz.children[0]
+        p2 = raiz.children[1]
+        # gen code for ac = left arg
+        InterCodeGen(p1)
+        #gen code to push left operand
+        emitRM("ST",ac,tmpOffset,mp)
+        tmpOffset-=1
+        # gen code for ac = right operand
+        InterCodeGen(p2)
+        # now load left operand
+        tmpOffset+=1
+        emitRM("LD",ac1,tmpOffset,mp)
+        if raiz.nombre=="+":
+            emitRO("ADD",ac,ac1,ac)
+        elif raiz.nombre=="-":
+            emitRO("SUB",ac,ac1,ac)
+        elif raiz.nombre=="*":
+            emitRO("MUL",ac,ac1,ac)
+        elif raiz.nombre=="/":
+            emitRO("DIV",ac,ac1,ac)
+        elif raiz.nombre=="<":
+            emitRO("SUB",ac,ac1,ac)
+            emitRM("JLT",ac,2,pc)
+            emitRM("LDC",ac,0,ac)
+            emitRM("LDA",pc,1,pc)
+            emitRM("LDC",ac,1,ac)
+        elif raiz.nombre=="<=":
+            emitRO("SUB",ac,ac1,ac)
+            emitRM("JLE",ac,2,pc)
+            emitRM("LDC",ac,0,ac)
+            emitRM("LDA",pc,1,pc)
+            emitRM("LDC",ac,1,ac)
+        elif raiz.nombre==">":
+            emitRO("SUB",ac,ac1,ac)
+            emitRM("JGT",ac,2,pc)
+            emitRM("LDC",ac,0,ac)
+            emitRM("LDA",pc,1,pc)
+            emitRM("LDC",ac,1,ac)
+        elif raiz.nombre=="<=":
+            emitRO("SUB",ac,ac1,ac)
+            emitRM("JGE",ac,2,pc)
+            emitRM("LDC",ac,0,ac)
+            emitRM("LDA",pc,1,pc)
+            emitRM("LDC",ac,1,ac)
+        elif raiz.nombre=="==":
+            emitRO("SUB",ac,ac1,ac)
+            emitRM("JEQ",ac,2,pc)
+            emitRM("LDC",ac,0,ac)
+            emitRM("LDA",pc,1,pc)
+            emitRM("LDC",ac,1,ac)
+        elif raiz.nombre=="!=":
+            emitRO("SUB",ac,ac1,ac)
+            emitRM("JNE",ac,2,pc)
+            emitRM("LDC",ac,0,ac)
+            emitRM("LDA",pc,1,pc)
+            emitRM("LDC",ac,1,ac)
+
+def InterCodeGen(raiz):
+    if raiz!=None:
+        if raiz.nombre in stmk:
+            genSentencia(raiz)
+        elif raiz.nombre in expk or es_id(raiz.nombre) or es_num(raiz.nombre):
+            genExpresion(raiz)
+        InterCodeGen(raiz.hermano)
+
+
+
+def generator(raiz):
+    global mp
+    global ac
+    #emitComment("Compilacion de Tiny para codigo TM")
+    #emitComment("Preludio estandar: ")
+    genRM("LD",mp,0,ac)
+    genRM("ST",ac,0,ac)
+    #emitComment("End of standard prelude.")
+    InterCodeGen(raiz)
+    #emitComment("End of execution.");
+    emitRO("HALT",0,0,0);
+
+archivoMachine.close()
+#FIN generador codigo intermedio
+
 
 nodo=principalMain(S_PROGRAMA)
 recorridoPosTipo(nodo)
 recorridoPreTipo(nodo)
 print("VALUE")
 
-#insertar(nodo,"pruebFire.vol")
-#abiri(nombre)
+
 insertar(nodo,nombreSem)
 recorridoPosValor(nodo)
+
+
+#Generador codigo intermedio
+generator(nodo)
+
+
+#FIN generador codigo intermedio
 
 imprimirTabla(nombreTabla)
 print("Clean")
 cleanTree(nodo)
-#print(RenderTree(nodo).by_attr())
-#for pre, node in RenderTree(nodo):
- #   print("%s%s" % (pre, node.name))
-#RenderTreeGraph(nodo).to_dotfile("arbol.dot")
-#archivoArbol.write(RenderTree(nodo).by_attr("lines"))
-#for pre, _, node in RenderTree(nodo, childiter=reversed):
-#    print("%s%s" % (pre, node))
 
-#print(RenderTree(nodo,style=AbstractStyle("\t","\t","\t")).by_attr())
-#print(RenderTree(nodo,style=AbstractStyle("","","")))
 arbolito=RenderTree(nodo,style=AbstractStyle("","",""))
 archivoArbol.write(str(arbolito).replace("MyNode('","").replace("')","").replace("\'","").replace(")",""))
-#archivoArbol.write(str(arbolito))
 archivoArbol.close()
 
-#archivoArbol.write(RenderTree(nodo,style=AbstractStyle("|   ","|-- ","|__ ")).by_attr())
-#archivoArbol.write(RenderTree(nodo).by_attr())
+
 archivo.close()
 archivoError.close()
 

@@ -59,6 +59,14 @@ class HashMap(object):
             return t
         return 0
 
+    def retrieveM(self, key):
+        hash_key = hash(key) % len(self.hashmap)
+        bucket = self.hashmap[hash_key]
+        for i, ntmlv in enumerate(bucket):
+            n, t, m, l, v = ntmlv
+            return m
+        return 0
+
     #Itera en la tabla hash para detectar las variables que no fueron declaradas y que se encontraron despues en el codigo
     #Para esto verifica cuales estan vacias es el atributo de tipo
     def errorDec(self,nombre):
