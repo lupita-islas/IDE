@@ -1,0 +1,13 @@
+﻿main {
+	int x, t1;
+	real t2;
+	cin x;
+	
+	t1 := x/2;
+	t2 := x/2;
+	if(t1 == t2) then {
+		cout 1; 
+	}else {
+		cout 0; 
+	}
+}
