@@ -68,6 +68,7 @@
             this.TextPanel = new System.Windows.Forms.Panel();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.consoleControl = new ConsoleControl.ConsoleControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.lexicErr = new System.Windows.Forms.TextBox();
             this.tabPage9 = new System.Windows.Forms.TabPage();
@@ -85,7 +86,7 @@
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.tabPage15 = new System.Windows.Forms.TabPage();
-            this.consoleControl = new ConsoleControl.ConsoleControl();
+            this.intermedio = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -100,6 +101,7 @@
             this.tabPage12.SuspendLayout();
             this.tabPage14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            this.tabPage15.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -434,6 +436,17 @@
             this.tabPage7.TabIndex = 0;
             this.tabPage7.Text = "Console";
             // 
+            // consoleControl
+            // 
+            this.consoleControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.consoleControl.IsInputEnabled = true;
+            this.consoleControl.Location = new System.Drawing.Point(3, 3);
+            this.consoleControl.Name = "consoleControl";
+            this.consoleControl.SendKeyboardCommandsToProcess = false;
+            this.consoleControl.ShowDiagnostics = false;
+            this.consoleControl.Size = new System.Drawing.Size(441, 637);
+            this.consoleControl.TabIndex = 0;
+            // 
             // tabPage8
             // 
             this.tabPage8.Controls.Add(this.lexicErr);
@@ -650,6 +663,7 @@
             // 
             // tabPage15
             // 
+            this.tabPage15.Controls.Add(this.intermedio);
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
@@ -658,16 +672,17 @@
             this.tabPage15.Text = "Codigo Intermedio";
             this.tabPage15.UseVisualStyleBackColor = true;
             // 
-            // consoleControl
+            // intermedio
             // 
-            this.consoleControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.consoleControl.IsInputEnabled = true;
-            this.consoleControl.Location = new System.Drawing.Point(3, 3);
-            this.consoleControl.Name = "consoleControl";
-            this.consoleControl.SendKeyboardCommandsToProcess = false;
-            this.consoleControl.ShowDiagnostics = false;
-            this.consoleControl.Size = new System.Drawing.Size(441, 637);
-            this.consoleControl.TabIndex = 0;
+            this.intermedio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.intermedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.intermedio.Location = new System.Drawing.Point(3, 3);
+            this.intermedio.Multiline = true;
+            this.intermedio.Name = "intermedio";
+            this.intermedio.ReadOnly = true;
+            this.intermedio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.intermedio.Size = new System.Drawing.Size(878, 224);
+            this.intermedio.TabIndex = 0;
             // 
             // Form1
             // 
@@ -707,6 +722,8 @@
             this.tabPage12.ResumeLayout(false);
             this.tabPage14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
+            this.tabPage15.ResumeLayout(false);
+            this.tabPage15.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -768,6 +785,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TreeView treeView2;
         private ConsoleControl.ConsoleControl consoleControl;
+        private System.Windows.Forms.TextBox intermedio;
     }
 }
 

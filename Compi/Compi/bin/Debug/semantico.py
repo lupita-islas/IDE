@@ -17,8 +17,8 @@ class MyNode(Node):
         tipo="" 
 
 
-#nombre=sys.argv[1]
-nombre = "C:/Users/cesar/Documents/GitHub/IDE/Compi/Compi/bin/Debug/pruebasSeparadas/repeat.vol"
+nombre=sys.argv[1]
+#nombre = "C:/Users/cesar/Documents/GitHub/IDE/Compi/Compi/bin/Debug/pruebasSeparadas/repeat.vol"
 #nombre="/Users/Ruth/Documents/7 semestre/Compiladores/IDE/Compi/Compi/bin/Debug/Semantico/pruebaSem.vol"
 #nombre = "pruebaSem.vol"
 #nombre="while.vol"
@@ -772,7 +772,7 @@ def emitRO(op,r,s,t):
 
 def es_id(texto):
     try:
-        if texto[0].isalpha() and texto not in reservadas:
+        if texto.isalpha() and texto not in reservadas:
             #if texto in reservadas:
             #    return False
             #else:
@@ -852,7 +852,7 @@ def evaluar(raiz):
             fbreak = False
             emitRestore()
         emitRM_Abs("JEQ",ac,savedLoc1)
-    elif raiz.nombre=="ASSIGN": #:=
+    elif raiz.tipo=="ASSIGN": #:=
         #buscamos su localidad de memoria en la tabla hash
         loc=memoria(raiz.nombre)
         # generacion de codugo para id

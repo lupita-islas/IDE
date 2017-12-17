@@ -1,0 +1,31 @@
+|main
+|main|2 ListDec
+|main|2 ListDec|2 Dec
+|main|2 ListDec|2 Dec|2 int
+|main|2 ListDec|2 Dec|2 ListVar
+|main|2 ListDec|2 Dec|2 ListVar|x
+|main|2 ListDec|2 Dec|2 ListVar|t1
+|main|2 ListDec|3 Dec
+|main|2 ListDec|3 Dec|3 real
+|main|2 ListDec|3 Dec|3 ListVar
+|main|2 ListDec|3 Dec|3 ListVar|t2
+|main|4 ListSent
+|main|4 ListSent|4 cin: x
+|main|4 ListSent|6 Assign t1
+|main|4 ListSent|6 Assign t1|6 /
+|main|4 ListSent|6 Assign t1|6 /|x
+|main|4 ListSent|6 Assign t1|6 /|2
+|main|4 ListSent|7 Assign t2
+|main|4 ListSent|7 Assign t2|7 /
+|main|4 ListSent|7 Assign t2|7 /|x
+|main|4 ListSent|7 Assign t2|7 /|2
+|main|4 ListSent|8 if
+|main|4 ListSent|8 if|8 ==
+|main|4 ListSent|8 if|8 ==|t1
+|main|4 ListSent|8 if|8 ==|t2
+|main|4 ListSent|8 if|9 ListSent
+|main|4 ListSent|8 if|9 ListSent|9 cout
+|main|4 ListSent|8 if|9 ListSent|9 cout|1
+|main|4 ListSent|8 if|11 ListSent
+|main|4 ListSent|8 if|11 ListSent|11 cout
+|main|4 ListSent|8 if|11 ListSent|11 cout|0

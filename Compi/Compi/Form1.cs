@@ -395,7 +395,7 @@ namespace Compi
         }
         void worker_RunWorkerCompleted(object s, RunWorkerCompletedEventArgs e)
         {
-            string error, final,errorSintac,arbolText,regx,tabla,errSem,arbolSem,regx2;
+            string error, final,errorSintac,arbolText,regx,tabla,errSem,arbolSem,interCode;
 
             error = FileName.Replace("mcp", "err");
             final = FileName.Replace("mcp", "fin");
@@ -404,6 +404,7 @@ namespace Compi
             tabla = FileName.Replace("mcp", "table");
             errSem = FileName.Replace("mcp", "errSem");
             arbolSem = FileName.Replace("mcp", "treeSint");
+            interCode = FileName.Replace("mcp", "mach");
             List<string> listaNodos = new List<string>();
             List<string> listaNodosSem = new List<string>();
             regx = @"(?:\d*\.)?\d+";
@@ -420,6 +421,7 @@ namespace Compi
                 string[] lineasSem = System.IO.File.ReadAllLines(arbolSem);
                 string[] tablaInfo = System.IO.File.ReadAllLines(tabla);
                 errSemtx.Text = System.IO.File.ReadAllText(errSem);
+                intermedio.Text = System.IO.File.ReadAllText(interCode);
                 for (int i=0; i<lineas.Length;i++){
                     
                     /* var arrStr = lineas[i].Split('|');
@@ -482,7 +484,7 @@ namespace Compi
             catch(Exception ex)
                 {
                     Console.WriteLine("Error de archivos");
-                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine(ex.Message);
                 }
             
            
