@@ -52,3 +52,6 @@ def abir(nombre):
 def memoria(nombre):
     return miTabla.retrieveM(nombre)
 
+def allTable():
+    return miTabla
+
