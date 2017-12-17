@@ -1,12 +1,16 @@
 ﻿main
 {
 int a;
+//break;
 repeat{
+
+  y:=(y+1)*2+1;
 
   y:=(y+1)*2+1;
   if(a==b) then 
   {
      a:=a+1;
+     break;
   }
   else
   {

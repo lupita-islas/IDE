@@ -85,10 +85,12 @@
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.consoleControl = new ConsoleControl.ConsoleControl();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl3.SuspendLayout();
+            this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.tabPage10.SuspendLayout();
@@ -424,6 +426,7 @@
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.Black;
+            this.tabPage7.Controls.Add(this.consoleControl);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
@@ -655,6 +658,17 @@
             this.tabPage15.Text = "Codigo Intermedio";
             this.tabPage15.UseVisualStyleBackColor = true;
             // 
+            // consoleControl
+            // 
+            this.consoleControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.consoleControl.IsInputEnabled = true;
+            this.consoleControl.Location = new System.Drawing.Point(3, 3);
+            this.consoleControl.Name = "consoleControl";
+            this.consoleControl.SendKeyboardCommandsToProcess = false;
+            this.consoleControl.ShowDiagnostics = false;
+            this.consoleControl.Size = new System.Drawing.Size(441, 637);
+            this.consoleControl.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -679,6 +693,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tabControl3.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             this.tabPage9.ResumeLayout(false);
@@ -752,6 +767,7 @@
         private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TreeView treeView2;
+        private ConsoleControl.ConsoleControl consoleControl;
     }
 }
 

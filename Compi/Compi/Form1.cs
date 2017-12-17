@@ -27,6 +27,7 @@ namespace Compi
         private Thread hilo, hilo2;
         private String filepath = "";
         private BackgroundWorker worker;
+
         private const string PYTHON = @"C:\Python27\python.exe";
         public Form1()
         {
@@ -42,8 +43,8 @@ namespace Compi
 
 
         }
-        
-        
+
+ 
 
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -75,7 +76,7 @@ namespace Compi
             TextArea.Styles[Style.Cpp.CommentLine].ForeColor =Color.Gray;
             TextArea.Styles[Style.Cpp.Comment].ForeColor = Color.ForestGreen;
             TextArea.Lexer = Lexer.Cpp;
-            TextArea.SetKeywords(0, "main if then else end do while repeat until cin cout real int boolean");
+            TextArea.SetKeywords(0, "main if then else end do while repeat until cin cout real int boolean break");
 
 
             delegado = new ThreadStart(FilasYColumnas);
@@ -302,11 +303,6 @@ namespace Compi
                 }
             }
 
-
-
-
-
-
         }
         private void construir()
         {
@@ -380,13 +376,22 @@ namespace Compi
                 Console.WriteLine("Error XDDD");
                 a.ToString();
             }
-           
 
+            
 
         }
+        
         void worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            construir();
+            if (consoleControl.IsProcessRunning)
+            {
+                consoleControl.StopProcess();
+            }
+            else
+            {
+                construir();
+            }
+            
         }
         void worker_RunWorkerCompleted(object s, RunWorkerCompletedEventArgs e)
         {
@@ -447,7 +452,7 @@ namespace Compi
                     
                     
                    // splitedLine[0] = rgx2.Replace(splitedLine[0], " ");
-                    Console.WriteLine(splitedLine[0]);
+                    //Console.WriteLine(splitedLine[0]);
                     listaNodosSem.Add(splitedLine[0]);
                 }
 
@@ -467,10 +472,12 @@ namespace Compi
                 
 
                 dataGrid.DataSource = llenarTabla(tablaInfo);
-                
-                
+
+
 
                 //arbol.Text = System.IO.File.ReadAllText(arbolText);
+
+                consoleControl.StartProcess("cmd", null);
             }
             catch(Exception ex)
                 {
@@ -498,6 +505,7 @@ namespace Compi
                 table.Rows.Add(camposArr[0], camposArr[1], camposArr[2], camposArr[3], camposArr[4]);
 
             }
+            
             return table;
            
         }

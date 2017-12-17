@@ -17,8 +17,8 @@ class MyNode(Node):
         tipo="" 
 
 
-nombre=sys.argv[1]
-#nombre = "C:/Users/cesar/Documents/GitHub/IDE/Compi/Compi/bin/Debug/Semantico/pruebaSem.vol"
+#nombre=sys.argv[1]
+nombre = "C:/Users/cesar/Documents/GitHub/IDE/Compi/Compi/bin/Debug/pruebasSeparadas/prueba1.vol"
 #nombre="/Users/Ruth/Documents/7 semestre/Compiladores/IDE/Compi/Compi/bin/Debug/Semantico/pruebaSem.vol"
 #nombre = "pruebaSem.vol"
 #nombre="while.vol"
@@ -55,12 +55,12 @@ ERROR = "False"
 
 # conjuntos siguiente
 S_PROGRAMA = ["$"]
-S_LIST_DEC = ["if", "while", "repeat", "cin", "cout", "{", "IDENTIFICADOR", "}"]
+S_LIST_DEC = ["if", "while", "repeat", "cin", "cout", "{", "IDENTIFICADOR", "}","break"]
 S_DECLARACION = [";"]
 S_TIPO = ["IDENTIFICADOR"]
 S_LISTA_VARIABLES = [";"]
 S_LISTA_SENTENCIAS = ["}"]
-S_SENTENCIA = ["if", "while", "repeat", "cin", "cout", "{", "IDENTIFICADOR", "}"]
+S_SENTENCIA = ["if", "while", "repeat", "cin", "cout", "{", "IDENTIFICADOR", "}","break"]
 S_SELECCION = S_SENTENCIA
 S_ITERACION = S_SENTENCIA
 S_REPETICION = S_SENTENCIA
@@ -88,7 +88,7 @@ P_DECLARACION = ["int", "real", "boolean"]
 P_TIPO = ["int", "real", "boolean"]
 P_LSTA_VAR = ["IDENTIFICADOR"]
 P_LSTA_SENT = ["if", "while", "repeat", "cin", "cout", "{", "IDENTIFICADOR","break"]  # vacio
-P_SENT = ["if", "while", "repeat", "cin", "cout", "{", "IDENTIFICADOR"]
+P_SENT = ["if", "while", "repeat", "cin", "cout", "{", "IDENTIFICADOR","break"]
 P_SEL = ["if"]
 P_ITERACION = ["while"]
 P_REPET = ["repeat"]
@@ -301,13 +301,13 @@ def sentencia(synchset):
         elif (token == "{"):   # bloque
             nodo = bloque(S_BLOQUE)
         elif (token=="break"):
-            comparar("break")
-            comparar(";")
             nodo=MyNode(lineas[2]+" "+token)
             nodo.tipo="BREAK"
             nodo.linea=lineas[2]
             nodo.nombre=token
-            return
+            comparar("break")
+            comparar(";")
+            return nodo
     verificar(synchset, P_SENT)
     return nodo
 

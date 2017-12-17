@@ -1,0 +1,24 @@
+|main
+|main|5 ListSent
+|main|5 ListSent|5 repeat
+|main|5 ListSent|5 repeat|7 ListSent
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *|7 +
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *|7 +|y
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *|7 +|1
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *|2
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|1
+|main|5 ListSent|5 repeat|7 ListSent|8 if
+|main|5 ListSent|5 repeat|7 ListSent|8 if|8 ==
+|main|5 ListSent|5 repeat|7 ListSent|8 if|8 ==|a
+|main|5 ListSent|5 repeat|7 ListSent|8 if|8 ==|b
+|main|5 ListSent|5 repeat|7 ListSent|8 if|
+|main|5 ListSent|5 repeat|7 ListSent|10 Assign a
+|main|5 ListSent|5 repeat|7 ListSent|10 Assign a|10 +
+|main|5 ListSent|5 repeat|7 ListSent|10 Assign a|10 +|a
+|main|5 ListSent|5 repeat|7 ListSent|10 Assign a|10 +|1
+|main|5 ListSent|5 repeat|b
+|main|5 ListSent|15 Assign b
+|main|5 ListSent|15 Assign b|1

@@ -1,0 +1,43 @@
+|main
+|main|3 ListDec
+|main|3 ListDec|3 Dec
+|main|3 ListDec|3 Dec|3 int
+|main|3 ListDec|3 Dec|3 ListVar
+|main|3 ListDec|3 Dec|3 ListVar|a
+|main|5 ListSent
+|main|5 ListSent|5 repeat
+|main|5 ListSent|5 repeat|7 ListSent
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *|7 +
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *|7 +|y
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *|7 +|1
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|7 *|2
+|main|5 ListSent|5 repeat|7 ListSent|7 Assign y|7 +|1
+|main|5 ListSent|5 repeat|7 ListSent|9 Assign y
+|main|5 ListSent|5 repeat|7 ListSent|9 Assign y|9 +
+|main|5 ListSent|5 repeat|7 ListSent|9 Assign y|9 +|9 *
+|main|5 ListSent|5 repeat|7 ListSent|9 Assign y|9 +|9 *|9 +
+|main|5 ListSent|5 repeat|7 ListSent|9 Assign y|9 +|9 *|9 +|y
+|main|5 ListSent|5 repeat|7 ListSent|9 Assign y|9 +|9 *|9 +|1
+|main|5 ListSent|5 repeat|7 ListSent|9 Assign y|9 +|9 *|2
+|main|5 ListSent|5 repeat|7 ListSent|9 Assign y|9 +|1
+|main|5 ListSent|5 repeat|7 ListSent|10 if
+|main|5 ListSent|5 repeat|7 ListSent|10 if|10 ==
+|main|5 ListSent|5 repeat|7 ListSent|10 if|10 ==|a
+|main|5 ListSent|5 repeat|7 ListSent|10 if|10 ==|b
+|main|5 ListSent|5 repeat|7 ListSent|10 if|12 ListSent
+|main|5 ListSent|5 repeat|7 ListSent|10 if|12 ListSent|12 Assign a
+|main|5 ListSent|5 repeat|7 ListSent|10 if|12 ListSent|12 Assign a|12 +
+|main|5 ListSent|5 repeat|7 ListSent|10 if|12 ListSent|12 Assign a|12 +|a
+|main|5 ListSent|5 repeat|7 ListSent|10 if|12 ListSent|12 Assign a|12 +|1
+|main|5 ListSent|5 repeat|7 ListSent|10 if|12 ListSent|13 break
+|main|5 ListSent|5 repeat|7 ListSent|10 if|17 ListSent
+|main|5 ListSent|5 repeat|7 ListSent|10 if|17 ListSent|17 Assign b
+|main|5 ListSent|5 repeat|7 ListSent|10 if|17 ListSent|17 Assign b|17 +
+|main|5 ListSent|5 repeat|7 ListSent|10 if|17 ListSent|17 Assign b|17 +|b
+|main|5 ListSent|5 repeat|7 ListSent|10 if|17 ListSent|17 Assign b|17 +|1
+|main|5 ListSent|5 repeat|22 ==
+|main|5 ListSent|5 repeat|22 ==|y
+|main|5 ListSent|5 repeat|22 ==|5

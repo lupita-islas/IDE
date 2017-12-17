@@ -43,3 +43,9 @@ C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\obj\Debug\Compi.csproj.Gener
 C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\obj\Debug\Compi.exe
 C:\Users\cesar\Documents\GitHub\IDE\IDE\Compi\Compi\obj\Debug\Compi.pdb
 C:\Users\cesar\Documents\GitHub\IDE\Compi\Compi\obj\Debug\Compi.csproj.CoreCompileInputs.cache
+C:\Users\cesar\Documents\GitHub\IDE\Compi\Compi\bin\Debug\ConsoleControl.dll
+C:\Users\cesar\Documents\GitHub\IDE\Compi\Compi\bin\Debug\ConsoleControlAPI.dll
+C:\Users\cesar\Documents\GitHub\IDE\Compi\Compi\bin\Debug\ConsoleControl.pdb
+C:\Users\cesar\Documents\GitHub\IDE\Compi\Compi\bin\Debug\ConsoleControl.xml
+C:\Users\cesar\Documents\GitHub\IDE\Compi\Compi\bin\Debug\ConsoleControlAPI.pdb
+C:\Users\cesar\Documents\GitHub\IDE\Compi\Compi\bin\Debug\ConsoleControlAPI.xml

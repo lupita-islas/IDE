@@ -1,34 +1,14 @@
 ﻿main
 {
 
-if (2>3) then{
-        
-    y:=a+3;
-    }
-    else
-    {  
-     if(4 2) then
-     {
-	b:=3.2;
-	}
-       else
-       { 
-        b:=5.0;
-       }
-      
 
-   y:=y+1;
-}
-
-
-a++
-b--
 repeat{
 
   y:=(y+1)*2+1;
   if(a==b then 
   {
-     a:=a+1
+     a:=a+1;
+     break;   
   }
   else
   {
