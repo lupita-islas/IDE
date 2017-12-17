@@ -41,3 +41,12 @@
 |main|5 ListSent|5 repeat|22 ==
 |main|5 ListSent|5 repeat|22 ==|y
 |main|5 ListSent|5 repeat|22 ==|5
+|main|5 ListSent|23 while
+|main|5 ListSent|23 while|23 <
+|main|5 ListSent|23 while|23 <|y
+|main|5 ListSent|23 while|23 <|3
+|main|5 ListSent|23 while|24 ListSent
+|main|5 ListSent|23 while|24 ListSent|24 Assign y
+|main|5 ListSent|23 while|24 ListSent|24 Assign y|24 +
+|main|5 ListSent|23 while|24 ListSent|24 Assign y|24 +|y
+|main|5 ListSent|23 while|24 ListSent|24 Assign y|24 +|1

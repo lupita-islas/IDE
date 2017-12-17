@@ -20,5 +20,8 @@ repeat{
   
 
 }until(y==5);
+while(y<3){
+y++;
+}
 
 }

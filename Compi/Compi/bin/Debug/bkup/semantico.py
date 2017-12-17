@@ -718,6 +718,13 @@ def genRM(op,r,d,s):
         highEmitLoc = emitLoc
 
 
+def recorridoPre(mainNode):
+    permitidos= ["ListVar"]
+    for node in PreOrderIter(mainNode):#Lista variable,Identificador
+        if(permitidos.__contains__(node.tipo) and node.children):
+            for nodo in node.children:
+                nodo.type=node.type
+                print(nodo)
 
 #emitSkip retorna cuantas omisiones o saltos de localidades de codigo hay despues del backpatch
 def emitSkip(hm):
@@ -804,8 +811,8 @@ def genSentencia(raiz):
         emitRestore()
         emitRM_Abs("LDA",pc,savedLoc1)
     elif raiz.nombre=="repeat":
-        p1=raiz.children[0] #cuerpo
-        p2=raiz.children[1] #condicion
+        p1=raiz.children[0] #condicion
+        p2=raiz.children[1] #cuerpo
         savedLoc1 = emitSkip(0)
         #emitComment("repeat: jump after body comes back here")
         # generacion de codigo para el cuerpo
@@ -820,10 +827,10 @@ def genSentencia(raiz):
             emitRestore()
         emitRM_Abs("JEQ",ac,savedLoc1)
     elif raiz.nombre=="ASSIGN": #:=
-        #buscamos su localidad de memoria en la tabla hash
-        loc=memoria(raiz.nombre)
         # generacion de codugo para id
-        InterCodeGen(raiz.children[0])
+        InterCodeGen(raiz.children[1])
+        #buscamos su localidad de memoria en la tabla hash
+        loc=memoria(raiz.children[0].nombre)
         #loc = d[raiz.children[0].nombre].locmem
         genRM("ST",ac,loc,gp)
         #emitComment("<- assign")
