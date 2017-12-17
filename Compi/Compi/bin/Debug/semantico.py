@@ -2,7 +2,8 @@ import sys
 import os
 from anytree  import Node, RenderTree, AsciiStyle, AbstractStyle, PostOrderIter, PreOrderIter
 from anytree.dotexport import RenderTreeGraph
-from sintactico import insertar, regresar, instValue, imprimirTabla, regTipo, memoria
+from sintactico import insertar, regresar, instValue, imprimirTabla, regTipo, memoria, allTable
+from Maquina import *
 
 class MyNode(Node):
         separator = "|"
@@ -772,10 +773,10 @@ def emitRO(op,r,s,t):
 
 def es_id(texto):
     try:
-        if texto.isalpha() and texto not in reservadas:
-            #if texto in reservadas:
-            #    return False
-            #else:
+        if texto[0].isalpha():
+            if texto in reservadas:
+                return False
+            else:
                 return True
         else:
             return False
@@ -860,9 +861,9 @@ def evaluar(raiz):
         #loc = d[raiz.children[0].nombre].locmem
         genRM("ST",ac,loc,gp)
         #emitComment("<- assign")
-    elif raiz.nombre=="cin":
+    elif raiz.tipo=="CIN":
         emitRO("IN",ac,0,0)
-        loc=memoria(raiz.children[0].nombre)
+        loc=memoria(raiz.nombre)
         #loc = d[raiz.children[0].nombre].locmem
         genRM("ST",ac,loc,gp)
     elif raiz.nombre=="cout":
@@ -992,10 +993,14 @@ recorridoPosValor(nodo)
 #Generador codigo intermedio
 generator(nodo.children[1])
 
-
 #FIN generador codigo intermedio
 
 imprimirTabla(nombreTabla)
+
+#archivoTabla= open(nombreTabla,"w+")
+Maquina(archivoMachine,nombreTabla)
+
+
 print("Clean")
 cleanTree(nodo)
 
@@ -1007,3 +1012,4 @@ archivoArbol.close()
 archivo.close()
 archivoError.close()
 archivoMachine.close()
+#archivoTabla.close()
