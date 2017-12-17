@@ -18,8 +18,8 @@ class MyNode(Node):
         tipo="" 
 
 
-nombre=sys.argv[1]
-#nombre = "C:/Users/cesar/Documents/GitHub/IDE/Compi/Compi/bin/Debug/pruebasSeparadas/repeat.vol"
+#nombre=sys.argv[1]
+nombre = "C:/Users/cesar/Documents/GitHub/IDE/Compi/Compi/bin/Debug/pruebasSeparadas/impar.vol"
 #nombre="/Users/Ruth/Documents/7 semestre/Compiladores/IDE/Compi/Compi/bin/Debug/Semantico/pruebaSem.vol"
 #nombre = "pruebaSem.vol"
 #nombre="while.vol"
@@ -998,7 +998,8 @@ generator(nodo.children[1])
 imprimirTabla(nombreTabla)
 
 #archivoTabla= open(nombreTabla,"w+")
-Maquina(archivoMachine,nombreTabla)
+archivoMachine.close()
+
 
 
 print("Clean")
@@ -1011,5 +1012,8 @@ archivoArbol.close()
 
 archivo.close()
 archivoError.close()
+
+archivoMachine = open(nombreMachine, "r")
+makina=Maquina(archivoMachine,nombreTabla)
+makina.correr()
 archivoMachine.close()
-#archivoTabla.close()
