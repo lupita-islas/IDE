@@ -767,80 +767,7 @@ def emitRO(op,r,s,t):
     if highEmitLoc < emitLoc:
         highEmitLoc = emitLoc
 
-def genSentencia(raiz):
-    global fbreak,b
-    if raiz.nombre=="if":
-        p1=raiz.children[0] #condicion
-        p2=raiz.children[1] #parte verdadera
-        InterCodeGen(p1)
-        savedLoc1 = emitSkip(1)
-        InterCodeGen(p2)
-        savedLoc2 = emitSkip(1)
-        currentLoc = emitSkip(0)
-        emitBackup(savedLoc1)
-        emitRM_Abs("JEQ",ac,currentLoc)
-        emitRestore()
-        if len(raiz.children) > 2:
-            InterCodeGen(raiz.children[2]) #parte falsa
-        currentLoc = emitSkip(0)
-        emitBackup(savedLoc2)
-        emitRM_Abs("LDA",pc,currentLoc)
-        emitRestore()
-    elif raiz.nombre=="while":
-        p1=raiz.children[0] #condicion
-        p2=raiz.children[1] #cuerpo
-        savedLoc1 = emitSkip(0)
-        InterCodeGen(p1)
-        savedLoc2 = emitSkip(1)
-        InterCodeGen(p2)
-        currentLoc = emitSkip(0)
-        emitBackup(savedLoc2)
-        emitRM_Abs("JEQ",ac,currentLoc+1)
-        if fbreak:
-            #emitBackup(breakLoc)
-            emitBackup(b)
-            emitRM_Abs("LDA",pc,currentLoc+1)
-            fbreak = False
-        emitRestore()
-        emitRM_Abs("LDA",pc,savedLoc1)
-    elif raiz.nombre=="repeat":
-        p1=raiz.children[0] #cuerpo
-        p2=raiz.children[1] #condicion
-        savedLoc1 = emitSkip(0)
-        #emitComment("repeat: jump after body comes back here")
-        # generacion de codigo para el cuerpo
-        InterCodeGen(p1)
-        # generacion de codigo para la parte de prueba
-        InterCodeGen(p2)
-        if fbreak:
-            currentLoc=emitSkip(0)
-            emitBackup(b)
-            emitRM_Abs("LDA",pc,currentLoc+1)
-            fbreak = False
-            emitRestore()
-        emitRM_Abs("JEQ",ac,savedLoc1)
-    elif raiz.nombre=="ASSIGN": #:=
-        #buscamos su localidad de memoria en la tabla hash
-        loc=memoria(raiz.nombre)
-        # generacion de codugo para id
-        InterCodeGen(raiz.children[0])
-        #loc = d[raiz.children[0].nombre].locmem
-        genRM("ST",ac,loc,gp)
-        #emitComment("<- assign")
-    elif raiz.nombre=="cin":
-        emitRO("IN",ac,0,0)
-        loc=memoria(raiz.children[0].nombre)
-        #loc = d[raiz.children[0].nombre].locmem
-        genRM("ST",ac,loc,gp)
-    elif raiz.nombre=="cout":
-        InterCodeGen(raiz.children[0])
-        #ahora lo muestra
-        emitRO("OUT",ac,0,0)
-    elif raiz.nombre=="break":
-        fbreak=True
-        breakLoc=emitSkip(1)
-        b=breakLoc
-        #print(str(breakLoc))
+
 
 def es_id(texto):
     try:
@@ -871,10 +798,86 @@ def emitRM(op,r,d,s):
     if highEmitLoc < emitLoc:
         highEmitLoc = emitLoc
 
-def genExpresion(raiz):
-    global d
-    global tmpOffset
-    if es_num(raiz.nombre):
+#def genSentencia(raiz):
+def evaluar(raiz):
+    global fbreak,b,tmpOffset
+    if raiz.nombre=="if":
+        #p1=raiz.children[0] #condicion
+        #p2=raiz.children[1] #parte verdadera
+        evaluar(raiz.children[0])
+        savedLoc1 = emitSkip(1)
+        InterCodeGen(raiz.children[1])
+        savedLoc2 = emitSkip(1)
+        currentLoc = emitSkip(0)
+        emitBackup(savedLoc1)
+        emitRM_Abs("JEQ",ac,currentLoc)
+        emitRestore()
+        if len(raiz.children) > 2:
+            InterCodeGen(raiz.children[2]) #parte falsa
+        currentLoc = emitSkip(0)
+        emitBackup(savedLoc2)
+        emitRM_Abs("LDA",pc,currentLoc)
+        emitRestore()
+    elif raiz.nombre=="while":
+        p1=raiz.children[0] #condicion
+        p2=raiz.children[1] #cuerpo
+        savedLoc1 = emitSkip(0)
+        evaluar(p1)
+        savedLoc2 = emitSkip(1)
+        InterCodeGen(p2)
+        currentLoc = emitSkip(0)
+        emitBackup(savedLoc2)
+        emitRM_Abs("JEQ",ac,currentLoc+1)
+        if fbreak:
+            #emitBackup(breakLoc)
+            emitBackup(b)
+            emitRM_Abs("LDA",pc,currentLoc+1)
+            fbreak = False
+        emitRestore()
+        emitRM_Abs("LDA",pc,savedLoc1)
+    elif raiz.nombre=="repeat":
+        p1=raiz.children[0] #cuerpo
+        p2=raiz.children[1] #condicion
+        savedLoc1 = emitSkip(0)
+        #emitComment("repeat: jump after body comes back here")
+        # generacion de codigo para el cuerpo
+        InterCodeGen(p1)
+        # generacion de codigo para la parte de prueba
+        evaluar(p2)
+        if fbreak:
+            currentLoc=emitSkip(0)
+            emitBackup(b)
+            emitRM_Abs("LDA",pc,currentLoc+1)
+            fbreak = False
+            emitRestore()
+        emitRM_Abs("JEQ",ac,savedLoc1)
+    elif raiz.nombre=="ASSIGN": #:=
+        #buscamos su localidad de memoria en la tabla hash
+        loc=memoria(raiz.nombre)
+        # generacion de codugo para id
+        evaluar(raiz.children[0])
+        #loc = d[raiz.children[0].nombre].locmem
+        genRM("ST",ac,loc,gp)
+        #emitComment("<- assign")
+    elif raiz.nombre=="cin":
+        emitRO("IN",ac,0,0)
+        loc=memoria(raiz.children[0].nombre)
+        #loc = d[raiz.children[0].nombre].locmem
+        genRM("ST",ac,loc,gp)
+    elif raiz.nombre=="cout":
+        InterCodeGen(raiz.children[0])
+        #ahora lo muestra
+        emitRO("OUT",ac,0,0)
+    elif raiz.nombre=="break":
+        fbreak=True
+        breakLoc=emitSkip(1)
+        b=breakLoc
+        #print(str(breakLoc))
+
+#def genExpresion(raiz):
+    #global d
+    #global tmpOffset
+    elif es_num(raiz.nombre):
         #emitComment("-> Const")
         #generacion de codigo para carga de constante
         emitRM("LDC",ac,raiz.nombre,0)
@@ -888,12 +891,12 @@ def genExpresion(raiz):
         p1 = raiz.children[0]
         p2 = raiz.children[1]
         # gen code for ac = left arg
-        InterCodeGen(p1)
+        evaluar(p1)
         #gen code to push left operand
         emitRM("ST",ac,tmpOffset,mp)
         tmpOffset-=1
         # gen code for ac = right operand
-        InterCodeGen(p2)
+        evaluar(p2)
         # now load left operand
         tmpOffset+=1
         emitRM("LD",ac1,tmpOffset,mp)
@@ -942,16 +945,22 @@ def genExpresion(raiz):
             emitRM("LDA",pc,1,pc)
             emitRM("LDC",ac,1,ac)
 
+'''
 def InterCodeGen(raiz):
     if raiz!=None:
         if raiz.nombre in stmk:
             genSentencia(raiz)
         elif raiz.nombre in expk or es_id(raiz.nombre) or es_num(raiz.nombre):
             genExpresion(raiz)
-        InterCodeGen(raiz.children[0])
-        InterCodeGen(raiz.children[1])
+        #InterCodeGen(raiz.children[0])
+        #InterCodeGen(raiz.children[1]) '''
 
-
+def InterCodeGen(raiz):
+    if object.nombre=="LISTSENT":
+        for i in range(0, len(object.children)):
+            InterCodeGen(object.children[i])
+    else:
+        evaluar(object)
 
 def generator(raiz):
     global mp
@@ -980,7 +989,7 @@ recorridoPosValor(nodo)
 
 
 #Generador codigo intermedio
-generator(nodo.children[1])
+generator(nodo)
 
 
 #FIN generador codigo intermedio
