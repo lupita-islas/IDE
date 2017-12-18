@@ -1,0 +1,85 @@
+|main
+|main|2 ListDec
+|main|2 ListDec|2 Dec
+|main|2 ListDec|2 Dec|2 int
+|main|2 ListDec|2 Dec|2 ListVar
+|main|2 ListDec|2 Dec|2 ListVar|i
+|main|2 ListDec|3 Dec
+|main|2 ListDec|3 Dec|3 int
+|main|2 ListDec|3 Dec|3 ListVar
+|main|2 ListDec|3 Dec|3 ListVar|j
+|main|2 ListDec|4 Dec
+|main|2 ListDec|4 Dec|4 int
+|main|2 ListDec|4 Dec|4 ListVar
+|main|2 ListDec|4 Dec|4 ListVar|k
+|main|2 ListDec|5 Dec
+|main|2 ListDec|5 Dec|5 int
+|main|2 ListDec|5 Dec|5 ListVar
+|main|2 ListDec|5 Dec|5 ListVar|l
+|main|7 ListSent
+|main|7 ListSent|7 Assign i
+|main|7 ListSent|7 Assign i|0
+|main|7 ListSent|8 Assign j
+|main|7 ListSent|8 Assign j|0
+|main|7 ListSent|9 Assign k
+|main|7 ListSent|9 Assign k|0
+|main|7 ListSent|10 Assign l
+|main|7 ListSent|10 Assign l|0
+|main|7 ListSent|12 repeat
+|main|7 ListSent|12 repeat|13 ListSent
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|16 cout
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|16 cout|l
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|17 cout
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|17 cout|k
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|18 cout
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|18 cout|j
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|19 if
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|19 if|19 ==
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|19 if|19 ==|i
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|19 if|19 ==|6
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|19 if|20 ListSent
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|19 if|20 ListSent|20 cout
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|19 if|20 ListSent|20 cout|3
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|19 if|22 ListSent
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|19 if|22 ListSent|22 cout
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|19 if|22 ListSent|22 cout|i
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|24 Assign i
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|24 Assign i|24 +
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|24 Assign i|24 +|i
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|16 ListSent|24 Assign i|24 +|1
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|25 ==
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|25 ==|i
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|15 repeat|25 ==|10
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|26 Assign i
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|26 Assign i|0
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|27 Assign j
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|27 Assign j|27 +
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|27 Assign j|27 +|j
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|15 ListSent|27 Assign j|27 +|1
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|28 ==
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|28 ==|j
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|14 repeat|28 ==|10
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|29 Assign j
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|29 Assign j|0
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|30 Assign k
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|30 Assign k|30 +
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|30 Assign k|30 +|k
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|14 ListSent|30 Assign k|30 +|1
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|31 ==
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|31 ==|k
+|main|7 ListSent|12 repeat|13 ListSent|13 repeat|31 ==|10
+|main|7 ListSent|12 repeat|13 ListSent|32 Assign k
+|main|7 ListSent|12 repeat|13 ListSent|32 Assign k|0
+|main|7 ListSent|12 repeat|13 ListSent|33 Assign l
+|main|7 ListSent|12 repeat|13 ListSent|33 Assign l|33 +
+|main|7 ListSent|12 repeat|13 ListSent|33 Assign l|33 +|l
+|main|7 ListSent|12 repeat|13 ListSent|33 Assign l|33 +|1
+|main|7 ListSent|12 repeat|34 ==
+|main|7 ListSent|12 repeat|34 ==|l
+|main|7 ListSent|12 repeat|34 ==|10

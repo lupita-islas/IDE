@@ -18,8 +18,8 @@ class MyNode(Node):
         tipo="" 
 
 
-#nombre=sys.argv[1]
-nombre = "C:/Users/cesar/Documents/GitHub/IDE/Compi/Compi/bin/Debug/pruebasSeparadas/impar.vol"
+nombre=sys.argv[1]
+#nombre = "C:/Users/cesar/Documents/GitHub/IDE/Compi/Compi/bin/Debug/pruebasSeparadas/impar.vol"
 #nombre="/Users/Ruth/Documents/7 semestre/Compiladores/IDE/Compi/Compi/bin/Debug/Semantico/pruebaSem.vol"
 #nombre = "pruebaSem.vol"
 #nombre="while.vol"
@@ -1013,7 +1013,7 @@ archivoArbol.close()
 archivo.close()
 archivoError.close()
 
-archivoMachine = open(nombreMachine, "r")
-makina=Maquina(archivoMachine,nombreTabla)
-makina.correr()
-archivoMachine.close()
+#archivoMachine = open(nombreMachine, "r")
+#makina=Maquina(archivoMachine,nombreTabla)
+#makina.correr()
+#archivoMachine.close()

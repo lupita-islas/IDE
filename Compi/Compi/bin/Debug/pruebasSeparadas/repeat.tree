@@ -7,24 +7,23 @@
 |main|2 ListDec|2 Dec|2 ListVar|i
 |main|2 ListDec|2 Dec|2 ListVar|fac
 |main|3 ListSent
-|main|3 ListSent|3 Assign val
-|main|3 ListSent|3 Assign val|5
-|main|3 ListSent|4 Assign i
-|main|3 ListSent|4 Assign i|1
-|main|3 ListSent|5 Assign fac
-|main|3 ListSent|5 Assign fac|1
-|main|3 ListSent|6 repeat
-|main|3 ListSent|6 repeat|7 ListSent
-|main|3 ListSent|6 repeat|7 ListSent|7 Assign fac
-|main|3 ListSent|6 repeat|7 ListSent|7 Assign fac|7 *
-|main|3 ListSent|6 repeat|7 ListSent|7 Assign fac|7 *|fac
-|main|3 ListSent|6 repeat|7 ListSent|7 Assign fac|7 *|i
-|main|3 ListSent|6 repeat|7 ListSent|8 Assign i
-|main|3 ListSent|6 repeat|7 ListSent|8 Assign i|8 +
-|main|3 ListSent|6 repeat|7 ListSent|8 Assign i|8 +|i
-|main|3 ListSent|6 repeat|7 ListSent|8 Assign i|8 +|1
-|main|3 ListSent|6 repeat|9 ==
-|main|3 ListSent|6 repeat|9 ==|i
-|main|3 ListSent|6 repeat|9 ==|5
-|main|3 ListSent|10 cout
-|main|3 ListSent|10 cout|fac
+|main|3 ListSent|3 cin: val
+|main|3 ListSent|5 Assign i
+|main|3 ListSent|5 Assign i|1
+|main|3 ListSent|6 Assign fac
+|main|3 ListSent|6 Assign fac|1
+|main|3 ListSent|7 repeat
+|main|3 ListSent|7 repeat|8 ListSent
+|main|3 ListSent|7 repeat|8 ListSent|8 Assign fac
+|main|3 ListSent|7 repeat|8 ListSent|8 Assign fac|8 *
+|main|3 ListSent|7 repeat|8 ListSent|8 Assign fac|8 *|fac
+|main|3 ListSent|7 repeat|8 ListSent|8 Assign fac|8 *|i
+|main|3 ListSent|7 repeat|8 ListSent|9 Assign i
+|main|3 ListSent|7 repeat|8 ListSent|9 Assign i|9 +
+|main|3 ListSent|7 repeat|8 ListSent|9 Assign i|9 +|i
+|main|3 ListSent|7 repeat|8 ListSent|9 Assign i|9 +|1
+|main|3 ListSent|7 repeat|10 >
+|main|3 ListSent|7 repeat|10 >|i
+|main|3 ListSent|7 repeat|10 >|val
+|main|3 ListSent|11 cout
+|main|3 ListSent|11 cout|fac

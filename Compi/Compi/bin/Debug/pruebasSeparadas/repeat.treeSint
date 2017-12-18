@@ -1,0 +1,29 @@
+|main      Tipo=      Valor= 
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= , linea=2, nombre=ListDec, tipo=ListDec
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= , linea=2, nombre=Dec, tipo=Dec
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= |2 int      Tipo= int     Valor= , linea=2, nombre=int, tipo=Tipo, type=int
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= |2 ListVar      Tipo= int     Valor= , linea=2, nombre=ListVar, tipo=ListVar, type=int
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= |2 ListVar      Tipo= int     Valor= |val      Tipo= int     Valor= , linea=2, nombre=val, tipo=ID, type=int
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= |2 ListVar      Tipo= int     Valor= |i      Tipo= int     Valor= , linea=2, nombre=i, tipo=ID, type=int
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= |2 ListVar      Tipo= int     Valor= |fac      Tipo= int     Valor= , linea=2, nombre=fac, tipo=ID, type=int
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= , evaluar=2, leftchild=1, linea=3, nombre=LISTSENT, rightchild=1, tipo=LISTSENT
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |3 cin: val      Tipo=      Valor= , linea=3, nombre=val, tipo=CIN
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |5 Assign i      Tipo=      Valor= 1, evaluar=2, leftchild=1, linea=5, nombre=i, tipo=ASSIGN, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |5 Assign i      Tipo=      Valor= 1|1      Tipo=      Valor= 1, linea=5, nombre=1, tipo=ENTERO, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |6 Assign fac      Tipo=      Valor= 1, evaluar=2, leftchild=1, linea=6, nombre=fac, tipo=ASSIGN, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |6 Assign fac      Tipo=      Valor= 1|1      Tipo=      Valor= 1, linea=6, nombre=1, tipo=ENTERO, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 repeat      Tipo=      Valor= , evaluar=1, leftchild=1, linea=7, nombre=repeat, tipo=REPEAT
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 repeat      Tipo=      Valor= |8 ListSent      Tipo=      Valor= , evaluar=2, leftchild=1, linea=8, nombre=LISTSENT, rightchild=2, tipo=LISTSENT
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 repeat      Tipo=      Valor= |8 ListSent      Tipo=      Valor= |8 Assign fac      Tipo=      Valor= 1, evaluar=2, leftchild=1, linea=8, nombre=fac, tipo=ASSIGN, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 repeat      Tipo=      Valor= |8 ListSent      Tipo=      Valor= |8 Assign fac      Tipo=      Valor= 1|8 *      Tipo=      Valor= 1, evaluar=2, leftchild=1, linea=8, nombre=*, rightchild=1, tipo=OP, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 repeat      Tipo=      Valor= |8 ListSent      Tipo=      Valor= |8 Assign fac      Tipo=      Valor= 1|8 *      Tipo=      Valor= 1|fac      Tipo=      Valor= 1, evaluar=1, linea=8, nombre=fac, tipo=ID, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 repeat      Tipo=      Valor= |8 ListSent      Tipo=      Valor= |8 Assign fac      Tipo=      Valor= 1|8 *      Tipo=      Valor= 1|i      Tipo=      Valor= 1, evaluar=1, linea=8, nombre=i, tipo=ID, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 repeat      Tipo=      Valor= |8 ListSent      Tipo=      Valor= |9 Assign i      Tipo=      Valor= 2, evaluar=2, leftchild=2, linea=9, nombre=i, tipo=ASSIGN, value=2
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 repeat      Tipo=      Valor= |8 ListSent      Tipo=      Valor= |9 Assign i      Tipo=      Valor= 2|9 +      Tipo=      Valor= 2, evaluar=2, leftchild=1, linea=9, nombre=+, rightchild=1, tipo=OP, value=2
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 repeat      Tipo=      Valor= |8 ListSent      Tipo=      Valor= |9 Assign i      Tipo=      Valor= 2|9 +      Tipo=      Valor= 2|i      Tipo=      Valor= 1, evaluar=1, linea=9, nombre=i, tipo=ID, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 repeat      Tipo=      Valor= |8 ListSent      Tipo=      Valor= |9 Assign i      Tipo=      Valor= 2|9 +      Tipo=      Valor= 2|1      Tipo=      Valor= 1, linea=9, nombre=1, tipo=ENTERO, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 repeat      Tipo=      Valor= |10 >      Tipo=      Valor= 1, evaluar=2, leftchild=2, linea=10, nombre=>, rightchild=0, tipo=REL, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 repeat      Tipo=      Valor= |10 >      Tipo=      Valor= 1|i      Tipo=      Valor= 2, evaluar=1, linea=10, nombre=i, tipo=ID, value=2
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 repeat      Tipo=      Valor= |10 >      Tipo=      Valor= 1|val      Tipo=      Valor= 0, evaluar=1, linea=10, nombre=val, tipo=ID, value=0
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |11 cout      Tipo=      Valor= 1, evaluar=2, leftchild=1, linea=11, nombre=cout, tipo=COUT, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |11 cout      Tipo=      Valor= 1|fac      Tipo=      Valor= 1, evaluar=1, linea=11, nombre=fac, tipo=ID, value=1

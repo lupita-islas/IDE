@@ -26,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="semantico.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="semantico.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/semantico.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16711">
-              <caret line="983" column="22" lean-forward="true" selection-start-line="983" selection-start-column="22" selection-end-line="983" selection-end-column="22" />
+            <state relative-caret-position="513">
+              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -38,13 +38,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Maquina.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Maquina.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Maquina.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="84" column="31" lean-forward="false" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
+            <state relative-caret-position="459">
+              <caret line="135" column="13" lean-forward="false" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="execute.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/execute.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -151,6 +163,7 @@
         <option value="$PROJECT_DIR$/Tabla.py" />
         <option value="$PROJECT_DIR$/sintactico.py" />
         <option value="$PROJECT_DIR$/Instruccion.py" />
+        <option value="$PROJECT_DIR$/execute.py" />
         <option value="$PROJECT_DIR$/semantico.py" />
         <option value="$PROJECT_DIR$/Maquina.py" />
       </list>
@@ -339,7 +352,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Maquina.py</url>
-          <line>88</line>
+          <line>92</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -380,14 +393,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Tabla.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="61" lean-forward="false" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gramatica.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7620">
@@ -724,22 +729,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Maquina.py">
+    <entry file="file://$PROJECT_DIR$/execute.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="84" column="31" lean-forward="false" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
+        <state relative-caret-position="85">
+          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/semantico.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16711">
-          <caret line="983" column="22" lean-forward="true" selection-start-line="983" selection-start-column="22" selection-end-line="983" selection-end-column="22" />
+        <state relative-caret-position="513">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Maquina.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="135" column="13" lean-forward="false" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

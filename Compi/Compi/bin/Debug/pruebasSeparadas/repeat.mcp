@@ -1,11 +1,12 @@
 ﻿main{
     int val,i,fac;
-    val:=5;
+    cin val;
+    //val:=5;
     i:=1;
     fac:=1;
     repeat{
     fac:=fac * i;
     i++;
-    }until(i == 5);
+    }until(i > val);
     cout fac;
 }

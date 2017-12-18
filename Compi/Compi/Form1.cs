@@ -386,11 +386,12 @@ namespace Compi
             if (consoleControl.IsProcessRunning)
             {
                 consoleControl.StopProcess();
+                consoleControl.ClearOutput();
             }
-            else
-            {
-                construir();
-            }
+            
+                        
+            construir();
+            
             
         }
         void worker_RunWorkerCompleted(object s, RunWorkerCompletedEventArgs e)
@@ -478,8 +479,10 @@ namespace Compi
 
 
                 //arbol.Text = System.IO.File.ReadAllText(arbolText);
-
-                consoleControl.StartProcess("cmd", null);
+                consoleControl.WriteOutput(".", Color.Yellow);
+                consoleControl.ClearOutput();
+                consoleControl.WriteOutput("Ejecutando...\n", Color.Yellow);
+                consoleControl.StartProcess("python", $"execute.py {interCode} {tabla}");
             }
             catch(Exception ex)
                 {

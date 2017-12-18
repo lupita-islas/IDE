@@ -1,0 +1,35 @@
+﻿main {
+    int i;
+    int j;
+    int k;
+    int l;
+
+    i := 0;
+    j := 0;
+    k := 0;
+    l := 0;
+
+    repeat{
+        repeat{
+            repeat{
+                repeat{
+                    cout l;
+                    cout k;
+                    cout j;
+                    if (i == 6) then {
+                        cout 3;
+                    }else{
+                        cout i;
+                    }
+                    i++;
+                }until(i == 10);
+                i := 0;
+                j++;
+            }until(j == 10);
+            j := 0;
+            k++;
+        }until(k == 10);
+        k := 0;
+        l++;
+    }until(l == 10);
+}

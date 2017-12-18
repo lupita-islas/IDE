@@ -27,9 +27,11 @@ class STEPRESULT(Enum):
 
 
 class Maquina:
-    def __init__(self, arch, tabla):
+    def __init__(self, archivo, tabla):
         # Guardar archivo de programa que trae los codigos intermedios
-        self.arch = arch
+        archivoTemp = open(archivo,"r");
+        self.arch = archivoTemp
+
         # Definicion de memoria
         self.dMem = []
         # Definicion de los registros
@@ -40,6 +42,7 @@ class Maquina:
         self.tabla = tabla
         self.getTabla()
         self.inicializar()
+
 
     def getTabla(self):
         archivoTabla = open(self.tabla, "r")
@@ -75,6 +78,7 @@ class Maquina:
         stepResult = STEPRESULT.OKAY
         while (stepResult == STEPRESULT.OKAY):
             stepResult = self.ejecutar()
+        self.arch.close()
 
     def getKey2(self, k):
         global cve
@@ -101,11 +105,11 @@ class Maquina:
             r = currentinstruction.arg1
             s = currentinstruction.arg3
             k = currentinstruction.arg2
-            m = currentinstruction.arg2 + self.reg[s]
+            m = currentinstruction.arg2 + int(self.reg[s])
             # print(r," ",s," ",m)
         # Evaluar cada nemonico
         if currentinstruction.iop == Nemonico.HALT:
-            print("HALT: " + str(r) + "," + str(s) + "," + str(t))
+           # print("HALT: " + str(r) + "," + str(s) + "," + str(t))
             return STEPRESULT.HALT
         elif currentinstruction.iop == Nemonico.IN:
             num = input("-> ")
@@ -129,6 +133,7 @@ class Maquina:
                 return STEPRESULT.INCOM_ERR
         elif currentinstruction.iop == Nemonico.OUT:
             print("<- " + str(self.reg[r]), end='')
+            #print("")
         elif currentinstruction.iop == Nemonico.ADD:
             self.reg[r] = self.reg[s] + self.reg[t]
         elif currentinstruction.iop == Nemonico.SUB:
@@ -200,3 +205,4 @@ class Maquina:
             if self.reg[r] != 0:
                 self.reg[PC_REG] = m
         return STEPRESULT.OKAY
+
