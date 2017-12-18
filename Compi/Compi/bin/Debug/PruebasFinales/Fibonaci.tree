@@ -1,0 +1,39 @@
+|main
+|main|2 ListDec
+|main|2 ListDec|2 Dec
+|main|2 ListDec|2 Dec|2 int
+|main|2 ListDec|2 Dec|2 ListVar
+|main|2 ListDec|2 Dec|2 ListVar|n
+|main|2 ListDec|2 Dec|2 ListVar|a
+|main|2 ListDec|2 Dec|2 ListVar|b
+|main|2 ListDec|2 Dec|2 ListVar|c
+|main|2 ListDec|2 Dec|2 ListVar|i
+|main|3 ListSent
+|main|3 ListSent|3 Assign a
+|main|3 ListSent|3 Assign a|0
+|main|3 ListSent|4 Assign b
+|main|3 ListSent|4 Assign b|1
+|main|3 ListSent|5 Assign c
+|main|3 ListSent|5 Assign c|0
+|main|3 ListSent|6 Assign i
+|main|3 ListSent|6 Assign i|1
+|main|3 ListSent|7 cin: n
+|main|3 ListSent|9 while
+|main|3 ListSent|9 while|9 <=
+|main|3 ListSent|9 while|9 <=|i
+|main|3 ListSent|9 while|9 <=|n
+|main|3 ListSent|9 while|10 ListSent
+|main|3 ListSent|9 while|10 ListSent|10 cout
+|main|3 ListSent|9 while|10 ListSent|10 cout|c
+|main|3 ListSent|9 while|10 ListSent|11 Assign a
+|main|3 ListSent|9 while|10 ListSent|11 Assign a|b
+|main|3 ListSent|9 while|10 ListSent|12 Assign b
+|main|3 ListSent|9 while|10 ListSent|12 Assign b|c
+|main|3 ListSent|9 while|10 ListSent|13 Assign c
+|main|3 ListSent|9 while|10 ListSent|13 Assign c|13 +
+|main|3 ListSent|9 while|10 ListSent|13 Assign c|13 +|a
+|main|3 ListSent|9 while|10 ListSent|13 Assign c|13 +|b
+|main|3 ListSent|9 while|10 ListSent|14 Assign i
+|main|3 ListSent|9 while|10 ListSent|14 Assign i|14 +
+|main|3 ListSent|9 while|10 ListSent|14 Assign i|14 +|i
+|main|3 ListSent|9 while|10 ListSent|14 Assign i|14 +|1

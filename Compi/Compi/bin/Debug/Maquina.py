@@ -3,8 +3,6 @@ from enum import Enum
 from Nemonico import *
 from Instruccion import *
 
-# filehandler2 = open('C:\\Users\\Edgardo\\Documents\\Visual Studio 2017\\Projects\\Mandarina Studio\\Mandarina Studio\\hash.obj', 'rb') #abre el .obj que contiene el bytecode de la tabla de simbolos
-# d = pickle.load(filehandler2) #deserializa el .obj
 d = dict()
 cve = ""
 es_entero = False
@@ -14,16 +12,6 @@ IADDR_SIZE = 1024
 DADDR_SIZE = 1024
 NO_REGS = 8
 PC_REG = 7
-
-
-class STEPRESULT(Enum):
-    OKAY = 1
-    HALT = 2
-    IMEM_ERR = 3
-    DMEM_ERR = 4
-    ZERODIVIDE = 5
-    INCOM_ERR = 6
-    ERROROP = 7
 
 
 class Maquina:
@@ -75,8 +63,8 @@ class Maquina:
 
 
     def correr(self):
-        stepResult = STEPRESULT.OKAY
-        while (stepResult == STEPRESULT.OKAY):
+        stepResult = ENUMRES.OKAY
+        while (stepResult == ENUMRES.OKAY):
             stepResult = self.ejecutar()
         self.arch.close()
 
@@ -110,27 +98,16 @@ class Maquina:
         # Evaluar cada nemonico
         if currentinstruction.iop == Nemonico.HALT:
            # print("HALT: " + str(r) + "," + str(s) + "," + str(t))
-            return STEPRESULT.HALT
+            return ENUMRES.HALT
         elif currentinstruction.iop == Nemonico.IN:
             num = input("-> ")
             try:
                 float(num)
                 self.reg[r] = num
-                '''if d[cve].tipo=="int" and "." in str(num):
-                        print("error-> float a int no valido\n")
-                        return STEPRESULT.INCOM_ERR
-                if d[cve].tipo=="boolean":
-                        if str(num)!="0" and str(num)!="1":
-                                print("error-> boolean solom acepta 0 o 1\n")
-                                return STEPRESULT.INCOM_ERR
-                if d[cve].tipo=="int" or  d[cve].tipo=="boolean":
-                        self.reg[r]=int(num)
-    
-                else:
-                        self.reg[r]=float(num) '''
+
             except ValueError:
                 print("Error, tipo incompatible", file=sys.stderr)
-                return STEPRESULT.INCOM_ERR
+                return ENUMRES.INCOM_ERR
         elif currentinstruction.iop == Nemonico.OUT:
             print("<- " + str(self.reg[r]), end='')
             #print("")
@@ -146,7 +123,7 @@ class Maquina:
                     es_entero = True
                 self.reg[r] = self.reg[s] / self.reg[t]
             else:
-                return STEPRESULT.ZERODIVIDE
+                return ENUMRES.ZERODIVIDE
         elif currentinstruction.iop == Nemonico.LD:
             self.reg[r] = self.dMem[m]
         elif currentinstruction.iop == Nemonico.ST:
@@ -166,13 +143,13 @@ class Maquina:
                 elif d[cve][0] == "int":
                     if "." in str(self.reg[r]):
                         print("Error de asigancion! 1")
-                        return STEPRESULT.ERROROP
+                        return ENUMRES.ERROROP
                     else:
                         self.dMem[m] = int(self.reg[r])
                 elif d[cve][0] == "boolean":
                     if str(self.reg[r]) != "0" and str(self.reg[r]) != "1":
                         print("Error de asigancion! 2")
-                        return STEPRESULT.ERROROP
+                        return ENUMRES.ERROROP
                     else:
                         self.dMem[m] = int(self.reg[r])
                 else:
@@ -204,5 +181,13 @@ class Maquina:
         elif currentinstruction.iop == Nemonico.JNE:
             if self.reg[r] != 0:
                 self.reg[PC_REG] = m
-        return STEPRESULT.OKAY
+        return ENUMRES.OKAY
 
+class ENUMRES(Enum):
+    OKAY = 1
+    HALT = 2
+    IMEM_ERR = 3
+    DMEM_ERR = 4
+    ZERODIVIDE = 5
+    INCOM_ERR = 6
+    ERROROP = 7

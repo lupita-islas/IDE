@@ -1,0 +1,76 @@
+|main
+|main|2 ListDec
+|main|2 ListDec|2 Dec
+|main|2 ListDec|2 Dec|2 int
+|main|2 ListDec|2 Dec|2 ListVar
+|main|2 ListDec|2 Dec|2 ListVar|x
+|main|2 ListDec|2 Dec|2 ListVar|y
+|main|2 ListDec|2 Dec|2 ListVar|z
+|main|2 ListDec|2 Dec|2 ListVar|a
+|main|2 ListDec|3 Dec
+|main|2 ListDec|3 Dec|3 real
+|main|2 ListDec|3 Dec|3 ListVar
+|main|2 ListDec|3 Dec|3 ListVar|r
+|main|4 ListSent
+|main|4 ListSent|4 cin: x
+|main|4 ListSent|5 cin: y
+|main|4 ListSent|6 cin: z
+|main|4 ListSent|7 if
+|main|4 ListSent|7 if|7 ==
+|main|4 ListSent|7 if|7 ==|z
+|main|4 ListSent|7 if|7 ==|1
+|main|4 ListSent|7 if|8 ListSent
+|main|4 ListSent|7 if|8 ListSent|8 Assign a
+|main|4 ListSent|7 if|8 ListSent|8 Assign a|8 +
+|main|4 ListSent|7 if|8 ListSent|8 Assign a|8 +|x
+|main|4 ListSent|7 if|8 ListSent|8 Assign a|8 +|y
+|main|4 ListSent|7 if|8 ListSent|9 cout
+|main|4 ListSent|7 if|8 ListSent|9 cout|a
+|main|4 ListSent|7 if|
+|main|4 ListSent|10 if
+|main|4 ListSent|10 if|10 ==
+|main|4 ListSent|10 if|10 ==|z
+|main|4 ListSent|10 if|10 ==|2
+|main|4 ListSent|10 if|11 ListSent
+|main|4 ListSent|10 if|11 ListSent|11 Assign a
+|main|4 ListSent|10 if|11 ListSent|11 Assign a|11 -
+|main|4 ListSent|10 if|11 ListSent|11 Assign a|11 -|x
+|main|4 ListSent|10 if|11 ListSent|11 Assign a|11 -|y
+|main|4 ListSent|10 if|11 ListSent|12 cout
+|main|4 ListSent|10 if|11 ListSent|12 cout|a
+|main|4 ListSent|10 if|
+|main|4 ListSent|13 if
+|main|4 ListSent|13 if|13 ==
+|main|4 ListSent|13 if|13 ==|z
+|main|4 ListSent|13 if|13 ==|3
+|main|4 ListSent|13 if|14 ListSent
+|main|4 ListSent|13 if|14 ListSent|14 Assign a
+|main|4 ListSent|13 if|14 ListSent|14 Assign a|14 *
+|main|4 ListSent|13 if|14 ListSent|14 Assign a|14 *|x
+|main|4 ListSent|13 if|14 ListSent|14 Assign a|14 *|y
+|main|4 ListSent|13 if|14 ListSent|15 cout
+|main|4 ListSent|13 if|14 ListSent|15 cout|a
+|main|4 ListSent|13 if|
+|main|4 ListSent|16 if
+|main|4 ListSent|16 if|16 ==
+|main|4 ListSent|16 if|16 ==|z
+|main|4 ListSent|16 if|16 ==|4
+|main|4 ListSent|16 if|17 ListSent
+|main|4 ListSent|16 if|17 ListSent|17 while
+|main|4 ListSent|16 if|17 ListSent|17 while|17 <
+|main|4 ListSent|16 if|17 ListSent|17 while|17 <|y
+|main|4 ListSent|16 if|17 ListSent|17 while|17 <|0
+|main|4 ListSent|16 if|17 ListSent|17 while|18 ListSent
+|main|4 ListSent|16 if|17 ListSent|17 while|18 ListSent|18 cin: y
+|main|4 ListSent|16 if|17 ListSent|20 Assign a
+|main|4 ListSent|16 if|17 ListSent|20 Assign a|20 /
+|main|4 ListSent|16 if|17 ListSent|20 Assign a|20 /|x
+|main|4 ListSent|16 if|17 ListSent|20 Assign a|20 /|y
+|main|4 ListSent|16 if|17 ListSent|21 cout
+|main|4 ListSent|16 if|17 ListSent|21 cout|a
+|main|4 ListSent|23 while
+|main|4 ListSent|23 while|23 ==
+|main|4 ListSent|23 while|23 ==|z
+|main|4 ListSent|23 while|23 ==|5
+|main|4 ListSent|23 while|24 ListSent
+|main|4 ListSent|23 while|24 ListSent|24 break

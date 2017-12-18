@@ -1,0 +1,17 @@
+﻿main{
+int n,a,b,c,i;
+a:=0; 
+b:=1; 
+c:=0;
+i:=1; 
+cin n;
+
+while(i<=n){
+cout c;
+a:=b;
+b:=c;
+c:=a+b;
+i++; 
+}
+
+}

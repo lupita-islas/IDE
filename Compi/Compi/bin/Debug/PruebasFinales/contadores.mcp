@@ -1,0 +1,25 @@
+﻿main {
+    int a,b,c,d;
+    a:=0;
+    while(a < 10) {
+        b:= 0;
+        while(b < 10) {
+            c:=0;
+            while(c < 10) {
+                d:= 0;
+                while(d < 10) {
+                    cout a;
+                    cout b;
+                    cout c;
+                    cout d;
+                    coutln;
+                    d++;
+                }
+                c++;
+            }
+            b++;
+        }
+        a++;
+    }
+}
+}

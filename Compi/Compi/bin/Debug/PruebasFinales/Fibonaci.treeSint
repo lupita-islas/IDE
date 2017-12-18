@@ -1,0 +1,39 @@
+|main      Tipo=      Valor= 
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= , linea=2, nombre=ListDec, tipo=ListDec
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= , linea=2, nombre=Dec, tipo=Dec
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= |2 int      Tipo= int     Valor= , linea=2, nombre=int, tipo=Tipo, type=int
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= |2 ListVar      Tipo= int     Valor= , linea=2, nombre=ListVar, tipo=ListVar, type=int
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= |2 ListVar      Tipo= int     Valor= |n      Tipo= int     Valor= , linea=2, nombre=n, tipo=ID, type=int
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= |2 ListVar      Tipo= int     Valor= |a      Tipo= int     Valor= , linea=2, nombre=a, tipo=ID, type=int
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= |2 ListVar      Tipo= int     Valor= |b      Tipo= int     Valor= , linea=2, nombre=b, tipo=ID, type=int
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= |2 ListVar      Tipo= int     Valor= |c      Tipo= int     Valor= , linea=2, nombre=c, tipo=ID, type=int
+|main      Tipo=      Valor= |2 ListDec      Tipo=      Valor= |2 Dec      Tipo=      Valor= |2 ListVar      Tipo= int     Valor= |i      Tipo= int     Valor= , linea=2, nombre=i, tipo=ID, type=int
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= , evaluar=2, leftchild=0, linea=3, nombre=LISTSENT, rightchild=1, tipo=LISTSENT
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |3 Assign a      Tipo=      Valor= 0, evaluar=2, leftchild=0, linea=3, nombre=a, tipo=ASSIGN, value=0
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |3 Assign a      Tipo=      Valor= 0|0      Tipo=      Valor= 0, linea=3, nombre=0, tipo=ENTERO, value=0
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |4 Assign b      Tipo=      Valor= 1, evaluar=2, leftchild=1, linea=4, nombre=b, tipo=ASSIGN, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |4 Assign b      Tipo=      Valor= 1|1      Tipo=      Valor= 1, linea=4, nombre=1, tipo=ENTERO, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |5 Assign c      Tipo=      Valor= 0, evaluar=2, leftchild=0, linea=5, nombre=c, tipo=ASSIGN, value=0
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |5 Assign c      Tipo=      Valor= 0|0      Tipo=      Valor= 0, linea=5, nombre=0, tipo=ENTERO, value=0
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |6 Assign i      Tipo=      Valor= 1, evaluar=2, leftchild=1, linea=6, nombre=i, tipo=ASSIGN, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |6 Assign i      Tipo=      Valor= 1|1      Tipo=      Valor= 1, linea=6, nombre=1, tipo=ENTERO, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |7 cin: n      Tipo=      Valor= , linea=7, nombre=n, tipo=CIN
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= , evaluar=1, leftchild=0, linea=9, nombre=while, tipo=WHILE
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |9 <=      Tipo=      Valor= 0, evaluar=2, leftchild=1, linea=9, nombre=<=, rightchild=0, tipo=REL, value=0
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |9 <=      Tipo=      Valor= 0|i      Tipo=      Valor= 1, evaluar=1, linea=9, nombre=i, tipo=ID, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |9 <=      Tipo=      Valor= 0|n      Tipo=      Valor= 0, evaluar=1, linea=9, nombre=n, tipo=ID, value=0
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= , evaluar=2, leftchild=0, linea=10, nombre=LISTSENT, rightchild=1, tipo=LISTSENT
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |10 cout      Tipo=      Valor= 0, evaluar=2, leftchild=0, linea=10, nombre=cout, tipo=COUT, value=0
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |10 cout      Tipo=      Valor= 0|c      Tipo=      Valor= 0, evaluar=1, linea=10, nombre=c, tipo=ID, value=0
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |11 Assign a      Tipo=      Valor= 1, evaluar=2, leftchild=1, linea=11, nombre=a, tipo=ASSIGN, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |11 Assign a      Tipo=      Valor= 1|b      Tipo=      Valor= 1, evaluar=1, linea=11, nombre=b, tipo=ID, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |12 Assign b      Tipo=      Valor= 0, evaluar=2, leftchild=0, linea=12, nombre=b, tipo=ASSIGN, value=0
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |12 Assign b      Tipo=      Valor= 0|c      Tipo=      Valor= 0, evaluar=1, linea=12, nombre=c, tipo=ID, value=0
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |13 Assign c      Tipo=      Valor= 1, evaluar=2, leftchild=1, linea=13, nombre=c, tipo=ASSIGN, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |13 Assign c      Tipo=      Valor= 1|13 +      Tipo=      Valor= 1, evaluar=2, leftchild=1, linea=13, nombre=+, rightchild=0, tipo=OP, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |13 Assign c      Tipo=      Valor= 1|13 +      Tipo=      Valor= 1|a      Tipo=      Valor= 1, evaluar=1, linea=13, nombre=a, tipo=ID, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |13 Assign c      Tipo=      Valor= 1|13 +      Tipo=      Valor= 1|b      Tipo=      Valor= 0, evaluar=1, linea=13, nombre=b, tipo=ID, value=0
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |14 Assign i      Tipo=      Valor= 2, evaluar=2, leftchild=2, linea=14, nombre=i, tipo=ASSIGN, value=2
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |14 Assign i      Tipo=      Valor= 2|14 +      Tipo=      Valor= 2, evaluar=2, leftchild=1, linea=14, nombre=+, rightchild=1, tipo=OP, value=2
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |14 Assign i      Tipo=      Valor= 2|14 +      Tipo=      Valor= 2|i      Tipo=      Valor= 1, evaluar=1, linea=14, nombre=i, tipo=ID, value=1
+|main      Tipo=      Valor= |3 ListSent      Tipo=      Valor= |9 while      Tipo=      Valor= |10 ListSent      Tipo=      Valor= |14 Assign i      Tipo=      Valor= 2|14 +      Tipo=      Valor= 2|1      Tipo=      Valor= 1, linea=14, nombre=1, tipo=ENTERO, value=1

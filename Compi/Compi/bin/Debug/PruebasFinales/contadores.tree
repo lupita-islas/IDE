@@ -1,0 +1,64 @@
+|main
+|main|2 ListDec
+|main|2 ListDec|2 Dec
+|main|2 ListDec|2 Dec|2 int
+|main|2 ListDec|2 Dec|2 ListVar
+|main|2 ListDec|2 Dec|2 ListVar|a
+|main|2 ListDec|2 Dec|2 ListVar|b
+|main|2 ListDec|2 Dec|2 ListVar|c
+|main|2 ListDec|2 Dec|2 ListVar|d
+|main|3 ListSent
+|main|3 ListSent|3 Assign a
+|main|3 ListSent|3 Assign a|0
+|main|3 ListSent|4 while
+|main|3 ListSent|4 while|4 <
+|main|3 ListSent|4 while|4 <|a
+|main|3 ListSent|4 while|4 <|10
+|main|3 ListSent|4 while|5 ListSent
+|main|3 ListSent|4 while|5 ListSent|5 Assign b
+|main|3 ListSent|4 while|5 ListSent|5 Assign b|0
+|main|3 ListSent|4 while|5 ListSent|6 while
+|main|3 ListSent|4 while|5 ListSent|6 while|6 <
+|main|3 ListSent|4 while|5 ListSent|6 while|6 <|b
+|main|3 ListSent|4 while|5 ListSent|6 while|6 <|10
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|7 Assign c
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|7 Assign c|0
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|8 <
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|8 <|c
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|8 <|10
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|9 Assign d
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|9 Assign d|0
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|10 <
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|10 <|d
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|10 <|10
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|11 cout
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|11 cout|a
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|12 cout
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|12 cout|b
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|13 cout
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|13 cout|c
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|14 cout
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|14 cout|d
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|15 Assign coutln
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|15 Assign coutln|
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|16 Assign d
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|16 Assign d|16 +
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|16 Assign d|16 +|d
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|10 while|11 ListSent|16 Assign d|16 +|1
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|18 Assign c
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|18 Assign c|18 +
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|18 Assign c|18 +|c
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|8 while|9 ListSent|18 Assign c|18 +|1
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|20 Assign b
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|20 Assign b|20 +
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|20 Assign b|20 +|b
+|main|3 ListSent|4 while|5 ListSent|6 while|7 ListSent|20 Assign b|20 +|1
+|main|3 ListSent|4 while|5 ListSent|22 Assign a
+|main|3 ListSent|4 while|5 ListSent|22 Assign a|22 +
+|main|3 ListSent|4 while|5 ListSent|22 Assign a|22 +|a
+|main|3 ListSent|4 while|5 ListSent|22 Assign a|22 +|1

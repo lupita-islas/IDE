@@ -1,0 +1,72 @@
+main
+{
+    int num1,num2,num3;
+    cin num1;
+    cin num2;
+    cin num3;
+    if ( num1<num2 ) then
+    {
+        if( num1 < num3 ) then 
+        {
+            if ( num2<num3 ) then
+            {
+                cout num1;
+                coutln;
+                cout num2;
+                coutln;
+                cout num3;
+                coutln;
+            } else
+            {
+                cout num1;
+                coutln;
+                cout num3;
+                coutln;
+                cout num2;
+                coutln;
+            }       
+        }
+    } else if ( num2<num1 ) then
+    {
+        if( num2 < num3 ) then 
+        {
+            if ( num1<num3 ) then
+            {
+                cout num2;
+                coutln;
+                cout num1;
+                coutln;
+                cout num3;
+                coutln;
+            } else {
+                cout num2;
+                coutln;
+                cout num3;
+                coutln;
+                cout num1;
+                coutln;
+            }
+        }
+    } else if ( num3<num1 ) then
+    {
+        if( num3 < num2 ) then 
+        {
+            if ( num1<num2 ) then
+            {
+                cout num3;
+                coutln;
+                cout num1;
+                coutln;
+                cout num2;
+                coutln;
+            } else {
+                cout num3;
+                coutln;
+                cout num2;
+                coutln;
+                cout num1;
+                coutln;
+            }
+        }
+    }
+}
