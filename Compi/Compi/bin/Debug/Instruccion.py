@@ -56,15 +56,22 @@ class Instruccion:
                 self.arg1 = int(SepararXComa[0].strip())
                 parentesis = SepararXComa[1]
                 separarXPar = parentesis.split("(")
-
-                self.arg2 = int(separarXPar[0].strip())
+                aux = separarXPar[0].strip()
+                if '.' in aux:
+                    self.arg2 = float(separarXPar[0].strip())
+                else:
+                    self.arg2 = int(separarXPar[0].strip())
 
                 self.arg3 = int(separarXPar[1].split(")")[0].strip())
 
             else:  # Es RM
                 SepararXComa = params.split(",")
                 self.arg1 = int(SepararXComa[0].strip())
-                self.arg2 = int(SepararXComa[1].strip())
+                aux = SepararXComa[1].strip()
+                if '.' in aux :
+                    self.arg2 = float(SepararXComa[1].strip())
+                else:
+                    self.arg2 = int(SepararXComa[1].strip())
                 self.arg3 = int(SepararXComa[2].strip())
 
     def __str__(self):
